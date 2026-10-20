@@ -1,0 +1,589 @@
+/* ===================================================================
+   AdoraTech - Silicon Valley Clean Modern Tech Design System
+   High-Contrast Electric Cobalt, Vivid Indigo, Pure White & Slate
+   Full-Width Responsive Architecture (Stripe & Linear Inspired)
+   =================================================================== */
+
+:root {
+  /* Core Color Palette - Ultra Clean & Modern */
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-dark: #090d1a;
+
+  /* Typography Colors */
+  --text-main: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  /* Brand Accents - Electric Tech */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --primary-glow: rgba(37, 99, 235, 0.25);
+
+  --accent-indigo: #6366f1;
+  --accent-cyan: #06b6d4;
+  --accent-emerald: #10b981;
+  --accent-purple: #8b5cf6;
+  --accent-rose: #f43f5e;
+
+  /* Compatibility Aliases */
+  --royal-navy: #0f172a;
+  --royal-gold: #2563eb;
+  --royal-gold-bright: #3b82f6;
+  --royal-sapphire: #2563eb;
+  --neon-gold: #2563eb;
+  --neon-cyan: #06b6d4;
+  --grad-gold: linear-gradient(135deg, #2563eb 0%, #6366f1 100%);
+  --shadow-gold: 0 12px 30px -4px rgba(37, 99, 235, 0.25);
+
+  /* Gradients */
+  --grad-brand: linear-gradient(135deg, #2563eb 0%, #6366f1 100%);
+  --grad-cyan: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+  --grad-text: linear-gradient(135deg, #0f172a 0%, #2563eb 60%, #6366f1 100%);
+  --grad-dark: linear-gradient(135deg, #090d1a 0%, #1e293b 100%);
+
+  /* Borders & Shadows */
+  --border-light: #e2e8f0;
+  --border-focus: #3b82f6;
+  --border-card: rgba(15, 23, 42, 0.08);
+
+  --shadow-xs: 0 1px 3px rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 12px 28px -4px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 45px -10px rgba(15, 23, 42, 0.12);
+  --shadow-brand: 0 12px 30px -4px rgba(37, 99, 235, 0.35);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-main);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+p {
+  color: var(--text-body);
+  font-size: 1.05rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+  outline: none;
+}
+
+/* Text Gradients */
+.text-gradient {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-brand {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-gold {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* ===================================================================
+   FULL WIDTH FLUID RESPONSIVE LAYOUT (WIDESCREEN & ULTRA-WIDE READY)
+   =================================================================== */
+.container {
+  width: 100%;
+  max-width: 1780px; /* Panoramic widescreen container using full display width */
+  margin: 0 auto;
+  padding: 0 clamp(18px, 3.5vw, 64px);
+  box-sizing: border-box;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 clamp(16px, 3vw, 48px);
+  box-sizing: border-box;
+}
+
+.section {
+  padding: clamp(50px, 7vw, 100px) 0;
+  position: relative;
+  width: 100%;
+}
+
+.section-hero {
+  padding-top: clamp(120px, 14vw, 160px);
+  padding-bottom: clamp(60px, 7vw, 90px);
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto clamp(36px, 5vw, 60px) auto;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  border: 1px solid #bfdbfe;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+}
+
+.section-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  box-shadow: 0 0 8px var(--primary);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+.pulsing-beacon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: var(--text-main);
+  letter-spacing: -0.035em;
+}
+
+.section-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ===================================================================
+   BUTTONS
+   =================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: all var(--transition);
+  position: relative;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--grad-brand);
+  color: #ffffff;
+  box-shadow: var(--shadow-brand);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -6px rgba(37, 99, 235, 0.45);
+  filter: brightness(1.05);
+}
+
+.btn-gold {
+  background: var(--grad-brand);
+  color: #ffffff;
+  box-shadow: var(--shadow-brand);
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -6px rgba(37, 99, 235, 0.45);
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-icon-only {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  transition: all var(--transition);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-icon-only:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.08);
+}
+
+/* ===================================================================
+   MODERN DYNAMIC ANIMATED CARDS (NO PARALLAX - FLUID HOVER)
+   =================================================================== */
+.clean-card, .glass-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.26s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.clean-card:hover, .glass-card:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 20px 45px -10px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Interactive Shimmer Accent along card top */
+.clean-card::before, .glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2563eb, #6366f1, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.clean-card:hover::before, .glass-card:hover::before {
+  opacity: 1;
+}
+
+/* ===================================================================
+   AMBIENT BACKGROUND & GRID
+   =================================================================== */
+.ambient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.subtle-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 30%, #000 65%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 65%, transparent 95%);
+  pointer-events: none;
+}
+
+/* ===================================================================
+   DYNAMIC KEYFRAME ANIMATIONS (STRIPE & LINEAR STYLE - NO PARALLAX)
+   =================================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.45; }
+}
+
+@keyframes beaconPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { transform: scale(1.04); box-shadow: 0 0 0 9px rgba(16, 185, 129, 0); }
+}
+
+@keyframes radarPing {
+  0% { transform: scale(0.7); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes shimmerGlow {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 4.5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 5.5s ease-in-out infinite;
+  animation-delay: -2.5s;
+}
+
+.animate-beacon {
+  animation: beaconPulse 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.animate-radar-ring {
+  animation: radarPing 1.8s infinite cubic-bezier(0, 0, 0.2, 1);
+}
+
+.animate-cursor {
+  animation: cursorBlink 0.9s infinite;
+}
+
+/* Widescreen Multi-Column Grid Utilities */
+.grid-widescreen-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+  width: 100%;
+}
+
+.grid-widescreen-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+/* Tech Marquee */
+.marquee-container {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  gap: 20px;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  width: 100%;
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 20px;
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-content {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  max-width: 880px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 13px 18px;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition);
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   =================================================================== */
+@media (max-width: 1200px) {
+  .section-title { font-size: 2.5rem; }
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 80px 0; }
+  .section-hero { padding-top: 130px; padding-bottom: 70px; }
+  .section-title { font-size: 2.3rem; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 60px 0; }
+  .section-hero { padding-top: 110px; padding-bottom: 50px; }
+  .section-title { font-size: 2rem; }
+  .btn { padding: 12px 22px; font-size: 0.92rem; }
+}
+
+@media (max-width: 480px) {
+  .section-title { font-size: 1.8rem; }
+  .section-badge { font-size: 0.78rem; padding: 5px 14px; }
+}
