@@ -115,7 +115,7 @@ export default function ProjectEstimatorModal({ isOpen, onClose, onApplyToContac
         </div>
 
         {/* Form Body */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '30px' }}>
           
           {/* Controls Left Column */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
@@ -123,7 +123,7 @@ export default function ProjectEstimatorModal({ isOpen, onClose, onApplyToContac
             {/* Step 1: Project Type */}
             <div>
               <label className="form-label">1. Primary IT Capability</label>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '8px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 120px), 1fr))', gap: '8px' }}>
                 {projectTypes.map(pt => (
                   <button
                     key={pt.id}
@@ -186,7 +186,7 @@ export default function ProjectEstimatorModal({ isOpen, onClose, onApplyToContac
             {/* Step 3: Add-on Capabilities */}
             <div>
               <label className="form-label">3. Core Architectural Modules</label>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '8px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 120px), 1fr))', gap: '8px' }}>
                 {featureOptions.map(f => {
                   const isChecked = selectedFeatures.includes(f.id);
                   return (

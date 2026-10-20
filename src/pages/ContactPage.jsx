@@ -198,13 +198,13 @@ export default function ContactPage({ prefilledScope }) {
           =================================================================== */}
       <section className="section" style={{ background: 'var(--bg-subtle)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '50px', alignItems: 'flex-start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 'clamp(24px, 4vw, 50px)', alignItems: 'flex-start' }}>
             
             {/* Left: Interactive Consultation Form */}
             <div 
               className="clean-card"
               style={{
-                padding: '44px 38px',
+                padding: 'clamp(24px, 4.5vw, 44px) clamp(18px, 4vw, 38px)',
                 background: '#ffffff',
                 border: '1px solid var(--border-light)',
                 boxShadow: 'var(--shadow-md)'
@@ -289,7 +289,7 @@ export default function ContactPage({ prefilledScope }) {
                   </div>
 
                   {/* 2-Column Name and Email */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '16px', marginBottom: '16px' }}>
                     <div className="form-group" style={{ margin: 0 }}>
                       <label className="form-label">Full Name *</label>
                       <input 
@@ -320,7 +320,7 @@ export default function ContactPage({ prefilledScope }) {
                   </div>
 
                   {/* 2-Column Company and Phone */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '16px', marginBottom: '16px' }}>
                     <div className="form-group" style={{ margin: 0 }}>
                       <label className="form-label">Company / Organization *</label>
                       <input 
@@ -351,7 +351,7 @@ export default function ContactPage({ prefilledScope }) {
                   {/* Service Selection */}
                   <div className="form-group">
                     <label className="form-label">Primary IT Capability Required</label>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '8px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '8px' }}>
                       {serviceOptions.map((opt, idx) => {
                         const isSelected = formData.service === opt;
                         return (
@@ -383,7 +383,7 @@ export default function ContactPage({ prefilledScope }) {
                   {/* Budget Selector */}
                   <div className="form-group">
                     <label className="form-label">Target Investment Range</label>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '8px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 110px), 1fr))', gap: '8px' }}>
                       {budgetOptions.map((b, idx) => {
                         const isSelected = formData.budget === b;
                         return (

@@ -100,7 +100,7 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
           =================================================================== */}
       <section className="section" style={{ background: 'var(--bg-subtle)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '60px', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(28px, 4vw, 60px)', alignItems: 'center' }}>
             
             <div>
               <div className="section-badge">
@@ -122,7 +122,7 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
                 </p>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '18px', marginTop: '30px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '18px', marginTop: '30px' }}>
                 <div style={{ padding: '20px', background: '#ffffff', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-xs)' }}>
                   <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--primary)' }}>60+</div>
                   <div style={{ fontSize: '0.84rem', color: 'var(--text-main)', fontWeight: 600 }}>Senior Full-Time Engineers</div>
@@ -138,7 +138,7 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
             <div 
               className="clean-card"
               style={{
-                padding: '42px',
+                padding: 'clamp(22px, 4vw, 42px)',
                 background: '#ffffff',
                 border: '1px solid var(--border-light)',
                 boxShadow: 'var(--shadow-lg)'
@@ -189,7 +189,7 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '26px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '26px' }}>
             {coreValues.map((val, idx) => (
               <ModernCard 
                 key={idx}
@@ -325,16 +325,23 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
+          <div className="grid-cards-3x2" style={{ marginBottom: '40px' }}>
             {TEAM_MEMBERS.map((member, idx) => (
               <ModernCard 
                 key={idx}
                 className="clean-card"
-                style={{ padding: '34px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', background: '#ffffff' }}
+                style={{ 
+                  padding: '32px 28px', 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  justifyContent: 'space-between', 
+                  height: '100%',
+                  background: '#ffffff' 
+                }}
               >
                 <div>
                   {/* Top Avatar & Location */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', minHeight: '56px' }}>
                     <div 
                       style={{
                         width: '56px',
@@ -347,7 +354,8 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
                         color: '#ffffff',
                         fontWeight: 800,
                         fontSize: '1.25rem',
-                        boxShadow: 'var(--shadow-brand)'
+                        boxShadow: 'var(--shadow-brand)',
+                        flexShrink: 0
                       }}
                     >
                       {member.avatar}
@@ -357,19 +365,24 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>
+                  {/* Name */}
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px', minHeight: '1.8rem' }}>
                     {member.name}
                   </h3>
-                  <div style={{ fontSize: '0.9rem', color: 'var(--primary)', fontWeight: 700, marginBottom: '14px' }}>
+
+                  {/* Role */}
+                  <div style={{ fontSize: '0.9rem', color: 'var(--primary)', fontWeight: 700, marginBottom: '14px', minHeight: '2.8rem', display: 'flex', alignItems: 'flex-start' }}>
                     {member.role}
                   </div>
-                  <p style={{ fontSize: '0.94rem', color: 'var(--text-body)', lineHeight: 1.65, marginBottom: '20px' }}>
+
+                  {/* Bio */}
+                  <p style={{ fontSize: '0.94rem', color: 'var(--text-body)', lineHeight: 1.65, marginBottom: '20px', minHeight: '5rem', display: 'flex', alignItems: 'flex-start' }}>
                     {member.bio}
                   </p>
                 </div>
 
                 {/* Specialties */}
-                <div style={{ paddingTop: '16px', borderTop: '1px solid var(--border-light)', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                <div style={{ paddingTop: '16px', borderTop: '1px solid var(--border-light)', display: 'flex', flexWrap: 'wrap', gap: '6px', minHeight: '44px', alignItems: 'center', marginTop: 'auto' }}>
                   {member.specialties.map((spec, sIdx) => (
                     <span 
                       key={sIdx}
@@ -411,7 +424,7 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '26px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '26px' }}>
             {GLOBAL_OFFICES.map((office, idx) => (
               <div 
                 key={idx}
@@ -440,7 +453,7 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
           <div 
             style={{
               marginTop: '60px',
-              padding: '44px',
+              padding: 'clamp(24px, 4.5vw, 44px)',
               borderRadius: 'var(--radius-xl)',
               display: 'flex',
               flexWrap: 'wrap',

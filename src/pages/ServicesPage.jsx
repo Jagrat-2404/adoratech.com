@@ -196,13 +196,13 @@ export default function ServicesPage({ setActivePage, onOpenEstimator, onSelectS
                 key={srv.id}
                 className="clean-card"
                 style={{
-                  padding: '44px 40px',
+                  padding: 'clamp(22px, 4vw, 44px) clamp(16px, 3.5vw, 40px)',
                   border: '1px solid var(--border-light)',
                   background: '#ffffff',
                   boxShadow: 'var(--shadow-md)'
                 }}
               >
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px', alignItems: 'flex-start' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(20px, 3vw, 40px)', alignItems: 'flex-start' }}>
                   
                   {/* Left Column: Details & Capabilities */}
                   <div>
@@ -249,7 +249,7 @@ export default function ServicesPage({ setActivePage, onOpenEstimator, onSelectS
                       <div style={{ fontSize: '0.88rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                         Architectural Scope & Deliverables:
                       </div>
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '10px' }}>
                         {srv.capabilities.map((cap, cIdx) => (
                           <div key={cIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.92rem', color: 'var(--text-main)' }}>
                             <CheckCircle2 size={16} color="var(--accent-emerald)" style={{ flexShrink: 0, marginTop: '3px' }} />
@@ -404,30 +404,44 @@ export default function ServicesPage({ setActivePage, onOpenEstimator, onSelectS
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+          <div className="grid-cards-3x2" style={{ marginBottom: '40px' }}>
             {lifecycleSteps.map((item, idx) => (
-              <div 
+              <ModernCard 
                 key={idx}
                 className="clean-card"
-                style={{ padding: '34px', background: '#ffffff', position: 'relative' }}
+                style={{ 
+                  padding: '32px 28px', 
+                  background: '#ffffff', 
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%',
+                  justifyContent: 'space-between'
+                }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
-                  <span style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>
-                    {item.step}
-                  </span>
-                  <span style={{ fontSize: '0.8rem', padding: '5px 12px', borderRadius: 'var(--radius-full)', background: 'var(--primary-light)', color: 'var(--primary)', fontWeight: 700 }}>
-                    {item.duration}
-                  </span>
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+                    <span style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>
+                      {item.step}
+                    </span>
+                    <span style={{ fontSize: '0.8rem', padding: '5px 12px', borderRadius: 'var(--radius-full)', background: 'var(--primary-light)', color: 'var(--primary)', fontWeight: 700 }}>
+                      {item.duration}
+                    </span>
+                  </div>
+
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-main)', minHeight: '3.4rem', display: 'flex', alignItems: 'flex-start' }}>
+                    {item.title}
+                  </h3>
+
+                  <p style={{ fontSize: '0.94rem', color: 'var(--text-body)', lineHeight: 1.65, minHeight: '4.8rem', display: 'flex', alignItems: 'flex-start' }}>
+                    {item.desc}
+                  </p>
                 </div>
 
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-main)' }}>
-                  {item.title}
-                </h3>
-
-                <p style={{ fontSize: '0.94rem', color: 'var(--text-body)', lineHeight: 1.7 }}>
-                  {item.desc}
-                </p>
-              </div>
+                <div style={{ paddingTop: '16px', borderTop: '1px solid var(--border-light)', marginTop: '20px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', fontSize: '0.82rem', fontWeight: 700 }}>
+                  <CheckCircle2 size={15} color="var(--accent-emerald)" />
+                  <span>Phase Gate Deliverables Verified</span>
+                </div>
+              </ModernCard>
             ))}
           </div>
         </div>
@@ -450,7 +464,7 @@ export default function ServicesPage({ setActivePage, onOpenEstimator, onSelectS
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '28px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '28px' }}>
             
             {/* Tier 1: Growth Sprint */}
             <div className="clean-card" style={{ padding: '36px 30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', background: '#ffffff' }}>

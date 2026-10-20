@@ -8,14 +8,14 @@ import React, { useState } from 'react';
  * - Subtle border glow highlight
  * - Zero 3D tilt or scroll parallax for maximum comfort and speed
  */
-export default function ModernCard({ 
-  children, 
-  className = '', 
-  style = {}, 
-  onClick, 
+export default function ModernCard({
+  children,
+  className = '',
+  style = {},
+  onClick,
   hasBorderBeam = false,
   badge = null,
-  ...props 
+  ...props
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -32,17 +32,20 @@ export default function ModernCard({
         border: `1px solid ${isHovered ? '#93c5fd' : 'var(--border-light)'}`,
         transition: 'transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease',
         transform: isHovered ? 'translateY(-6px)' : 'translateY(0)',
-        boxShadow: isHovered 
-          ? '0 22px 50px -10px rgba(37, 99, 235, 0.14), 0 0 0 1px rgba(37, 99, 235, 0.12)' 
+        boxShadow: isHovered
+          ? '0 22px 50px -10px rgba(37, 99, 235, 0.14), 0 0 0 1px rgba(37, 99, 235, 0.12)'
           : 'var(--shadow-sm)',
         overflow: 'hidden',
         cursor: onClick ? 'pointer' : 'default',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
         ...style
       }}
       {...props}
     >
       {/* Top Animated Gradient Accent Line */}
-      <div 
+      <div
         style={{
           position: 'absolute',
           top: 0,
@@ -57,7 +60,7 @@ export default function ModernCard({
         }}
       />
 
-      <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%', minHeight: 0 }}>
         {children}
       </div>
     </div>

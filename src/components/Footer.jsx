@@ -64,14 +64,14 @@ export default function Footer({ setActivePage, onOpenEstimator }) {
         {/* Top Newsletter & Call to Action Bar */}
         <div 
           style={{
-            padding: '38px 42px',
+            padding: 'clamp(24px, 4vw, 38px) clamp(18px, 4vw, 42px)',
             marginBottom: '64px',
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(37, 99, 235, 0.1) 100%)',
             border: '1px solid rgba(255, 255, 255, 0.1)',
             borderRadius: 'var(--radius-xl)',
             backdropFilter: 'blur(20px)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '30px',
             alignItems: 'center',
             boxShadow: '0 20px 50px rgba(0, 0, 0, 0.35)'
@@ -112,8 +112,8 @@ export default function Footer({ setActivePage, onOpenEstimator }) {
               </div>
             ) : (
               <form onSubmit={handleSubscribe} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <div style={{ position: 'relative', flex: 1 }}>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  <div style={{ position: 'relative', flex: '1 1 200px' }}>
                     <Mail size={18} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
                     <input 
                       type="email" 
@@ -149,7 +149,7 @@ export default function Footer({ setActivePage, onOpenEstimator }) {
         <div 
           style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', 
             gap: '40px',
             marginBottom: '60px'
           }}

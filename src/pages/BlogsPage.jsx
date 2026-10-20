@@ -141,14 +141,14 @@ export default function BlogsPage({ onSelectPost }) {
               className="clean-card"
               onClick={() => onSelectPost(featuredPost)}
               style={{
-                padding: '48px',
+                padding: 'clamp(20px, 4vw, 48px)',
                 cursor: 'pointer',
                 background: '#ffffff',
                 border: '1px solid var(--border-light)',
                 boxShadow: 'var(--shadow-lg)',
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                gap: '40px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+                gap: 'clamp(20px, 3vw, 40px)',
                 alignItems: 'center'
               }}
             >
@@ -290,7 +290,7 @@ export default function BlogsPage({ onSelectPost }) {
           <div 
             style={{ 
               display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 310px), 1fr))', 
               gap: '28px',
               marginBottom: '60px'
             }}
@@ -301,7 +301,7 @@ export default function BlogsPage({ onSelectPost }) {
                 className="clean-card"
                 onClick={() => onSelectPost(post)}
                 style={{
-                  padding: '36px 30px',
+                  padding: 'clamp(22px, 3.5vw, 36px) clamp(18px, 3vw, 30px)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',

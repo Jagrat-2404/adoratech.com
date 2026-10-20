@@ -1,14 +1,14 @@
 import React from 'react';
-import { 
-  ArrowRight, 
-  Sparkles, 
-  CheckCircle2, 
-  Code2, 
-  Smartphone, 
-  Cpu, 
-  Bot, 
-  Cloud, 
-  ShieldCheck, 
+import {
+  ArrowRight,
+  Sparkles,
+  CheckCircle2,
+  Code2,
+  Smartphone,
+  Cpu,
+  Bot,
+  Cloud,
+  ShieldCheck,
   ChevronRight,
   TrendingUp,
   Activity,
@@ -20,12 +20,12 @@ import {
   Terminal,
   Server
 } from 'lucide-react';
-import { 
-  COMPANY_INFO, 
-  CORE_SERVICES, 
-  TECH_STACK, 
-  CASE_STUDIES, 
-  TESTIMONIALS 
+import {
+  COMPANY_INFO,
+  CORE_SERVICES,
+  TECH_STACK,
+  CASE_STUDIES,
+  TESTIMONIALS
 } from '../data/mockData';
 import ModernCard from '../components/ModernCard';
 import PlanetaryInnovationStage from '../components/PlanetaryInnovationStage';
@@ -45,18 +45,18 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
 
   return (
     <div style={{ position: 'relative' }}>
-      
+
       {/* ===================================================================
           1. HERO SECTION: STRIPE & LINEAR INSPIRED WIDESCREEN ARCHITECTURE
           =================================================================== */}
       <section className="section-hero" style={{ position: 'relative', overflow: 'hidden', textAlign: 'center', paddingTop: '140px', paddingBottom: '70px', display: 'block' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          
+
           {/* Centered Panoramic Typography & Action Column */}
-          <div style={{ maxWidth: '1240px', margin: '0 auto 52px auto' }}>
-            
+          <div style={{ maxWidth: '1200px', margin: '0 auto 48px auto' }}>
+
             {/* Announcement Pill with Pulsing Beacon */}
-            <div 
+            <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -81,11 +81,11 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             </div>
 
             {/* Monumental Headline */}
-            <h1 
-              style={{ 
-                fontSize: 'clamp(2.8rem, 6.2vw, 4.8rem)', 
-                fontWeight: 900, 
-                lineHeight: 1.08, 
+            <h1
+              style={{
+                fontSize: 'clamp(2.8rem, 6.2vw, 4.8rem)',
+                fontWeight: 900,
+                lineHeight: 1.08,
                 marginBottom: '24px',
                 color: 'var(--text-main)',
                 letterSpacing: '-0.04em'
@@ -96,12 +96,12 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             </h1>
 
             {/* Subtitle */}
-            <p 
-              style={{ 
-                fontSize: 'clamp(1.15rem, 2vw, 1.3rem)', 
-                color: 'var(--text-body)', 
-                lineHeight: 1.7, 
-                maxWidth: '720px',
+            <p
+              style={{
+                fontSize: 'clamp(1.15rem, 2vw, 1.3rem)',
+                color: 'var(--text-body)',
+                lineHeight: 1.7,
+                maxWidth: '740px',
                 margin: '0 auto 38px auto'
               }}
             >
@@ -110,8 +110,8 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
 
             {/* Dual Action CTAs */}
             <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '36px' }}>
-              <button 
-                onClick={() => setActivePage('services')} 
+              <button
+                onClick={() => setActivePage('services')}
                 className="btn btn-primary"
                 style={{ padding: '16px 36px', fontSize: '1.05rem', boxShadow: '0 12px 30px -4px rgba(37, 99, 235, 0.45)' }}
               >
@@ -119,8 +119,8 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
                 <ArrowRight size={18} />
               </button>
 
-              <button 
-                onClick={onOpenEstimator} 
+              <button
+                onClick={onOpenEstimator}
                 className="btn btn-secondary"
                 style={{ padding: '16px 32px', fontSize: '1.05rem' }}
               >
@@ -130,13 +130,13 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             </div>
 
             {/* Verified Enterprise Badges */}
-            <div 
-              style={{ 
-                display: 'flex', 
-                flexWrap: 'wrap', 
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
                 justifyContent: 'center',
-                alignItems: 'center', 
-                gap: '28px', 
+                alignItems: 'center',
+                gap: '28px',
                 paddingTop: '20px'
               }}
             >
@@ -159,8 +159,8 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             </div>
           </div>
 
-          {/* Full-Width Centerpiece: Planetary Innovation Stage */}
-          <div style={{ position: 'relative', marginTop: '20px' }}>
+          {/* Hero Section Centerpiece: Planetary Innovation Stage (Perfect Alignment & Full Substance) */}
+          <div style={{ position: 'relative', marginTop: '28px', maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
             <PlanetaryInnovationStage />
           </div>
 
@@ -177,12 +177,12 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             Trusted by Engineering Leaders from High-Scale Companies & Scale-Ups
           </p>
 
-          <div 
-            style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap', 
-              justifyContent: 'center', 
-              alignItems: 'center', 
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
               gap: '42px',
               opacity: 0.75
             }}
@@ -196,7 +196,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
               { name: 'RETOOL', symbol: '⧉' },
               { name: 'RAMP', symbol: '↗' }
             ].map((client, idx) => (
-              <div 
+              <div
                 key={idx}
                 style={{
                   display: 'flex',
@@ -224,30 +224,39 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
           2. ENTERPRISE IMPACT METRICS BANNER
           =================================================================== */}
       <section style={{ padding: '36px 0', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)', background: 'var(--bg-subtle)' }}>
-        <div className="container">
-          <div 
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
-              gap: '28px',
-              textAlign: 'center'
-            }}
-          >
+        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          <div className="grid-stats-6">
             {COMPANY_INFO.stats.map((stat, idx) => (
-              <div key={idx} style={{ padding: '10px 0' }}>
-                <div 
-                  style={{ 
-                    fontSize: '2.8rem', 
-                    fontWeight: 800, 
+              <div 
+                key={idx} 
+                style={{ 
+                  padding: '16px 12px',
+                  background: '#ffffff',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--border-light)',
+                  boxShadow: 'var(--shadow-xs)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  minHeight: '110px',
+                  textAlign: 'center'
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: '2.4rem',
+                    fontWeight: 800,
                     fontFamily: 'var(--font-heading)',
                     letterSpacing: '-0.03em',
-                    marginBottom: '4px'
+                    marginBottom: '4px',
+                    lineHeight: 1.1
                   }}
                   className="text-gradient-brand"
                 >
                   {stat.value}
                 </div>
-                <div style={{ fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 700 }}>
+                <div style={{ fontSize: '0.84rem', color: 'var(--text-main)', fontWeight: 700, minHeight: '2.4rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {stat.label}
                 </div>
               </div>
@@ -269,7 +278,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
         <div className="marquee-container">
           <div className="marquee-content">
             {TECH_STACK.concat(TECH_STACK).map((tech, idx) => (
-              <div 
+              <div
                 key={idx}
                 style={{
                   display: 'inline-flex',
@@ -299,8 +308,8 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
           4. CORE IT SERVICES SHOWCASE WITH MODERN INTERACTIVE CARDS
           =================================================================== */}
       <section className="section">
-        <div className="container">
-          
+        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto' }}>
+
           <div className="section-header">
             <div className="section-badge">
               <Layers size={15} color="var(--primary)" />
@@ -314,12 +323,10 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             </p>
           </div>
 
-          {/* Service Cards Grid with Fluid Interactive Elevation */}
+          {/* Service Cards Grid - Symmetrical 3x2 Alignment (3 Cols Desktop, 2 Cols Tablet, 1 Col Mobile) */}
           <div 
+            className="services-grid-3x2"
             style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', 
-              gap: '28px',
               marginBottom: '52px'
             }}
           >
@@ -328,26 +335,27 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
                 key={service.id}
                 className="clean-card"
                 style={{ 
-                  padding: '36px 32px', 
+                  padding: '34px 28px', 
                   display: 'flex', 
                   flexDirection: 'column', 
-                  justifyContent: 'space-between',
+                  height: '100%',
                   background: '#ffffff'
                 }}
               >
-                <div>
-                  {/* Top Icon & Badge */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '22px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', flex: '1 1 auto' }}>
+                  {/* Top Icon & Badge Row */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', minHeight: '54px' }}>
                     <div 
                       style={{ 
-                        width: '56px', 
-                        height: '56px', 
+                        width: '54px', 
+                        height: '54px', 
                         borderRadius: 'var(--radius-md)', 
                         background: 'var(--primary-light)', 
                         border: '1px solid #bfdbfe',
                         display: 'flex', 
                         alignItems: 'center', 
-                        justifyContent: 'center' 
+                        justifyContent: 'center',
+                        flexShrink: 0
                       }}
                     >
                       {getServiceIcon(service.icon)}
@@ -367,25 +375,46 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
                     </span>
                   </div>
 
-                  {/* Title */}
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-main)' }}>
+                  {/* Title (Aligned with Exact Min Height) */}
+                  <h3 
+                    style={{ 
+                      fontSize: '1.25rem', 
+                      fontWeight: 800, 
+                      lineHeight: 1.35, 
+                      marginBottom: '12px', 
+                      color: 'var(--text-main)',
+                      minHeight: '4.2rem',
+                      display: 'flex',
+                      alignItems: 'flex-start'
+                    }}
+                  >
                     {service.title}
                   </h3>
 
-                  {/* Description */}
-                  <p style={{ fontSize: '0.95rem', color: 'var(--text-body)', lineHeight: 1.65, marginBottom: '22px' }}>
+                  {/* Description (Aligned with Exact Min Height) */}
+                  <p 
+                    style={{ 
+                      fontSize: '0.92rem', 
+                      color: 'var(--text-body)', 
+                      lineHeight: 1.6, 
+                      marginBottom: '20px',
+                      minHeight: '5.2rem',
+                      display: 'flex',
+                      alignItems: 'flex-start'
+                    }}
+                  >
                     {service.shortDesc}
                   </p>
 
-                  {/* Capabilities Bullet points */}
-                  <div style={{ marginBottom: '26px' }}>
-                    <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                  {/* Capabilities List (Aligned with Consistent Heights) */}
+                  <div style={{ marginBottom: '24px', flex: '1 1 auto' }}>
+                    <div style={{ fontSize: '0.76rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
                       Key Capabilities
                     </div>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', margin: 0, padding: 0 }}>
                       {service.capabilities.slice(0, 3).map((cap, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.88rem', color: 'var(--text-main)' }}>
-                          <CheckCircle2 size={16} color="var(--accent-emerald)" style={{ flexShrink: 0 }} />
+                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '9px', fontSize: '0.86rem', color: 'var(--text-main)', lineHeight: 1.4, minHeight: '2.5rem' }}>
+                          <CheckCircle2 size={16} color="var(--accent-emerald)" style={{ flexShrink: 0, marginTop: '2px' }} />
                           <span>{cap}</span>
                         </li>
                       ))}
@@ -393,10 +422,19 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
                   </div>
                 </div>
 
-                {/* Card Bottom Meta & Action */}
-                <div style={{ paddingTop: '20px', borderTop: '1px solid var(--border-light)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                {/* Card Bottom Meta & Action (Locked to Bottom Baseline) */}
+                <div 
+                  style={{ 
+                    paddingTop: '18px', 
+                    borderTop: '1px solid var(--border-light)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'space-between',
+                    marginTop: 'auto'
+                  }}
+                >
                   <div>
-                    <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>Typical Sprints</span>
+                    <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)', display: 'block', marginBottom: '2px' }}>Typical Sprints</span>
                     <div style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)' }}>{service.typicalTimeline}</div>
                   </div>
 
@@ -413,7 +451,8 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
                       borderRadius: 'var(--radius-full)',
                       background: 'var(--primary-light)',
                       border: '1px solid #bfdbfe',
-                      transition: 'all var(--transition)'
+                      transition: 'all var(--transition)',
+                      cursor: 'pointer'
                     }}
                   >
                     <span>Deep Dive</span>
@@ -445,16 +484,16 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
           =================================================================== */}
       <section style={{ padding: '40px 0 80px 0' }}>
         <div className="container">
-          <div 
+          <div
             style={{
-              padding: '54px 46px',
+              padding: 'clamp(28px, 4.5vw, 54px) clamp(20px, 4vw, 46px)',
               borderRadius: 'var(--radius-xl)',
               background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #1d4ed8 100%)',
               border: '1px solid rgba(99, 102, 241, 0.3)',
               boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.25)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '40px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: 'clamp(24px, 3.5vw, 40px)',
               alignItems: 'center',
               color: '#ffffff'
             }}
@@ -482,7 +521,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             </div>
 
             {/* Visual Calculator Teaser Preview */}
-            <div 
+            <div
               style={{
                 background: '#ffffff',
                 border: '1px solid var(--border-light)',
@@ -528,7 +567,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
           =================================================================== */}
       <section className="section" style={{ background: 'var(--bg-subtle)' }}>
         <div className="container">
-          
+
           <div className="section-header">
             <div className="section-badge">
               <TrendingUp size={15} color="var(--primary)" />
@@ -542,16 +581,16 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             </p>
           </div>
 
-          <div 
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', 
-              gap: '30px',
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+              gap: 'clamp(20px, 2.5vw, 30px)',
               marginBottom: '40px'
             }}
           >
             {CASE_STUDIES.map((project) => (
-              <ModernCard 
+              <ModernCard
                 key={project.id}
                 className="clean-card"
                 style={{
@@ -584,10 +623,10 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
                   </p>
 
                   {/* Metrics Grid */}
-                  <div 
-                    style={{ 
-                      display: 'grid', 
-                      gridTemplateColumns: 'repeat(2, 1fr)', 
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(2, 1fr)',
                       gap: '12px',
                       padding: '18px',
                       background: 'var(--bg-subtle)',
@@ -613,7 +652,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
                 <div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
                     {project.tags.map((t, idx) => (
-                      <span 
+                      <span
                         key={idx}
                         style={{
                           fontSize: '0.78rem',
@@ -666,7 +705,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
           =================================================================== */}
       <section className="section">
         <div className="container">
-          
+
           <div className="section-header">
             <div className="section-badge">
               <Star size={15} color="var(--primary)" />
@@ -680,15 +719,15 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             </p>
           </div>
 
-          <div 
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-              gap: '26px'
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: 'clamp(18px, 2.5vw, 26px)'
             }}
           >
             {TESTIMONIALS.map((t, idx) => (
-              <ModernCard 
+              <ModernCard
                 key={idx}
                 className="clean-card"
                 style={{
@@ -715,8 +754,8 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
 
                 {/* Author Info */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px', paddingTop: '18px', borderTop: '1px solid var(--border-light)' }}>
-                  <img 
-                    src={t.avatar} 
+                  <img
+                    src={t.avatar}
                     alt={t.name}
                     style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--primary)' }}
                   />
@@ -738,7 +777,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
           =================================================================== */}
       <section style={{ padding: '60px 0 100px 0' }}>
         <div className="container">
-          <div 
+          <div
             style={{
               padding: '64px 44px',
               textAlign: 'center',
@@ -753,7 +792,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
               <Zap size={15} />
               <span>Initiate Your Transformation</span>
             </div>
-            
+
             <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800, marginBottom: '18px', maxWidth: '780px', margin: '0 auto 18px auto', color: '#ffffff' }}>
               Ready to Build Your Next High-Performance Software Product?
             </h2>
@@ -763,7 +802,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '16px' }}>
-              <button 
+              <button
                 onClick={() => setActivePage('contact')}
                 className="btn btn-primary"
                 style={{ padding: '16px 38px', fontSize: '1.05rem' }}
@@ -772,7 +811,7 @@ export default function HomePage({ setActivePage, onOpenEstimator }) {
                 <ArrowRight size={18} />
               </button>
 
-              <button 
+              <button
                 onClick={() => setActivePage('about')}
                 className="btn btn-secondary"
                 style={{ padding: '16px 32px', fontSize: '1.05rem', background: 'rgba(255, 255, 255, 0.12)', color: '#ffffff', borderColor: 'rgba(255, 255, 255, 0.3)' }}
