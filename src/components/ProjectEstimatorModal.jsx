@@ -13,34 +13,35 @@ import {
 } from 'lucide-react';
 
 export default function ProjectEstimatorModal({ isOpen, onClose, onApplyToContact }) {
-  if (!isOpen) return null;
-
-  const [projectType, setProjectType] = useState('web-app');
+  const [projectType, setProjectType] = useState('managed-it');
   const [tier, setTier] = useState('growth');
-  const [selectedFeatures, setSelectedFeatures] = useState(['auth', 'database', 'payment']);
+  const [selectedFeatures, setSelectedFeatures] = useState(['support', 'security', 'cloud']);
   const [urgency, setUrgency] = useState('standard');
 
+  if (!isOpen) return null;
+
   const projectTypes = [
-    { id: 'web-app', label: 'Web Application / SaaS', basePrice: 8500, baseWeeks: 6 },
-    { id: 'mobile-app', label: 'Mobile App (iOS & Android)', basePrice: 10500, baseWeeks: 8 },
-    { id: 'enterprise', label: 'Enterprise Software / ERP', basePrice: 16000, baseWeeks: 10 },
-    { id: 'ai-automation', label: 'AI Agent & RAG Pipeline', basePrice: 12000, baseWeeks: 7 },
-    { id: 'cloud-devops', label: 'Cloud Architecture & DevOps', basePrice: 7000, baseWeeks: 4 }
+    { id: 'managed-it', label: 'Managed IT Services', basePrice: 6500, baseWeeks: 3 },
+    { id: 'cloud-solutions', label: 'Cloud Solutions & Migration', basePrice: 8500, baseWeeks: 5 },
+    { id: 'cybersecurity', label: 'Cybersecurity & Compliance', basePrice: 7500, baseWeeks: 4 },
+    { id: 'software-dev', label: 'Custom Software Development', basePrice: 12000, baseWeeks: 8 },
+    { id: 'it-consulting', label: 'IT Consulting & Digital Transformation', basePrice: 5500, baseWeeks: 3 },
+    { id: 'data-analytics', label: 'Data Analytics & Business Intelligence', basePrice: 9000, baseWeeks: 6 }
   ];
 
   const tiers = [
-    { id: 'mvp', label: 'MVP / Fast Launch', multiplier: 0.85, desc: 'Core feature set ready for seed validation' },
-    { id: 'growth', label: 'Growth & Scale', multiplier: 1.25, desc: 'High-availability, polished UX, analytics & tests' },
-    { id: 'enterprise', label: 'Enterprise Grade', multiplier: 1.8, desc: 'Zero-trust security, multi-region failover, SLA' }
+    { id: 'mvp', label: 'Standard Support', multiplier: 0.85, desc: 'Essential monitoring, SLA response within 1 hour' },
+    { id: 'growth', label: 'Dedicated Squad', multiplier: 1.25, desc: '24/7 NOC/SOC coverage, sub-15 min critical SLA' },
+    { id: 'enterprise', label: 'Enterprise Grade', multiplier: 1.75, desc: 'Dedicated vCIO, zero-trust architecture, multi-region failover' }
   ];
 
   const featureOptions = [
-    { id: 'auth', label: 'SSO & Biometric Auth', price: 1200, weeks: 1 },
-    { id: 'database', label: 'High-Scale DB & Caching', price: 1800, weeks: 1 },
-    { id: 'payment', label: 'Stripe & Billing Workflows', price: 2000, weeks: 1 },
-    { id: 'ai', label: 'GenAI & Vector Search', price: 3500, weeks: 2 },
-    { id: 'realtime', label: 'Real-time Sockets & Chat', price: 2200, weeks: 1 },
-    { id: 'compliance', label: 'SOC2 & HIPAA Hardening', price: 3000, weeks: 2 }
+    { id: 'support', label: '24/7/365 NOC Helpdesk Tier 1-3', price: 1500, weeks: 1 },
+    { id: 'security', label: 'SOC 2 & ISO 27001 Audit Readiness', price: 2500, weeks: 2 },
+    { id: 'cloud', label: 'Multi-Cloud Infrastructure (AWS/Azure)', price: 2200, weeks: 1 },
+    { id: 'dr', label: 'Zero-Downtime Disaster Recovery', price: 2000, weeks: 1 },
+    { id: 'cicd', label: 'Automated CI/CD & Infrastructure as Code', price: 1800, weeks: 1 },
+    { id: 'vcio', label: 'Dedicated Fractional vCIO Advisory', price: 2400, weeks: 1 }
   ];
 
   const toggleFeature = (fId) => {

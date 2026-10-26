@@ -2,252 +2,357 @@ import React, { useState } from 'react';
 import { 
   ShieldCheck, 
   Award, 
-  Terminal, 
   Users, 
   Globe2, 
-  Sparkles, 
   ArrowRight, 
   CheckCircle2, 
-  Cpu, 
+  Lightbulb, 
   Lock, 
-  Zap, 
-  Target
+  Search, 
+  TrendingUp,
+  Server,
+  Cloud,
+  Check,
+  Calendar,
+  ExternalLink
 } from 'lucide-react';
-import { COMPANY_INFO, TEAM_MEMBERS, MILESTONES, GLOBAL_OFFICES } from '../data/mockData';
-import ModernCard from '../components/ModernCard';
+import { 
+  COMPANY_INFO, 
+  CORE_VALUES, 
+  MILESTONES, 
+  TEAM_MEMBERS, 
+  PARTNERSHIPS_AND_CERTS 
+} from '../data/mockData';
 
 export default function AboutPage({ setActivePage, onOpenEstimator }) {
   const [selectedMilestone, setSelectedMilestone] = useState(MILESTONES[MILESTONES.length - 1].year);
 
-  const coreValues = [
-    {
-      icon: <Terminal size={24} color="var(--primary)" />,
-      title: "Engineering Rigor & Clean Code",
-      desc: "We write maintainable, self-documenting code with strict automated type safety, 85%+ test coverage, and continuous SAST vulnerability screening."
-    },
-    {
-      icon: <Target size={24} color="var(--accent-indigo)" />,
-      title: "Extreme Product Ownership",
-      desc: "We do not simply build tickets; we challenge assumptions, optimize unit economics, and ensure every feature contributes directly to business growth."
-    },
-    {
-      icon: <Lock size={24} color="var(--accent-emerald)" />,
-      title: "Security-First DNA",
-      desc: "Compliance and zero-trust security are built into the initial architectural blueprint, not patched on as an afterthought before launch."
-    },
-    {
-      icon: <Zap size={24} color="var(--accent-cyan)" />,
-      title: "Predictable Sprint Velocity",
-      desc: "Bi-weekly agile sprint cadences with verifiable staging releases every 14 days, complete transparency, and zero surprise cost overruns."
+  const getValueIcon = (iconName) => {
+    switch (iconName) {
+      case 'Lightbulb': return <Lightbulb size={24} color="#2F6FED" />;
+      case 'ShieldCheck': return <ShieldCheck size={24} color="#2F6FED" />;
+      case 'CheckCircle2': return <CheckCircle2 size={24} color="#2F6FED" />;
+      case 'Search': return <Search size={24} color="#2F6FED" />;
+      case 'TrendingUp': return <TrendingUp size={24} color="#2F6FED" />;
+      default: return <CheckCircle2 size={24} color="#2F6FED" />;
     }
-  ];
+  };
 
   return (
     <div style={{ position: 'relative' }}>
       
       {/* ===================================================================
-          1. ABOUT HERO
+          1. ABOUT PAGE HERO
           =================================================================== */}
-      <section className="section-hero">
+      <section 
+        className="section-hero"
+        style={{
+          backgroundColor: '#FFFFFF',
+          borderBottom: '1px solid #E5E7EB',
+          paddingTop: 'clamp(90px, 11vw, 130px)',
+          paddingBottom: 'clamp(50px, 7vw, 80px)',
+          textAlign: 'center'
+        }}
+      >
         <div className="container">
-          <div style={{ maxWidth: '1240px', margin: '0 auto', textAlign: 'center' }}>
+          <div style={{ maxWidth: '880px', margin: '0 auto' }}>
             <div className="section-badge">
               <span className="section-badge-dot" />
-              <span>Our Mission & Architectural Pedigree</span>
+              <span>About AdoraTech</span>
             </div>
 
+            {/* Exact Hero Headline */}
             <h1 
               style={{ 
-                fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', 
+                fontSize: 'clamp(2.4rem, 4.4vw, 3.8rem)', 
                 fontWeight: 800, 
                 lineHeight: 1.15, 
-                marginBottom: '24px',
-                color: 'var(--text-main)'
+                marginBottom: '22px',
+                color: '#0B1F3A',
+                letterSpacing: '-0.035em'
               }}
             >
-              Architecting High-Scale Systems for the{' '}
-              <span className="text-gradient-brand">World's Most Ambitious Brands</span>
+              We Help Businesses Build Smarter, Safer Technology
             </h1>
 
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-body)', lineHeight: 1.8, marginBottom: '36px' }}>
-              Founded in 2018 in San Francisco, AdoraTech was established with a singular conviction: enterprises deserve senior-only software engineering partners who treat code quality as an immutable art and delivery timelines as sacred commitments.
+            <p style={{ fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)', color: '#4B5563', lineHeight: 1.7, marginBottom: '34px' }}>
+              For over 15+ years, AdoraTech has provided forward-thinking organizations with dedicated managed IT operations, mission-critical cloud migrations, and ironclad cybersecurity. We turn technology from an operational friction into a secure growth engine.
             </p>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
               <button 
-                onClick={() => setActivePage('services')} 
+                onClick={() => setActivePage('contact')} 
                 className="btn btn-primary"
-                style={{ padding: '14px 30px' }}
+                style={{ padding: '14px 32px', backgroundColor: '#2F6FED', color: '#FFFFFF' }}
               >
-                <span>View Engineering Capabilities</span>
+                <span>Get a Consultation</span>
                 <ArrowRight size={17} />
               </button>
               <button 
-                onClick={() => setActivePage('contact')} 
+                onClick={() => setActivePage('services')} 
                 className="btn btn-secondary"
-                style={{ padding: '14px 28px' }}
+                style={{ padding: '14px 28px', border: '1px solid #D1D5DB', color: '#0B1F3A' }}
               >
-                <span>Meet Our Architects</span>
+                <span>Explore Services</span>
               </button>
             </div>
           </div>
         </div>
       </section>
 
-
       {/* ===================================================================
-          2. COMPANY STORY & FOUNDING MANIFESTO
+          2. COMPANY INTRODUCTION: MISSION, VISION & STORY
           =================================================================== */}
-      <section className="section" style={{ background: 'var(--bg-subtle)' }}>
+      <section className="section" style={{ backgroundColor: '#F5F7FA' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(28px, 4vw, 60px)', alignItems: 'center' }}>
-            
-            <div>
-              <div className="section-badge">
-                <Sparkles size={14} color="var(--primary)" />
-                <span>The AdoraTech Standard</span>
-              </div>
-              <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '20px', color: 'var(--text-main)' }}>
-                Why Traditional IT Agencies Fail Modern Enterprises
-              </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', color: 'var(--text-body)', fontSize: '1.02rem', lineHeight: 1.75 }}>
-                <p>
-                  Too many traditional IT agencies pitch senior partners during sales meetings, only to quietly offshore delivery to inexperienced junior contractors. The consequence? Fragile architectures, bloated dependencies, and crippling technical debt.
-                </p>
-                <p>
-                  At AdoraTech, we inverted this model. We deploy compact, elite squads composed exclusively of Senior Engineers, Staff Architects, and certified Cloud Specialists.
-                </p>
-                <p>
-                  Whether deploying sub-second React 19 web applications, native cross-platform mobile apps, or autonomous LLM pipelines, we guarantee 100% intellectual property ownership, zero vendor lock-in, and military-grade security.
-                </p>
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '18px', marginTop: '30px' }}>
-                <div style={{ padding: '20px', background: '#ffffff', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-xs)' }}>
-                  <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--primary)' }}>60+</div>
-                  <div style={{ fontSize: '0.84rem', color: 'var(--text-main)', fontWeight: 600 }}>Senior Full-Time Engineers</div>
-                </div>
-                <div style={{ padding: '20px', background: '#ffffff', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-xs)' }}>
-                  <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>99.4%</div>
-                  <div style={{ fontSize: '0.84rem', color: 'var(--text-main)', fontWeight: 600 }}>Client Contract Retention</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Architecture Manifesto Card */}
-            <div 
-              className="clean-card"
-              style={{
-                padding: 'clamp(22px, 4vw, 42px)',
-                background: '#ffffff',
-                border: '1px solid var(--border-light)',
-                boxShadow: 'var(--shadow-lg)'
-              }}
-            >
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '22px', color: 'var(--text-main)' }}>
-                Our 5 Engineering Tenets
-              </h3>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {[
-                  { title: "No Junior Offshoring", text: "Every line of code is written and reviewed by senior engineers with 7+ years of industry experience." },
-                  { title: "Deterministic Performance", text: "We enforce strict Lighthouse 95+ scores and sub-250ms backend response latency SLAs." },
-                  { title: "Immutable Architecture as Code", text: "100% reproducible environments via Terraform, Docker, and Kubernetes GitOps." },
-                  { title: "Zero Lock-In Guarantee", text: "You own all code, repositories, documentation, and cloud infrastructure from day one." },
-                  { title: "Continuous Automated Verification", text: "Every pull request triggers SAST security scans, unit tests, and end-to-end regression suites." }
-                ].map((tenet, idx) => (
-                  <li key={idx} style={{ display: 'flex', gap: '12px' }}>
-                    <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'var(--primary-light)', border: '1px solid #bfdbfe', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
-                      <CheckCircle2 size={16} color="var(--primary)" />
-                    </div>
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: '0.96rem', color: 'var(--text-main)' }}>{tenet.title}</div>
-                      <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{tenet.text}</div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-      {/* ===================================================================
-          3. CORE VALUES
-          =================================================================== */}
-      <section className="section">
-        <div className="container">
+          
           <div className="section-header">
             <div className="section-badge">
-              <Zap size={15} color="var(--primary)" />
-              <span>Guiding Principles</span>
+              <span className="section-badge-dot" />
+              <span>Our Foundation</span>
             </div>
-            <h2 className="section-title">Values That Define Every Sprint</h2>
+            <h2 className="section-title">
+              Built on Engineering Integrity & Trust
+            </h2>
             <p className="section-subtitle">
-              We operate with obsessive technical standards, extreme transparency, and relentless empathy for the end user.
+              Learn about our origin, our guiding purpose, and the commitments we make to every client we serve.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '26px' }}>
-            {coreValues.map((val, idx) => (
-              <ModernCard 
-                key={idx}
-                className="clean-card"
-                style={{ padding: '34px', background: '#ffffff' }}
-              >
+          {/* 3 Introduction Cards (Mission, Vision, Company Story) */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', 
+              gap: '28px' 
+            }}
+          >
+            {/* Mission */}
+            <div 
+              className="clean-card"
+              style={{
+                backgroundColor: '#FFFFFF',
+                padding: '36px 30px',
+                borderRadius: 'var(--radius-lg)',
+                border: '1px solid #E5E7EB',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}
+            >
+              <div>
                 <div 
                   style={{
-                    width: '54px',
-                    height: '54px',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'var(--primary-light)',
-                    border: '1px solid #bfdbfe',
+                    width: '52px',
+                    height: '52px',
+                    borderRadius: '12px',
+                    backgroundColor: '#EEF4FE',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginBottom: '20px'
                   }}
                 >
-                  {val.icon}
+                  <ShieldCheck size={26} color="#2F6FED" />
                 </div>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-main)' }}>
-                  {val.title}
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '14px' }}>
+                  Our Mission
                 </h3>
-                <p style={{ fontSize: '0.94rem', color: 'var(--text-body)', lineHeight: 1.7 }}>
-                  {val.desc}
+                <p style={{ fontSize: '0.96rem', color: '#4B5563', lineHeight: 1.7 }}>
+                  To empower growing organizations with dependable, high-performance IT solutions, proactive cybersecurity defense, and custom systems that transform technology into a reliable engine for commercial expansion.
                 </p>
-              </ModernCard>
-            ))}
+              </div>
+              <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid #E5E7EB', color: '#2F6FED', fontWeight: 700, fontSize: '0.88rem' }}>
+                Delivering 99.9% Uptime SLA
+              </div>
+            </div>
+
+            {/* Vision */}
+            <div 
+              className="clean-card"
+              style={{
+                backgroundColor: '#FFFFFF',
+                padding: '36px 30px',
+                borderRadius: 'var(--radius-lg)',
+                border: '1px solid #E5E7EB',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}
+            >
+              <div>
+                <div 
+                  style={{
+                    width: '52px',
+                    height: '52px',
+                    borderRadius: '12px',
+                    backgroundColor: '#EEF4FE',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px'
+                  }}
+                >
+                  <TrendingUp size={26} color="#2F6FED" />
+                </div>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '14px' }}>
+                  Our Vision
+                </h3>
+                <p style={{ fontSize: '0.96rem', color: '#4B5563', lineHeight: 1.7 }}>
+                  To be the most trusted global enterprise IT and managed services partner, recognized by industry leaders for absolute architectural standards, total billing transparency, and relentless client success.
+                </p>
+              </div>
+              <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid #E5E7EB', color: '#2F6FED', fontWeight: 700, fontSize: '0.88rem' }}>
+                Partnering for the Long Term
+              </div>
+            </div>
+
+            {/* Company Story */}
+            <div 
+              className="clean-card"
+              style={{
+                backgroundColor: '#FFFFFF',
+                padding: '36px 30px',
+                borderRadius: 'var(--radius-lg)',
+                border: '1px solid #E5E7EB',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}
+            >
+              <div>
+                <div 
+                  style={{
+                    width: '52px',
+                    height: '52px',
+                    borderRadius: '12px',
+                    backgroundColor: '#EEF4FE',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px'
+                  }}
+                >
+                  <Award size={26} color="#2F6FED" />
+                </div>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '14px' }}>
+                  Our Story
+                </h3>
+                <p style={{ fontSize: '0.96rem', color: '#4B5563', lineHeight: 1.7 }}>
+                  Founded in 2011 in San Francisco, AdoraTech was established by senior infrastructure engineers frustrated by traditional break-fix vendors. Over 15+ years, we grew into a full-lifecycle partner managing 250+ enterprise rollouts for 120+ clients.
+                </p>
+              </div>
+              <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid #E5E7EB', color: '#2F6FED', fontWeight: 700, fontSize: '0.88rem' }}>
+                15+ Years of Proven Excellence
+              </div>
+            </div>
+
           </div>
+
         </div>
       </section>
 
-
       {/* ===================================================================
-          4. INTERACTIVE MILESTONES TIMELINE
+          3. CORE VALUES (INNOVATION, SECURITY, RELIABILITY, TRANSPARENCY, CLIENT SUCCESS)
           =================================================================== */}
-      <section className="section" style={{ background: 'var(--bg-subtle)' }}>
+      <section className="section" style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
         <div className="container">
+          
           <div className="section-header">
             <div className="section-badge">
-              <Sparkles size={15} color="var(--primary)" />
-              <span>Historical Growth</span>
+              <span className="section-badge-dot" />
+              <span>What We Stand For</span>
             </div>
-            <h2 className="section-title">The AdoraTech Journey</h2>
+            <h2 className="section-title">
+              Our 5 Core Values
+            </h2>
             <p className="section-subtitle">
-              From a two-person systems engineering studio to an international IT delivery powerhouse.
+              These principles guide every architectural recommendation, support ticket resolution, and client engagement.
             </p>
           </div>
 
-          {/* Timeline Year Selectors */}
+          {/* 5 Core Values Grid */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', 
+              gap: '24px' 
+            }}
+          >
+            {CORE_VALUES.map((val, idx) => (
+              <div 
+                key={idx}
+                className="clean-card"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  padding: '28px 24px',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid #E5E7EB',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <div>
+                  <div 
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '10px',
+                      backgroundColor: '#EEF4FE',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '18px'
+                    }}
+                  >
+                    {getValueIcon(val.icon)}
+                  </div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '12px' }}>
+                    {val.name}
+                  </h3>
+                  <p style={{ fontSize: '0.92rem', color: '#4B5563', lineHeight: 1.65, margin: 0 }}>
+                    {val.desc}
+                  </p>
+                </div>
+                <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px solid #E5E7EB', display: 'flex', alignItems: 'center', gap: '6px', color: '#10B981', fontSize: '0.82rem', fontWeight: 700 }}>
+                  <Check size={14} />
+                  <span>Non-Negotiable Standard</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ===================================================================
+          4. COMPANY TIMELINE & MILESTONES
+          =================================================================== */}
+      <section className="section" style={{ backgroundColor: '#F5F7FA' }}>
+        <div className="container">
+          
+          <div className="section-header">
+            <div className="section-badge">
+              <span className="section-badge-dot" />
+              <span>Historical Milestones</span>
+            </div>
+            <h2 className="section-title">
+              Our Journey Over 15+ Years
+            </h2>
+            <p className="section-subtitle">
+              From our 2011 founding to global 24/7 security hubs, follow how AdoraTech continuously adapted to the evolving enterprise landscape.
+            </p>
+          </div>
+
+          {/* Interactive Timeline Tabs */}
           <div 
             style={{ 
               display: 'flex', 
               justifyContent: 'center', 
-              gap: '12px', 
-              flexWrap: 'wrap',
-              marginBottom: '40px'
+              gap: '8px', 
+              flexWrap: 'wrap', 
+              marginBottom: '36px' 
             }}
           >
             {MILESTONES.map((m) => {
@@ -257,16 +362,16 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
                   key={m.year}
                   onClick={() => setSelectedMilestone(m.year)}
                   style={{
-                    padding: '10px 24px',
+                    padding: '10px 22px',
                     borderRadius: 'var(--radius-full)',
-                    fontSize: '1rem',
-                    fontWeight: 800,
-                    fontFamily: 'var(--font-heading)',
-                    background: isSelected ? 'var(--grad-brand)' : '#ffffff',
-                    color: isSelected ? '#ffffff' : 'var(--text-main)',
-                    border: '1px solid ' + (isSelected ? 'transparent' : 'var(--border-light)'),
-                    boxShadow: isSelected ? 'var(--shadow-brand)' : 'var(--shadow-xs)',
-                    transition: 'all var(--transition)'
+                    fontSize: '0.95rem',
+                    fontWeight: 700,
+                    backgroundColor: isSelected ? '#0B1F3A' : '#FFFFFF',
+                    color: isSelected ? '#FFFFFF' : '#4B5563',
+                    border: isSelected ? '1px solid #0B1F3A' : '1px solid #D1D5DB',
+                    boxShadow: isSelected ? '0 4px 12px rgba(11, 31, 58, 0.2)' : 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
                   }}
                 >
                   {m.year}
@@ -275,30 +380,53 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
             })}
           </div>
 
-          {/* Milestone Details Card */}
-          <div style={{ maxWidth: '780px', margin: '0 auto' }}>
-            {MILESTONES.map((m) => {
-              if (m.year !== selectedMilestone) return null;
+          {/* Detailed Milestone Grid Cards */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', 
+              gap: '24px' 
+            }}
+          >
+            {MILESTONES.map((milestone) => {
+              const isHighlighted = selectedMilestone === milestone.year;
               return (
                 <div 
-                  key={m.year}
+                  key={milestone.year}
                   className="clean-card"
                   style={{
-                    padding: '44px',
-                    textAlign: 'center',
-                    background: '#ffffff',
-                    border: '1px solid var(--border-light)',
-                    boxShadow: 'var(--shadow-lg)'
+                    backgroundColor: '#FFFFFF',
+                    padding: '28px',
+                    borderRadius: 'var(--radius-lg)',
+                    border: isHighlighted ? '2px solid #2F6FED' : '1px solid #E5E7EB',
+                    boxShadow: isHighlighted ? '0 12px 30px rgba(47, 111, 237, 0.15)' : 'var(--shadow-sm)',
+                    position: 'relative',
+                    transition: 'all 0.25s ease'
                   }}
+                  onClick={() => setSelectedMilestone(milestone.year)}
                 >
-                  <div style={{ fontSize: '3.2rem', fontWeight: 800, fontFamily: 'var(--font-heading)', marginBottom: '8px' }} className="text-gradient-brand">
-                    {m.year}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                    <span 
+                      style={{ 
+                        fontSize: '1.4rem', 
+                        fontWeight: 900, 
+                        color: isHighlighted ? '#2F6FED' : '#0B1F3A',
+                        fontFamily: 'var(--font-heading)'
+                      }}
+                    >
+                      {milestone.year}
+                    </span>
+                    {isHighlighted && (
+                      <span style={{ fontSize: '0.74rem', backgroundColor: '#EEF4FE', color: '#2F6FED', padding: '3px 10px', borderRadius: 'var(--radius-full)', fontWeight: 700 }}>
+                        Active Milestone
+                      </span>
+                    )}
                   </div>
-                  <h3 style={{ fontSize: '1.65rem', fontWeight: 800, marginBottom: '16px', color: 'var(--text-main)' }}>
-                    {m.title}
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '10px' }}>
+                    {milestone.title}
                   </h3>
-                  <p style={{ fontSize: '1.08rem', color: 'var(--text-body)', lineHeight: 1.8, maxWidth: '620px', margin: '0 auto' }}>
-                    {m.description}
+                  <p style={{ fontSize: '0.92rem', color: '#4B5563', lineHeight: 1.6, margin: 0 }}>
+                    {milestone.description}
                   </p>
                 </div>
               );
@@ -308,181 +436,266 @@ export default function AboutPage({ setActivePage, onOpenEstimator }) {
         </div>
       </section>
 
-
       {/* ===================================================================
-          5. LEADERSHIP & TECHNICAL ARCHITECTS
+          5. TEAM SECTION (6 MEMBERS WITH PHOTO, NAME, ROLE, LINKEDIN ICON)
           =================================================================== */}
-      <section className="section">
+      <section className="section" style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid #E5E7EB' }}>
         <div className="container">
+          
           <div className="section-header">
             <div className="section-badge">
-              <Users size={15} color="var(--primary)" />
-              <span>World-Class Talent</span>
+              <span className="section-badge-dot" />
+              <span>Leadership & Senior Architects</span>
             </div>
-            <h2 className="section-title">Leadership & Staff Architects</h2>
+            <h2 className="section-title">
+              Meet Our Senior Leadership
+            </h2>
             <p className="section-subtitle">
-              Headed by former Silicon Valley founders, distributed systems researchers, and cybersecurity pioneers.
+              Decades of experience in enterprise infrastructure, cloud engineering, cybersecurity defense, and product delivery.
             </p>
           </div>
 
-          <div className="grid-cards-3x2" style={{ marginBottom: '40px' }}>
+          {/* 6 Team Member Cards Grid */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', 
+              gap: '30px' 
+            }}
+          >
             {TEAM_MEMBERS.map((member, idx) => (
-              <ModernCard 
+              <div 
                 key={idx}
                 className="clean-card"
-                style={{ 
-                  padding: '32px 28px', 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  justifyContent: 'space-between', 
-                  height: '100%',
-                  background: '#ffffff' 
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid #E5E7EB',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
                 }}
               >
-                <div>
-                  {/* Top Avatar & Location */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', minHeight: '56px' }}>
-                    <div 
-                      style={{
-                        width: '56px',
-                        height: '56px',
-                        borderRadius: 'var(--radius-md)',
-                        background: 'var(--grad-brand)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#ffffff',
-                        fontWeight: 800,
-                        fontSize: '1.25rem',
-                        boxShadow: 'var(--shadow-brand)',
-                        flexShrink: 0
-                      }}
-                    >
-                      {member.avatar}
+                {/* Photo Placeholder */}
+                <div style={{ position: 'relative', height: '260px', overflow: 'hidden' }}>
+                  <img 
+                    src={member.avatar} 
+                    alt={member.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div 
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: '70px',
+                      background: 'linear-gradient(to top, rgba(11, 31, 58, 0.7), transparent)'
+                    }}
+                  />
+                  {/* LinkedIn Icon */}
+                  <a 
+                    href={member.linkedin} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    style={{
+                      position: 'absolute',
+                      top: '14px',
+                      right: '14px',
+                      width: '36px',
+                      height: '36px',
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#0A66C2',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+                      transition: 'all 0.2s ease'
+                    }}
+                    title={`${member.name} on LinkedIn`}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
+                </div>
+
+                {/* Info */}
+                <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '4px' }}>
+                      {member.name}
+                    </h3>
+                    <div style={{ fontSize: '0.86rem', color: '#2F6FED', fontWeight: 700, marginBottom: '14px' }}>
+                      {member.role}
                     </div>
-                    <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-                      📍 {member.location}
-                    </span>
+                    <p style={{ fontSize: '0.9rem', color: '#4B5563', lineHeight: 1.6, marginBottom: '18px' }}>
+                      {member.bio}
+                    </p>
                   </div>
 
-                  {/* Name */}
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px', minHeight: '1.8rem' }}>
-                    {member.name}
-                  </h3>
-
-                  {/* Role */}
-                  <div style={{ fontSize: '0.9rem', color: 'var(--primary)', fontWeight: 700, marginBottom: '14px', minHeight: '2.8rem', display: 'flex', alignItems: 'flex-start' }}>
-                    {member.role}
+                  {/* Specialties tags */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', paddingTop: '14px', borderTop: '1px solid #E5E7EB' }}>
+                    {member.specialties.map((spec, sIdx) => (
+                      <span 
+                        key={sIdx}
+                        style={{
+                          fontSize: '0.74rem',
+                          backgroundColor: '#F5F7FA',
+                          border: '1px solid #E5E7EB',
+                          padding: '3px 8px',
+                          borderRadius: '4px',
+                          color: '#4B5563',
+                          fontWeight: 600
+                        }}
+                      >
+                        {spec}
+                      </span>
+                    ))}
                   </div>
-
-                  {/* Bio */}
-                  <p style={{ fontSize: '0.94rem', color: 'var(--text-body)', lineHeight: 1.65, marginBottom: '20px', minHeight: '5rem', display: 'flex', alignItems: 'flex-start' }}>
-                    {member.bio}
-                  </p>
                 </div>
 
-                {/* Specialties */}
-                <div style={{ paddingTop: '16px', borderTop: '1px solid var(--border-light)', display: 'flex', flexWrap: 'wrap', gap: '6px', minHeight: '44px', alignItems: 'center', marginTop: 'auto' }}>
-                  {member.specialties.map((spec, sIdx) => (
-                    <span 
-                      key={sIdx}
-                      style={{
-                        padding: '4px 12px',
-                        borderRadius: 'var(--radius-full)',
-                        background: 'var(--bg-subtle)',
-                        fontSize: '0.78rem',
-                        color: 'var(--text-main)',
-                        border: '1px solid var(--border-light)',
-                        fontWeight: 600
-                      }}
-                    >
-                      {spec}
-                    </span>
-                  ))}
-                </div>
-              </ModernCard>
+              </div>
             ))}
           </div>
 
         </div>
       </section>
 
-
       {/* ===================================================================
-          6. GLOBAL HUBS & ACCREDITATIONS
+          6. CERTIFICATIONS AND PARTNERSHIPS
           =================================================================== */}
-      <section className="section" style={{ background: 'var(--bg-subtle)' }}>
+      <section className="section" style={{ backgroundColor: '#F5F7FA', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
         <div className="container">
+          
           <div className="section-header">
             <div className="section-badge">
-              <Globe2 size={15} color="var(--primary)" />
-              <span>Global Presence</span>
+              <span className="section-badge-dot" />
+              <span>Certified Excellence</span>
             </div>
-            <h2 className="section-title">San Francisco • London • Singapore</h2>
+            <h2 className="section-title">
+              Certifications & Industry Partnerships
+            </h2>
             <p className="section-subtitle">
-              With offices spanning three major global financial centers, our distributed teams provide seamless timezone coverage for clients across North America, Europe, and Asia-Pacific.
+              We uphold the highest global standards for information security, compliance audits, and multi-cloud engineering.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '26px' }}>
-            {GLOBAL_OFFICES.map((office, idx) => (
+          {/* 6 Accreditations (ISO, SOC 2, Microsoft, AWS, Google Cloud, Cisco) */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', 
+              gap: '24px' 
+            }}
+          >
+            {PARTNERSHIPS_AND_CERTS.map((cert) => (
               <div 
-                key={idx}
+                key={cert.id}
                 className="clean-card"
-                style={{ padding: '34px', background: '#ffffff' }}
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  padding: '28px 24px',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid #E5E7EB',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
               >
-                <div style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
-                  {office.tag}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+                    <div 
+                      style={{ 
+                        width: '42px', 
+                        height: '42px', 
+                        borderRadius: '8px', 
+                        backgroundColor: '#EEF4FE', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center' 
+                      }}
+                    >
+                      <ShieldCheck size={22} color="#2F6FED" />
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0B1F3A', margin: 0 }}>
+                        {cert.name}
+                      </h3>
+                      <span style={{ fontSize: '0.78rem', color: '#2F6FED', fontWeight: 700 }}>
+                        {cert.label}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p style={{ fontSize: '0.9rem', color: '#4B5563', lineHeight: 1.6, margin: 0 }}>
+                    {cert.desc}
+                  </p>
                 </div>
-                <h3 style={{ fontSize: '1.45rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-main)' }}>
-                  {office.city}
-                </h3>
-                <p style={{ fontSize: '0.94rem', color: 'var(--text-body)', marginBottom: '16px', lineHeight: 1.6 }}>
-                  {office.address}
-                  <br />
-                  {office.postal}, {office.country}
-                </p>
-                <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-                  Direct Phone: <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>{office.phone}</span>
+
+                <div style={{ marginTop: '18px', paddingTop: '12px', borderTop: '1px solid #E5E7EB', display: 'flex', alignItems: 'center', gap: '6px', color: '#10B981', fontSize: '0.8rem', fontWeight: 600 }}>
+                  <CheckCircle2 size={14} />
+                  <span>Verified & Active</span>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Bottom Career CTA */}
-          <div 
-            style={{
-              marginTop: '60px',
-              padding: 'clamp(24px, 4.5vw, 44px)',
-              borderRadius: 'var(--radius-xl)',
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '24px',
-              background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #1e3a8a 100%)',
-              color: '#ffffff',
-              boxShadow: 'var(--shadow-lg)'
-            }}
-          >
-            <div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '8px', color: '#ffffff' }}>
-                Join the Top 1% of Software Craftsmen
-              </h3>
-              <p style={{ fontSize: '0.96rem', color: '#cbd5e1', margin: 0 }}>
-                We are constantly looking for exceptional distributed systems engineers, React core specialists, and AI researchers.
-              </p>
-            </div>
-            <button
-              onClick={() => setActivePage('contact')}
-              className="btn btn-primary"
-              style={{ padding: '14px 28px' }}
-            >
-              <span>Explore Open Roles</span>
-              <ArrowRight size={16} />
-            </button>
-          </div>
+        </div>
+      </section>
 
+      {/* ===================================================================
+          7. ABOUT CTA SECTION
+          =================================================================== */}
+      <section 
+        style={{ 
+          backgroundColor: '#0B1F3A', 
+          color: '#FFFFFF', 
+          padding: 'clamp(60px, 8vw, 90px) 0',
+          textAlign: 'center' 
+        }}
+      >
+        <div className="container">
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            
+            <h2 
+              style={{ 
+                fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', 
+                fontWeight: 900, 
+                lineHeight: 1.2, 
+                marginBottom: '20px',
+                color: '#FFFFFF',
+                letterSpacing: '-0.03em'
+              }}
+            >
+              Partner with a team that understands your business.
+            </h2>
+
+            <p style={{ fontSize: '1.15rem', color: '#94A3B8', lineHeight: 1.7, marginBottom: '36px' }}>
+              We do not treat IT as an expense; we treat it as your strongest commercial engine. Contact our executive team today to explore how we can support your growth.
+            </p>
+
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => setActivePage('contact')}
+                className="btn btn-primary"
+                style={{ padding: '16px 36px', fontSize: '1.05rem', backgroundColor: '#2F6FED', color: '#FFFFFF' }}
+              >
+                <span>Get a Consultation</span>
+                <ArrowRight size={18} />
+              </button>
+              <button
+                onClick={() => setActivePage('services')}
+                className="btn btn-secondary"
+                style={{ padding: '16px 30px', fontSize: '1.05rem', backgroundColor: '#FFFFFF', color: '#0B1F3A' }}
+              >
+                <span>Browse Services</span>
+              </button>
+            </div>
+
+          </div>
         </div>
       </section>
 

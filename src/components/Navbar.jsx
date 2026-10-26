@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Sparkles, 
   Menu, 
   X, 
   ArrowRight,
-  Calculator,
-  PhoneCall
+  Calendar,
+  PhoneCall,
+  ShieldCheck
 } from 'lucide-react';
 import Logo from './Logo';
 
@@ -19,18 +19,19 @@ export default function Navbar({
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 25);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Exactly 5 pages specified in requirements
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
+    { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
-    { id: 'blogs', label: 'Insights & Blogs' },
-    { id: 'contact', label: 'Contact Us' }
+    { id: 'blog', label: 'Blog' },
+    { id: 'contact', label: 'Contact' }
   ];
 
   const handleNavClick = (pageId) => {
@@ -39,77 +40,88 @@ export default function Navbar({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleConsultationClick = () => {
+    setActivePage('contact');
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       <header
         style={{
-          position: 'fixed',
+          position: 'sticky',
           top: 0,
           left: 0,
           right: 0,
           zIndex: 900,
-          transition: 'all 0.25s ease',
-          background: scrolled 
-            ? 'rgba(255, 255, 255, 0.95)' 
-            : 'rgba(255, 255, 255, 0.85)',
+          transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+          backgroundColor: scrolled 
+            ? 'rgba(255, 255, 255, 0.96)' 
+            : 'rgba(255, 255, 255, 0.92)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
-          borderBottom: '1px solid #e2e8f0',
-          boxShadow: scrolled ? '0 4px 20px -2px rgba(15, 23, 42, 0.06)' : 'none',
+          borderBottom: '1px solid #E5E7EB',
+          boxShadow: scrolled 
+            ? '0 4px 20px -2px rgba(11, 31, 58, 0.08)' 
+            : '0 1px 3px rgba(11, 31, 58, 0.04)',
           padding: scrolled ? '14px 0' : '18px 0'
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           
-          {/* Logo Brand */}
+          {/* Company Brand Logo with Tagline */}
           <div 
             onClick={() => handleNavClick('home')}
             style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-            title="AdoraTech Home"
+            title="AdoraTech - Home"
           >
-            <Logo size="default" showTagline={false} />
+            <Logo size="default" showTagline={true} />
           </div>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Menu Links */}
           <nav 
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '4px',
-              background: '#f1f5f9',
-              padding: '4px 6px',
+              gap: '6px',
+              backgroundColor: '#F5F7FA',
+              padding: '5px 8px',
               borderRadius: 'var(--radius-full)',
-              border: '1px solid #e2e8f0'
+              border: '1px solid #E5E7EB'
             }}
             className="desktop-nav"
+            aria-label="Main Navigation"
           >
             {navItems.map((item) => {
-              const isActive = activePage === item.id;
+              const isActive = activePage === item.id || (item.id === 'blog' && activePage === 'blogs');
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
                   style={{
                     position: 'relative',
-                    padding: '8px 18px',
+                    padding: '8px 20px',
                     borderRadius: 'var(--radius-full)',
-                    fontSize: '0.92rem',
+                    fontSize: '0.94rem',
                     fontWeight: isActive ? 700 : 600,
-                    color: isActive ? '#ffffff' : '#334155',
-                    background: isActive ? 'linear-gradient(135deg, #2563eb 0%, #6366f1 100%)' : 'transparent',
-                    boxShadow: isActive ? '0 2px 10px rgba(37, 99, 235, 0.3)' : 'none',
-                    transition: 'all 0.18s ease'
+                    color: isActive ? '#FFFFFF' : '#1F2937',
+                    backgroundColor: isActive ? '#0B1F3A' : 'transparent',
+                    boxShadow: isActive ? '0 2px 10px rgba(11, 31, 58, 0.25)' : 'none',
+                    transition: 'all 0.18s ease',
+                    border: 'none',
+                    cursor: 'pointer'
                   }}
                   onMouseEnter={(e) => {
                     if (!isActive) {
-                      e.currentTarget.style.color = '#2563eb';
-                      e.currentTarget.style.background = '#e2e8f0';
+                      e.currentTarget.style.color = '#2F6FED';
+                      e.currentTarget.style.backgroundColor = '#E5E7EB';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isActive) {
-                      e.currentTarget.style.color = '#334155';
-                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.color = '#1F2937';
+                      e.currentTarget.style.backgroundColor = 'transparent';
                     }
                   }}
                 >
@@ -119,39 +131,59 @@ export default function Navbar({
             })}
           </nav>
 
-          {/* Right Header Actions */}
+          {/* Desktop Actions */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-
-            {/* Project Estimator Quick Button */}
+            
+            {/* Quick Estimator Tool Link */}
             <button
               onClick={onOpenEstimator}
               className="btn btn-secondary desktop-only"
               style={{ 
-                padding: '9px 18px', 
-                fontSize: '0.88rem'
+                padding: '10px 18px', 
+                fontSize: '0.88rem',
+                borderColor: '#E5E7EB'
               }}
+              title="Estimate your IT project cost"
             >
-              <Calculator size={16} color="#2563eb" />
-              <span>Project Calculator</span>
+              <Calendar size={15} color="#2F6FED" />
+              <span>Project Estimator</span>
             </button>
 
-            {/* Direct Consultation / Contact CTA */}
+            {/* Prominent "Get a Consultation" Button */}
             <button
-              onClick={() => handleNavClick('contact')}
+              onClick={handleConsultationClick}
               className="btn btn-primary"
-              style={{ padding: '9px 22px', fontSize: '0.88rem' }}
+              style={{ 
+                padding: '11px 24px', 
+                fontSize: '0.92rem',
+                backgroundColor: '#2F6FED',
+                color: '#FFFFFF',
+                boxShadow: '0 8px 20px -4px rgba(47, 111, 237, 0.4)'
+              }}
+              id="nav-get-consultation-btn"
             >
-              <span>Get in Touch</span>
-              <ArrowRight size={15} />
+              <span>Get a Consultation</span>
+              <ArrowRight size={16} />
             </button>
 
-            {/* Mobile Hamburger Toggle */}
+            {/* Mobile Menu Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="btn-icon-only mobile-toggle"
               aria-label="Toggle Navigation Menu"
+              style={{
+                width: '42px',
+                height: '42px',
+                display: 'none',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: '#FFFFFF',
+                border: '1px solid #E5E7EB',
+                borderRadius: '8px',
+                cursor: 'pointer'
+              }}
             >
-              {mobileMenuOpen ? <X size={20} color="#0f172a" /> : <Menu size={20} color="#0f172a" />}
+              {mobileMenuOpen ? <X size={20} color="#0B1F3A" /> : <Menu size={20} color="#0B1F3A" />}
             </button>
           </div>
         </div>
@@ -162,11 +194,11 @@ export default function Navbar({
         <div 
           style={{
             position: 'fixed',
-            top: '72px',
+            top: '76px',
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'rgba(255, 255, 255, 0.98)',
+            backgroundColor: 'rgba(255, 255, 255, 0.98)',
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
             zIndex: 899,
@@ -174,17 +206,17 @@ export default function Navbar({
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            borderTop: '1px solid #e2e8f0',
-            boxShadow: '0 20px 40px rgba(15, 23, 42, 0.1)',
+            borderTop: '1px solid #E5E7EB',
+            boxShadow: '0 20px 40px rgba(11, 31, 58, 0.1)',
             animation: 'fadeIn 0.25s ease-out'
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
+            <div style={{ fontSize: '0.78rem', color: '#6B7280', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
               Navigation Menu
             </div>
             {navItems.map((item) => {
-              const isActive = activePage === item.id;
+              const isActive = activePage === item.id || (item.id === 'blog' && activePage === 'blogs');
               return (
                 <button
                   key={item.id}
@@ -198,57 +230,34 @@ export default function Navbar({
                     fontSize: '1.05rem',
                     fontWeight: 700,
                     textAlign: 'left',
-                    color: isActive ? '#ffffff' : '#0f172a',
-                    background: isActive ? 'linear-gradient(135deg, #2563eb 0%, #6366f1 100%)' : '#f8fafc',
-                    border: '1px solid ' + (isActive ? 'transparent' : '#e2e8f0')
+                    color: isActive ? '#2F6FED' : '#1F2937',
+                    backgroundColor: isActive ? '#EEF4FE' : '#F5F7FA',
+                    border: isActive ? '1px solid #BFDBFE' : '1px solid #E5E7EB',
+                    cursor: 'pointer'
                   }}
                 >
                   <span>{item.label}</span>
-                  <ArrowRight size={18} opacity={isActive ? 1 : 0.4} />
+                  <ArrowRight size={16} color={isActive ? '#2F6FED' : '#9CA3AF'} />
                 </button>
               );
             })}
-
-            <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenEstimator();
-                }}
-                className="btn btn-secondary"
-                style={{ width: '100%', justifyContent: 'center', padding: '14px' }}
-              >
-                <Calculator size={18} color="#2563eb" />
-                <span>Estimate Project Cost</span>
-              </button>
-            </div>
           </div>
 
-          {/* Mobile Footer Info */}
-          <div style={{ paddingTop: '20px', borderTop: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>
-              <div style={{ fontSize: '0.85rem', color: '#64748b' }}>Direct Inquiries</div>
-              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>hello@adoratech.com</div>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
-              <span style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 600 }}>Engineers Online</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', paddingTop: '20px', borderTop: '1px solid #E5E7EB' }}>
+            <button
+              onClick={handleConsultationClick}
+              className="btn btn-primary"
+              style={{ width: '100%', padding: '16px', fontSize: '1rem', backgroundColor: '#2F6FED' }}
+            >
+              <span>Get a Consultation</span>
+              <ArrowRight size={18} />
+            </button>
+            <div style={{ textAlign: 'center', fontSize: '0.84rem', color: '#6B7280' }}>
+              Call direct: <strong style={{ color: '#0B1F3A' }}>+1 (800) 492-3672</strong>
             </div>
           </div>
         </div>
       )}
-
-      {/* Responsive helper */}
-      <style>{`
-        @media (max-width: 900px) {
-          .desktop-nav { display: none !important; }
-          .desktop-only { display: none !important; }
-          .mobile-toggle { display: flex !important; }
-        }
-        @media (min-width: 901px) {
-          .mobile-toggle { display: none !important; }
-        }
-      `}</style>
     </>
   );
 }

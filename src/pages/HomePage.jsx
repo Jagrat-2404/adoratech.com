@@ -1,825 +1,1093 @@
 import React from 'react';
 import {
   ArrowRight,
-  Sparkles,
-  CheckCircle2,
-  Code2,
-  Smartphone,
-  Cpu,
-  Bot,
-  Cloud,
   ShieldCheck,
+  Server,
+  Cloud,
+  Code2,
+  Lightbulb,
+  BarChart3,
+  CheckCircle2,
+  Headphones,
+  Award,
+  Shield,
+  Maximize2,
+  Star,
+  Calendar,
+  ExternalLink,
   ChevronRight,
-  TrendingUp,
   Activity,
   Zap,
-  Star,
-  Layers,
-  Award,
-  Calculator,
-  Terminal,
-  Server
+  Lock,
+  Clock
 } from 'lucide-react';
 import {
   COMPANY_INFO,
   CORE_SERVICES,
-  TECH_STACK,
+  WHY_CHOOSE_US,
+  CLIENT_LOGOS,
   CASE_STUDIES,
-  TESTIMONIALS
+  TESTIMONIALS,
+  BLOG_POSTS
 } from '../data/mockData';
-import ModernCard from '../components/ModernCard';
-import PlanetaryInnovationStage from '../components/PlanetaryInnovationStage';
 
-export default function HomePage({ setActivePage, onOpenEstimator }) {
+export default function HomePage({ 
+  setActivePage, 
+  onOpenEstimator, 
+  onSelectCaseStudy, 
+  onSelectBlogPost 
+}) {
   const getServiceIcon = (iconName) => {
     switch (iconName) {
-      case 'Globe': return <Code2 size={26} color="var(--primary)" />;
-      case 'Smartphone': return <Smartphone size={26} color="var(--accent-indigo)" />;
-      case 'Cpu': return <Cpu size={26} color="var(--accent-cyan)" />;
-      case 'Bot': return <Bot size={26} color="var(--accent-purple)" />;
-      case 'Cloud': return <Cloud size={26} color="var(--primary)" />;
-      case 'ShieldCheck': return <ShieldCheck size={26} color="var(--accent-emerald)" />;
-      default: return <Code2 size={26} color="var(--primary)" />;
+      case 'Server': return <Server size={28} color="#2F6FED" />;
+      case 'Cloud': return <Cloud size={28} color="#2F6FED" />;
+      case 'ShieldCheck': return <ShieldCheck size={28} color="#2F6FED" />;
+      case 'Code2': return <Code2 size={28} color="#2F6FED" />;
+      case 'Lightbulb': return <Lightbulb size={28} color="#2F6FED" />;
+      case 'BarChart3': return <BarChart3 size={28} color="#2F6FED" />;
+      default: return <Server size={28} color="#2F6FED" />;
     }
   };
+
+  const getWhyIcon = (iconName) => {
+    switch (iconName) {
+      case 'Headphones': return <Headphones size={26} color="#2F6FED" />;
+      case 'Award': return <Award size={26} color="#2F6FED" />;
+      case 'Shield': return <Shield size={26} color="#2F6FED" />;
+      case 'Maximize2': return <Maximize2 size={26} color="#2F6FED" />;
+      default: return <CheckCircle2 size={26} color="#2F6FED" />;
+    }
+  };
+
+  const latestPosts = BLOG_POSTS.slice(0, 3);
+  const featuredCases = CASE_STUDIES.slice(0, 3);
 
   return (
     <div style={{ position: 'relative' }}>
 
       {/* ===================================================================
-          1. HERO SECTION: STRIPE & LINEAR INSPIRED WIDESCREEN ARCHITECTURE
+          1. HERO SECTION
           =================================================================== */}
-      <section className="section-hero" style={{ position: 'relative', overflow: 'hidden', textAlign: 'center', paddingTop: '140px', paddingBottom: '70px', display: 'block' }}>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-
-          {/* Centered Panoramic Typography & Action Column */}
-          <div style={{ maxWidth: '1200px', margin: '0 auto 48px auto' }}>
-
-            {/* Announcement Pill with Pulsing Beacon */}
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 18px',
-                borderRadius: 'var(--radius-full)',
-                background: 'rgba(37, 99, 235, 0.08)',
-                border: '1px solid rgba(37, 99, 235, 0.25)',
-                color: '#2563eb',
-                fontSize: '0.86rem',
-                fontWeight: 700,
-                marginBottom: '26px',
-                backdropFilter: 'blur(8px)',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-              onClick={() => setActivePage('services')}
-            >
-              <span className="section-badge-dot" />
-              <span>Next-Gen Enterprise IT • Introducing Autonomous Multi-Agent Swarms</span>
-              <ArrowRight size={14} />
-            </div>
-
-            {/* Monumental Headline */}
-            <h1
-              style={{
-                fontSize: 'clamp(2.8rem, 6.2vw, 4.8rem)',
-                fontWeight: 900,
-                lineHeight: 1.08,
-                marginBottom: '24px',
-                color: 'var(--text-main)',
-                letterSpacing: '-0.04em'
-              }}
-            >
-              The Engineering Partner for the{' '}
-              <span className="text-gradient-brand">Ambitious Enterprise</span>
-            </h1>
-
-            {/* Subtitle */}
-            <p
-              style={{
-                fontSize: 'clamp(1.15rem, 2vw, 1.3rem)',
-                color: 'var(--text-body)',
-                lineHeight: 1.7,
-                maxWidth: '740px',
-                margin: '0 auto 38px auto'
-              }}
-            >
-              From custom software systems and high-throughput mobile platforms to autonomous AI agent swarms and planetary edge cloud architecture. We design and build the technology that powers market leaders.
-            </p>
-
-            {/* Dual Action CTAs */}
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '36px' }}>
-              <button
-                onClick={() => setActivePage('services')}
-                className="btn btn-primary"
-                style={{ padding: '16px 36px', fontSize: '1.05rem', boxShadow: '0 12px 30px -4px rgba(37, 99, 235, 0.45)' }}
-              >
-                <span>Explore Capabilities</span>
-                <ArrowRight size={18} />
-              </button>
-
-              <button
-                onClick={onOpenEstimator}
-                className="btn btn-secondary"
-                style={{ padding: '16px 32px', fontSize: '1.05rem' }}
-              >
-                <Calculator size={18} color="var(--primary)" />
-                <span>Instant Scope & Cost Calculator</span>
-              </button>
-            </div>
-
-            {/* Verified Enterprise Badges */}
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '28px',
-                paddingTop: '20px'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Award size={17} color="var(--primary)" />
-                <span style={{ fontSize: '0.86rem', color: 'var(--text-main)', fontWeight: 600 }}>SOC 2 Type II & ISO 27001</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle2 size={17} color="var(--accent-emerald)" />
-                <span style={{ fontSize: '0.86rem', color: 'var(--text-main)', fontWeight: 600 }}>100% IP Code Ownership</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Zap size={17} color="var(--accent-indigo)" />
-                <span style={{ fontSize: '0.86rem', color: 'var(--text-main)', fontWeight: 600 }}>Sub-5ms Global Edge Latency</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle2 size={17} color="var(--primary)" />
-                <span style={{ fontSize: '0.86rem', color: 'var(--text-main)', fontWeight: 600 }}>Senior-Only Staff Squads</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Hero Section Centerpiece: Planetary Innovation Stage (Perfect Alignment & Full Substance) */}
-          <div style={{ position: 'relative', marginTop: '28px', maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
-            <PlanetaryInnovationStage />
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* ===================================================================
-          1.5 ENTERPRISE CLIENT TRUST TICKER (STRIPE & LINEAR STYLE)
-          =================================================================== */}
-      <section style={{ padding: '24px 0 32px 0', borderTop: '1px solid var(--border-light)', background: '#ffffff' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '0.76rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '20px' }}>
-            Trusted by Engineering Leaders from High-Scale Companies & Scale-Ups
-          </p>
-
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: '42px',
-              opacity: 0.75
+      <section 
+        className="section-hero" 
+        style={{ 
+          position: 'relative', 
+          overflow: 'hidden', 
+          backgroundColor: '#FFFFFF',
+          borderBottom: '1px solid #E5E7EB',
+          paddingTop: 'clamp(90px, 11vw, 130px)',
+          paddingBottom: 'clamp(60px, 8vw, 100px)'
+        }}
+      >
+        <div className="container">
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 540px), 1fr))', 
+              gap: 'clamp(36px, 5vw, 64px)', 
+              alignItems: 'center' 
             }}
           >
-            {[
-              { name: 'STRIPE', symbol: '///' },
-              { name: 'SNOWFLAKE', symbol: '❄' },
-              { name: 'DATADOG', symbol: '◈' },
-              { name: 'VERCEL', symbol: '▲' },
-              { name: 'SUPABASE', symbol: '⚡' },
-              { name: 'RETOOL', symbol: '⧉' },
-              { name: 'RAMP', symbol: '↗' }
-            ].map((client, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.05rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.04em',
-                  color: 'var(--text-main)',
-                  transition: 'opacity 0.2s ease',
-                  cursor: 'default'
-                }}
-              >
-                <span style={{ color: 'var(--primary)', fontSize: '1.15rem' }}>{client.symbol}</span>
-                <span>{client.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* ===================================================================
-          2. ENTERPRISE IMPACT METRICS BANNER
-          =================================================================== */}
-      <section style={{ padding: '36px 0', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)', background: 'var(--bg-subtle)' }}>
-        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto' }}>
-          <div className="grid-stats-6">
-            {COMPANY_INFO.stats.map((stat, idx) => (
+            {/* Left Column: Headlines & Actions */}
+            <div>
+              {/* Trust Badge */}
               <div 
-                key={idx} 
-                style={{ 
-                  padding: '16px 12px',
-                  background: '#ffffff',
-                  borderRadius: 'var(--radius-md)',
-                  border: '1px solid var(--border-light)',
-                  boxShadow: 'var(--shadow-xs)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  minHeight: '110px',
-                  textAlign: 'center'
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: '2.4rem',
-                    fontWeight: 800,
-                    fontFamily: 'var(--font-heading)',
-                    letterSpacing: '-0.03em',
-                    marginBottom: '4px',
-                    lineHeight: 1.1
-                  }}
-                  className="text-gradient-brand"
-                >
-                  {stat.value}
-                </div>
-                <div style={{ fontSize: '0.84rem', color: 'var(--text-main)', fontWeight: 700, minHeight: '2.4rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* ===================================================================
-          3. TECH STACK MARQUEE
-          =================================================================== */}
-      <section style={{ padding: '42px 0', overflow: 'hidden', background: 'var(--bg-subtle)' }}>
-        <div className="container" style={{ marginBottom: '18px', textAlign: 'center' }}>
-          <span style={{ fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-muted)', fontWeight: 800 }}>
-            Powered by Enterprise Technologies & Verified Cloud Infrastructure
-          </span>
-        </div>
-        <div className="marquee-container">
-          <div className="marquee-content">
-            {TECH_STACK.concat(TECH_STACK).map((tech, idx) => (
-              <div
-                key={idx}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '9px 20px',
-                  background: '#ffffff',
-                  border: '1px solid var(--border-light)',
+                  padding: '6px 16px',
                   borderRadius: 'var(--radius-full)',
-                  fontSize: '0.88rem',
-                  fontWeight: 600,
-                  color: 'var(--text-main)',
+                  backgroundColor: '#EEF4FE',
+                  border: '1px solid #BFDBFE',
+                  color: '#2F6FED',
+                  fontSize: '0.84rem',
+                  fontWeight: 700,
+                  marginBottom: '20px'
+                }}
+              >
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#2F6FED' }} />
+                <span>Enterprise Managed IT & Cybersecurity</span>
+              </div>
+
+              {/* Exact Hero Headline */}
+              <h1 
+                style={{ 
+                  fontSize: 'clamp(2.4rem, 4.4vw, 3.8rem)', 
+                  fontWeight: 800, 
+                  lineHeight: 1.14, 
+                  marginBottom: '20px',
+                  color: '#0B1F3A',
+                  letterSpacing: '-0.035em'
+                }}
+              >
+                Reliable IT Solutions That Help Your Business Scale Securely
+              </h1>
+
+              {/* Supporting Paragraph */}
+              <p 
+                style={{ 
+                  fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)', 
+                  color: '#4B5563', 
+                  lineHeight: 1.7, 
+                  marginBottom: '32px',
+                  maxWidth: '580px'
+                }}
+              >
+                We empower growing businesses with proactive 24/7 managed IT services, cloud migration, zero-trust cybersecurity, and custom engineering. Partner with certified experts dedicated to zero downtime, continuous compliance, and predictable IT budgets.
+              </p>
+
+              {/* Two Mandatory Buttons */}
+              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+                <button
+                  onClick={() => setActivePage('contact')}
+                  className="btn btn-primary"
+                  style={{ 
+                    padding: '14px 32px', 
+                    fontSize: '1rem',
+                    backgroundColor: '#2F6FED',
+                    color: '#FFFFFF',
+                    boxShadow: '0 8px 24px -4px rgba(47, 111, 237, 0.45)'
+                  }}
+                  id="hero-get-consultation-btn"
+                >
+                  <span>Get a Consultation</span>
+                  <ArrowRight size={18} />
+                </button>
+
+                <button
+                  onClick={() => setActivePage('services')}
+                  className="btn btn-secondary"
+                  style={{ 
+                    padding: '14px 28px', 
+                    fontSize: '1rem',
+                    border: '1px solid #D1D5DB',
+                    color: '#0B1F3A',
+                    backgroundColor: '#FFFFFF'
+                  }}
+                  id="hero-explore-services-btn"
+                >
+                  <span>Explore Services</span>
+                </button>
+              </div>
+
+              {/* Trust Checkmarks */}
+              <div 
+                style={{ 
+                  display: 'flex', 
+                  flexWrap: 'wrap', 
+                  gap: '18px', 
+                  marginTop: '36px', 
+                  paddingTop: '24px', 
+                  borderTop: '1px solid #E5E7EB' 
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: '#1F2937', fontWeight: 600 }}>
+                  <CheckCircle2 size={18} color="#10B981" />
+                  <span>Sub-15 Min SLA Response</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: '#1F2937', fontWeight: 600 }}>
+                  <CheckCircle2 size={18} color="#10B981" />
+                  <span>ISO 27001 & SOC 2 Certified</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: '#1F2937', fontWeight: 600 }}>
+                  <CheckCircle2 size={18} color="#10B981" />
+                  <span>Multi-Cloud Certified Architects</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Corporate Interactive IT Telemetry Card */}
+            <div>
+              <div 
+                className="clean-card"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E5E7EB',
+                  borderRadius: 'var(--radius-xl)',
+                  padding: 'clamp(24px, 3.5vw, 36px)',
+                  boxShadow: '0 20px 45px -10px rgba(11, 31, 58, 0.12)'
+                }}
+              >
+                {/* Header row */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', paddingBottom: '16px', borderBottom: '1px solid #E5E7EB' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#10B981', boxShadow: '0 0 10px #10B981' }} />
+                    <span style={{ fontWeight: 800, color: '#0B1F3A', fontSize: '1.05rem' }}>Active IT Operations Center</span>
+                  </div>
+                  <span style={{ fontSize: '0.82rem', color: '#4B5563', backgroundColor: '#F5F7FA', padding: '4px 10px', borderRadius: '6px', fontWeight: 600 }}>
+                    Global NOC
+                  </span>
+                </div>
+
+                {/* Telemetry Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
+                  <div style={{ backgroundColor: '#F5F7FA', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid #E5E7EB' }}>
+                    <div style={{ fontSize: '0.8rem', color: '#6B7280', fontWeight: 600 }}>Overall Network Health</div>
+                    <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0B1F3A', marginTop: '4px' }}>99.98%</div>
+                    <div style={{ fontSize: '0.78rem', color: '#10B981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px' }}>
+                      <Activity size={12} /> All nodes operational
+                    </div>
+                  </div>
+
+                  <div style={{ backgroundColor: '#F5F7FA', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid #E5E7EB' }}>
+                    <div style={{ fontSize: '0.8rem', color: '#6B7280', fontWeight: 600 }}>Threat Defense Status</div>
+                    <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#2F6FED', marginTop: '4px' }}>Zero Breach</div>
+                    <div style={{ fontSize: '0.78rem', color: '#10B981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px' }}>
+                      <ShieldCheck size={12} /> 24/7 SOC Sentinel Active
+                    </div>
+                  </div>
+                </div>
+
+                {/* Live Service Matrix */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {[
+                    { label: 'Cloud Infrastructure & Kubernetes', latency: '< 18ms', status: 'Optimal', color: '#10B981' },
+                    { label: 'Workstation Remote Helpdesk Tier 1-3', latency: '4m Avg Queue', status: 'Available', color: '#10B981' },
+                    { label: 'Automated Offsite Cloud Backup', latency: 'Continuous Sync', status: '100% Protected', color: '#10B981' }
+                  ].map((item, idx) => (
+                    <div 
+                      key={idx}
+                      style={{ 
+                        display: 'flex', 
+                        justifyContent: 'space-between', 
+                        alignItems: 'center',
+                        padding: '10px 14px',
+                        backgroundColor: '#FFFFFF',
+                        border: '1px solid #E5E7EB',
+                        borderRadius: '8px',
+                        fontSize: '0.88rem'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#1F2937', fontWeight: 600 }}>
+                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: item.color }} />
+                        <span>{item.label}</span>
+                      </div>
+                      <span style={{ fontSize: '0.8rem', color: '#2F6FED', fontWeight: 700 }}>
+                        {item.latency}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Quick Consultation Callout inside hero card */}
+                <div 
+                  style={{
+                    marginTop: '22px',
+                    padding: '14px 18px',
+                    backgroundColor: '#EEF4FE',
+                    borderRadius: 'var(--radius-md)',
+                    border: '1px solid #BFDBFE',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <div style={{ fontSize: '0.86rem', color: '#0B1F3A' }}>
+                    Need immediate technical support or IT audit?
+                  </div>
+                  <button
+                    onClick={() => setActivePage('contact')}
+                    style={{
+                      backgroundColor: '#2F6FED',
+                      color: '#FFFFFF',
+                      padding: '8px 16px',
+                      borderRadius: 'var(--radius-full)',
+                      fontSize: '0.82rem',
+                      fontWeight: 700,
+                      border: 'none',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Speak with Architect
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ===================================================================
+          2. TRUST BAR
+          =================================================================== */}
+      <section 
+        style={{ 
+          backgroundColor: '#F5F7FA', 
+          borderBottom: '1px solid #E5E7EB',
+          padding: '34px 0' 
+        }}
+      >
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '18px' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#6B7280' }}>
+              Trusted by 120+ High-Growth Enterprises, Healthcare Networks, and Fintechs
+            </span>
+          </div>
+
+          <div 
+            style={{ 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              gap: 'clamp(20px, 4vw, 48px)' 
+            }}
+          >
+            {CLIENT_LOGOS.map((client, idx) => (
+              <div 
+                key={idx}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '10px 18px',
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid #E5E7EB',
                   boxShadow: 'var(--shadow-xs)'
                 }}
               >
-                <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'var(--primary)' }} />
-                <span>{tech.name}</span>
-                <span style={{ fontSize: '0.74rem', color: 'var(--text-light)', marginLeft: '4px' }}>• {tech.category}</span>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#2F6FED' }} />
+                <span style={{ fontWeight: 800, fontSize: '0.94rem', color: '#0B1F3A', letterSpacing: '0.02em' }}>
+                  {client.logoText}
+                </span>
+                <span style={{ fontSize: '0.72rem', color: '#6B7280', borderLeft: '1px solid #E5E7EB', paddingLeft: '8px' }}>
+                  {client.tag}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-
       {/* ===================================================================
-          4. CORE IT SERVICES SHOWCASE WITH MODERN INTERACTIVE CARDS
+          3. SERVICES OVERVIEW (6 CARDS)
           =================================================================== */}
-      <section className="section">
-        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto' }}>
-
+      <section className="section" style={{ backgroundColor: '#FFFFFF' }} id="services-overview">
+        <div className="container">
+          
           <div className="section-header">
             <div className="section-badge">
-              <Layers size={15} color="var(--primary)" />
-              <span>Full-Lifecycle Technical Capabilities</span>
+              <span className="section-badge-dot" />
+              <span>Full-Spectrum Solutions</span>
             </div>
             <h2 className="section-title">
-              Crafted for Enterprise Scale & High Velocity
+              Enterprise IT Services Tailored for Growth
             </h2>
             <p className="section-subtitle">
-              We provide end-to-end IT engineering and bespoke software development with production-ready architecture.
+              From day-to-day managed helpdesk to complex multi-cloud migrations and cybersecurity compliance, our certified squads provide end-to-end technology stewardship.
             </p>
           </div>
 
-          {/* Service Cards Grid - Symmetrical 3x2 Alignment (3 Cols Desktop, 2 Cols Tablet, 1 Col Mobile) */}
-          <div 
-            className="services-grid-3x2"
-            style={{ 
-              marginBottom: '52px'
-            }}
-          >
+          {/* Symmetrical 3x2 Grid for 6 Service Cards */}
+          <div className="services-grid-3x2">
             {CORE_SERVICES.map((service) => (
-              <ModernCard
+              <div 
                 key={service.id}
                 className="clean-card"
-                style={{ 
-                  padding: '34px 28px', 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  height: '100%',
-                  background: '#ffffff'
+                style={{
+                  padding: 'clamp(24px, 3vw, 32px)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E5E7EB',
+                  borderRadius: 'var(--radius-lg)'
                 }}
               >
-                <div style={{ display: 'flex', flexDirection: 'column', flex: '1 1 auto' }}>
-                  {/* Top Icon & Badge Row */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', minHeight: '54px' }}>
+                <div>
+                  {/* Card Icon & Badge */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
                     <div 
                       style={{ 
                         width: '54px', 
                         height: '54px', 
-                        borderRadius: 'var(--radius-md)', 
-                        background: 'var(--primary-light)', 
-                        border: '1px solid #bfdbfe',
+                        borderRadius: '12px', 
+                        backgroundColor: '#EEF4FE', 
                         display: 'flex', 
                         alignItems: 'center', 
-                        justifyContent: 'center',
-                        flexShrink: 0
+                        justifyContent: 'center' 
                       }}
                     >
                       {getServiceIcon(service.icon)}
                     </div>
                     <span 
                       style={{ 
-                        padding: '5px 14px', 
+                        padding: '4px 12px', 
                         borderRadius: 'var(--radius-full)', 
-                        background: service.popular ? '#eff6ff' : 'var(--bg-subtle)',
-                        border: '1px solid ' + (service.popular ? '#bfdbfe' : 'var(--border-light)'),
-                        color: service.popular ? 'var(--primary)' : 'var(--text-muted)',
-                        fontSize: '0.78rem',
-                        fontWeight: 700
+                        fontSize: '0.75rem', 
+                        fontWeight: 700, 
+                        backgroundColor: '#F5F7FA', 
+                        border: '1px solid #E5E7EB',
+                        color: '#4B5563'
                       }}
                     >
                       {service.badge}
                     </span>
                   </div>
 
-                  {/* Title (Aligned with Exact Min Height) */}
-                  <h3 
-                    style={{ 
-                      fontSize: '1.25rem', 
-                      fontWeight: 800, 
-                      lineHeight: 1.35, 
-                      marginBottom: '12px', 
-                      color: 'var(--text-main)',
-                      minHeight: '4.2rem',
-                      display: 'flex',
-                      alignItems: 'flex-start'
-                    }}
-                  >
+                  {/* Title & Short Description */}
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '12px' }}>
                     {service.title}
                   </h3>
-
-                  {/* Description (Aligned with Exact Min Height) */}
-                  <p 
-                    style={{ 
-                      fontSize: '0.92rem', 
-                      color: 'var(--text-body)', 
-                      lineHeight: 1.6, 
-                      marginBottom: '20px',
-                      minHeight: '5.2rem',
-                      display: 'flex',
-                      alignItems: 'flex-start'
-                    }}
-                  >
+                  <p style={{ fontSize: '0.94rem', color: '#4B5563', lineHeight: 1.6, marginBottom: '20px' }}>
                     {service.shortDesc}
                   </p>
 
-                  {/* Capabilities List (Aligned with Consistent Heights) */}
-                  <div style={{ marginBottom: '24px', flex: '1 1 auto' }}>
-                    <div style={{ fontSize: '0.76rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
-                      Key Capabilities
-                    </div>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', margin: 0, padding: 0 }}>
-                      {service.capabilities.slice(0, 3).map((cap, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '9px', fontSize: '0.86rem', color: 'var(--text-main)', lineHeight: 1.4, minHeight: '2.5rem' }}>
-                          <CheckCircle2 size={16} color="var(--accent-emerald)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                          <span>{cap}</span>
+                  {/* Key Highlights list */}
+                  <div style={{ marginBottom: '24px' }}>
+                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      {service.keyFeatures.slice(0, 3).map((feat, idx) => (
+                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: '#1F2937' }}>
+                          <CheckCircle2 size={16} color="#10B981" style={{ flexShrink: 0, marginTop: '2px' }} />
+                          <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
 
-                {/* Card Bottom Meta & Action (Locked to Bottom Baseline) */}
-                <div 
-                  style={{ 
-                    paddingTop: '18px', 
-                    borderTop: '1px solid var(--border-light)', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'space-between',
-                    marginTop: 'auto'
-                  }}
-                >
-                  <div>
-                    <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)', display: 'block', marginBottom: '2px' }}>Typical Sprints</span>
-                    <div style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)' }}>{service.typicalTimeline}</div>
-                  </div>
-
+                {/* Footer link to Services Page */}
+                <div style={{ paddingTop: '16px', borderTop: '1px solid #E5E7EB', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.84rem', color: '#6B7280', fontWeight: 600 }}>
+                    {service.typicalTimeline}
+                  </span>
                   <button
-                    onClick={() => setActivePage('services')}
+                    onClick={() => {
+                      setActivePage('services');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                     style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      fontSize: '0.88rem',
+                      background: 'none',
+                      border: 'none',
+                      color: '#2F6FED',
                       fontWeight: 700,
-                      color: 'var(--primary)',
-                      padding: '8px 16px',
-                      borderRadius: 'var(--radius-full)',
-                      background: 'var(--primary-light)',
-                      border: '1px solid #bfdbfe',
-                      transition: 'all var(--transition)',
+                      fontSize: '0.9rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px',
                       cursor: 'pointer'
                     }}
                   >
-                    <span>Deep Dive</span>
+                    <span>Learn More</span>
                     <ChevronRight size={16} />
                   </button>
                 </div>
-              </ModernCard>
+              </div>
             ))}
           </div>
 
-          {/* View Full Services Button */}
-          <div style={{ textAlign: 'center' }}>
+          {/* Central Call to Action Bar */}
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
             <button
               onClick={() => setActivePage('services')}
-              className="btn btn-secondary"
-              style={{ padding: '14px 34px', fontSize: '1rem' }}
+              className="btn btn-primary"
+              style={{ padding: '14px 34px', fontSize: '1rem', backgroundColor: '#0B1F3A', color: '#FFFFFF' }}
             >
-              <span>View All IT Services & SLA Details</span>
-              <ArrowRight size={16} />
+              <span>Explore Complete Services Catalog</span>
+              <ArrowRight size={17} />
             </button>
           </div>
 
         </div>
       </section>
 
-
       {/* ===================================================================
-          5. INTERACTIVE ESTIMATOR CALLOUT BANNER
+          4. WHY CHOOSE US (4 BENEFIT CARDS)
           =================================================================== */}
-      <section style={{ padding: '40px 0 80px 0' }}>
+      <section className="section" style={{ backgroundColor: '#F5F7FA', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
         <div className="container">
-          <div
-            style={{
-              padding: 'clamp(28px, 4.5vw, 54px) clamp(20px, 4vw, 46px)',
-              borderRadius: 'var(--radius-xl)',
-              background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #1d4ed8 100%)',
-              border: '1px solid rgba(99, 102, 241, 0.3)',
-              boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.25)',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-              gap: 'clamp(24px, 3.5vw, 40px)',
-              alignItems: 'center',
-              color: '#ffffff'
-            }}
-          >
-            <div>
-              <div className="section-badge" style={{ background: 'rgba(255, 255, 255, 0.12)', color: '#93c5fd', borderColor: 'rgba(147, 197, 253, 0.3)' }}>
-                <Calculator size={15} />
-                <span>Executive Transparency</span>
-              </div>
-              <h2 style={{ fontSize: '2.3rem', fontWeight: 800, marginBottom: '16px', color: '#ffffff' }}>
-                How Much Does Your Next IT Build Cost?
-              </h2>
-              <p style={{ fontSize: '1.05rem', color: '#cbd5e1', lineHeight: 1.7, marginBottom: '28px' }}>
-                Skip the vague sales pitches. Use our interactive architectural cost estimator to calculate instant budget brackets, delivery timelines, and dedicated engineering squad composition.
-              </p>
-              <button
-                onClick={onOpenEstimator}
-                className="btn btn-primary"
-                style={{ padding: '14px 32px' }}
-              >
-                <Sparkles size={18} />
-                <span>Launch Interactive Project Calculator</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
-
-            {/* Visual Calculator Teaser Preview */}
-            <div
-              style={{
-                background: '#ffffff',
-                border: '1px solid var(--border-light)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '28px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '16px',
-                color: 'var(--text-main)',
-                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.2)'
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)', fontWeight: 600 }}>Project Scope Config</span>
-                <span style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 700 }}>● Instant Live Calculation</span>
-              </div>
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <span style={{ padding: '6px 14px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', fontSize: '0.82rem', fontWeight: 700 }}>
-                  Web-App + Mobile
-                </span>
-                <span style={{ padding: '6px 14px', borderRadius: 'var(--radius-sm)', background: '#f5f3ff', color: 'var(--accent-indigo)', fontSize: '0.82rem', fontWeight: 700 }}>
-                  GenAI Pipeline
-                </span>
-              </div>
-              <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Est. Investment Range</div>
-                  <div style={{ fontSize: '1.9rem', fontWeight: 800, color: 'var(--primary)' }}>$16,500 - $24,000</div>
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Est. Timeline</div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>6 - 8 Weeks</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ===================================================================
-          6. FEATURED CASE STUDIES WITH INTERACTIVE CARDS
-          =================================================================== */}
-      <section className="section" style={{ background: 'var(--bg-subtle)' }}>
-        <div className="container">
-
+          
           <div className="section-header">
             <div className="section-badge">
-              <TrendingUp size={15} color="var(--primary)" />
-              <span>Proven Enterprise Track Record</span>
+              <span className="section-badge-dot" />
+              <span>The AdoraTech Difference</span>
             </div>
             <h2 className="section-title">
-              Mission-Critical Deliveries in Production
+              Why High-Growth Companies Choose Us
             </h2>
             <p className="section-subtitle">
-              Take a look at how we architected enterprise-grade systems for banking, clinical telehealth, automated logistics, and global e-commerce.
+              We treat your corporate systems as our own. Discover how our proactive support, certified engineering squads, and unbending security standards keep your business moving forward.
             </p>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
-              gap: 'clamp(20px, 2.5vw, 30px)',
-              marginBottom: '40px'
+          {/* 4 Benefit Cards Grid */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', 
+              gap: '24px' 
             }}
           >
-            {CASE_STUDIES.map((project) => (
-              <ModernCard
-                key={project.id}
+            {WHY_CHOOSE_US.map((item, idx) => (
+              <div 
+                key={idx}
                 className="clean-card"
                 style={{
+                  backgroundColor: '#FFFFFF',
+                  padding: '30px 26px',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid #E5E7EB',
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  padding: '34px',
-                  background: '#ffffff'
+                  justifyContent: 'space-between'
                 }}
               >
                 <div>
-                  {/* Category & Industry */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                      {project.industry}
-                    </span>
-                    <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-                      {project.client}
-                    </span>
+                  <div 
+                    style={{ 
+                      width: '52px', 
+                      height: '52px', 
+                      borderRadius: '12px', 
+                      backgroundColor: '#EEF4FE', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      marginBottom: '20px'
+                    }}
+                  >
+                    {getWhyIcon(item.icon)}
                   </div>
 
-                  {/* Title */}
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '12px' }}>
-                    {project.title}
+                  <span 
+                    style={{
+                      display: 'inline-block',
+                      fontSize: '0.74rem',
+                      fontWeight: 700,
+                      color: '#2F6FED',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.06em',
+                      marginBottom: '8px'
+                    }}
+                  >
+                    {item.badge}
+                  </span>
+
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '12px' }}>
+                    {item.title}
                   </h3>
 
-                  {/* Description */}
-                  <p style={{ fontSize: '0.94rem', color: 'var(--text-body)', lineHeight: 1.65, marginBottom: '24px' }}>
-                    {project.description}
+                  <p style={{ fontSize: '0.92rem', color: '#4B5563', lineHeight: 1.6, margin: 0 }}>
+                    {item.shortDesc}
                   </p>
-
-                  {/* Metrics Grid */}
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(2, 1fr)',
-                      gap: '12px',
-                      padding: '18px',
-                      background: 'var(--bg-subtle)',
-                      borderRadius: 'var(--radius-md)',
-                      border: '1px solid var(--border-light)',
-                      marginBottom: '24px'
-                    }}
-                  >
-                    {project.metrics.map((m, idx) => (
-                      <div key={idx}>
-                        <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--primary)' }}>
-                          {m.value}
-                        </div>
-                        <div style={{ fontSize: '0.78rem', color: 'var(--text-main)', fontWeight: 700 }}>
-                          {m.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
 
-                {/* Tags & Action */}
-                <div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
-                    {project.tags.map((t, idx) => (
-                      <span
-                        key={idx}
-                        style={{
-                          fontSize: '0.78rem',
-                          padding: '4px 12px',
-                          borderRadius: 'var(--radius-full)',
-                          background: 'var(--bg-subtle)',
-                          color: 'var(--text-main)',
-                          border: '1px solid var(--border-light)',
-                          fontWeight: 600
-                        }}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <button
-                    onClick={() => setActivePage('contact')}
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      borderRadius: 'var(--radius-md)',
-                      background: '#ffffff',
-                      border: '1px solid var(--border-light)',
-                      color: 'var(--text-main)',
-                      fontSize: '0.88rem',
-                      fontWeight: 700,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px',
-                      boxShadow: 'var(--shadow-xs)',
-                      transition: 'all var(--transition)'
-                    }}
-                  >
-                    <span>Request Architecture Brief</span>
-                    <ArrowRight size={14} />
-                  </button>
+                <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid #E5E7EB', display: 'flex', alignItems: 'center', gap: '6px', color: '#10B981', fontSize: '0.84rem', fontWeight: 600 }}>
+                  <CheckCircle2 size={15} />
+                  <span>Verified Standard</span>
                 </div>
-              </ModernCard>
+              </div>
             ))}
           </div>
 
         </div>
       </section>
 
+      {/* ===================================================================
+          5. STATS SECTION (250+ projects, 120+ clients, 15+ years, 99.9% uptime)
+          =================================================================== */}
+      <section 
+        style={{ 
+          backgroundColor: '#0B1F3A', 
+          color: '#FFFFFF', 
+          padding: 'clamp(50px, 6vw, 80px) 0',
+          position: 'relative'
+        }}
+      >
+        <div className="container">
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', 
+              gap: 'clamp(24px, 3.5vw, 40px)',
+              textAlign: 'center'
+            }}
+          >
+            {COMPANY_INFO.stats.map((stat, idx) => (
+              <div 
+                key={idx}
+                style={{
+                  padding: '24px 16px',
+                  borderRadius: 'var(--radius-md)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                  border: '1px solid rgba(255, 255, 255, 0.08)'
+                }}
+              >
+                <div 
+                  style={{ 
+                    fontSize: 'clamp(2.8rem, 4.5vw, 3.6rem)', 
+                    fontWeight: 900, 
+                    color: '#60A5FA',
+                    lineHeight: 1,
+                    marginBottom: '10px',
+                    fontFamily: 'var(--font-heading)'
+                  }}
+                >
+                  {stat.value}
+                </div>
+                <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '4px' }}>
+                  {stat.label}
+                </div>
+                <div style={{ fontSize: '0.82rem', color: '#94A3B8' }}>
+                  Audited & Verified SLA
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ===================================================================
-          7. CLIENT TESTIMONIALS WITH VERIFIED ENDORSEMENTS
+          6. FEATURED CASE STUDIES (3 PROJECT CARDS)
           =================================================================== */}
-      <section className="section">
+      <section className="section" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="container">
-
+          
           <div className="section-header">
             <div className="section-badge">
-              <Star size={15} color="var(--primary)" />
-              <span>Verified Client Endorsements</span>
+              <span className="section-badge-dot" />
+              <span>Proven Business Results</span>
             </div>
             <h2 className="section-title">
-              Endorsed by Engineering Executives & Founders
+              Featured Case Studies
             </h2>
             <p className="section-subtitle">
-              Read how enterprise CTOs and fast-growing founders describe partnering with our technical teams.
+              Explore how we have modernized core infrastructures, enforced regulatory compliance, and unlocked scalable operational capacity for enterprise market leaders.
             </p>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-              gap: 'clamp(18px, 2.5vw, 26px)'
+          {/* 3 Case Study Cards */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', 
+              gap: '30px' 
+            }}
+          >
+            {featuredCases.map((cs) => (
+              <div 
+                key={cs.id}
+                className="clean-card"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E5E7EB',
+                  borderRadius: 'var(--radius-lg)',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
+              >
+                {/* Image & Category Overlay */}
+                <div style={{ position: 'relative', height: '210px', overflow: 'hidden' }}>
+                  <img 
+                    src={cs.image} 
+                    alt={cs.title} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div 
+                    style={{
+                      position: 'absolute',
+                      top: '14px',
+                      left: '14px',
+                      backgroundColor: '#0B1F3A',
+                      color: '#FFFFFF',
+                      fontSize: '0.74rem',
+                      fontWeight: 700,
+                      padding: '4px 12px',
+                      borderRadius: 'var(--radius-full)',
+                      letterSpacing: '0.04em'
+                    }}
+                  >
+                    {cs.category}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <div style={{ fontSize: '0.82rem', color: '#6B7280', fontWeight: 600, marginBottom: '6px' }}>
+                      {cs.client}
+                    </div>
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '12px', lineHeight: 1.35 }}>
+                      {cs.title}
+                    </h3>
+                    <p style={{ fontSize: '0.92rem', color: '#4B5563', lineHeight: 1.6, marginBottom: '20px' }}>
+                      {cs.description}
+                    </p>
+                  </div>
+
+                  {/* Metrics preview */}
+                  <div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '20px', padding: '12px', backgroundColor: '#F5F7FA', borderRadius: '8px' }}>
+                      {cs.metrics.slice(0, 2).map((m, i) => (
+                        <div key={i}>
+                          <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#2F6FED' }}>{m.value}</div>
+                          <div style={{ fontSize: '0.75rem', color: '#6B7280', fontWeight: 600 }}>{m.label}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={() => onSelectCaseStudy && onSelectCaseStudy(cs)}
+                      style={{
+                        width: '100%',
+                        padding: '12px',
+                        backgroundColor: '#EEF4FE',
+                        color: '#2F6FED',
+                        border: '1px solid #BFDBFE',
+                        borderRadius: 'var(--radius-md)',
+                        fontSize: '0.9rem',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '6px',
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      <span>View Case Study</span>
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ===================================================================
+          7. TESTIMONIALS (3 CLIENT TESTIMONIALS)
+          =================================================================== */}
+      <section className="section" style={{ backgroundColor: '#F5F7FA', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
+        <div className="container">
+          
+          <div className="section-header">
+            <div className="section-badge">
+              <span className="section-badge-dot" />
+              <span>Executive Endorsements</span>
+            </div>
+            <h2 className="section-title">
+              What Our Clients Say
+            </h2>
+            <p className="section-subtitle">
+              Read how enterprise executives trust AdoraTech as their ongoing IT managed services, cloud, and cybersecurity ally.
+            </p>
+          </div>
+
+          {/* 3 Testimonials Grid */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', 
+              gap: '28px' 
             }}
           >
             {TESTIMONIALS.map((t, idx) => (
-              <ModernCard
+              <div 
                 key={idx}
                 className="clean-card"
                 style={{
-                  padding: '34px',
+                  backgroundColor: '#FFFFFF',
+                  padding: '32px 28px',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid #E5E7EB',
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  background: '#ffffff'
+                  justifyContent: 'space-between'
                 }}
               >
                 <div>
                   {/* Rating Stars */}
-                  <div style={{ display: 'flex', gap: '4px', marginBottom: '18px' }}>
+                  <div style={{ display: 'flex', gap: '4px', marginBottom: '16px' }}>
                     {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} size={18} fill="#f59e0b" color="#f59e0b" />
+                      <Star key={i} size={18} fill="#F59E0B" color="#F59E0B" />
                     ))}
                   </div>
 
-                  {/* Text Quote */}
-                  <p style={{ fontSize: '0.98rem', color: 'var(--text-body)', lineHeight: 1.75, fontStyle: 'italic', marginBottom: '24px' }}>
-                    "{t.text}"
+                  {/* Quote */}
+                  <p style={{ fontSize: '0.98rem', color: '#1F2937', lineHeight: 1.7, fontStyle: 'italic', marginBottom: '24px' }}>
+                    “{t.text}”
                   </p>
                 </div>
 
                 {/* Author Info */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', paddingTop: '18px', borderTop: '1px solid var(--border-light)' }}>
-                  <img
-                    src={t.avatar}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', paddingTop: '18px', borderTop: '1px solid #E5E7EB' }}>
+                  <img 
+                    src={t.avatar} 
                     alt={t.name}
-                    style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--primary)' }}
+                    style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #BFDBFE' }}
                   />
                   <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-main)' }}>{t.name}</div>
-                    <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>{t.role}, <span style={{ color: 'var(--primary)', fontWeight: 700 }}>{t.company}</span></div>
+                    <div style={{ fontSize: '1rem', fontWeight: 800, color: '#0B1F3A' }}>
+                      {t.name}
+                    </div>
+                    <div style={{ fontSize: '0.82rem', color: '#4B5563' }}>
+                      {t.role}, <strong style={{ color: '#2F6FED' }}>{t.company}</strong>
+                    </div>
                   </div>
                 </div>
-              </ModernCard>
+              </div>
             ))}
           </div>
 
         </div>
       </section>
 
-
       {/* ===================================================================
-          8. BOTTOM CONVERSION BANNER
+          8. CALL-TO-ACTION (CTA) SECTION
           =================================================================== */}
-      <section style={{ padding: '60px 0 100px 0' }}>
-        <div className="container">
-          <div
-            style={{
-              padding: '64px 44px',
-              textAlign: 'center',
-              borderRadius: 'var(--radius-xl)',
-              background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 55%, #1e3a8a 100%)',
-              border: '1px solid rgba(99, 102, 241, 0.35)',
-              boxShadow: '0 25px 60px -12px rgba(15, 23, 42, 0.3)',
-              color: '#ffffff'
-            }}
-          >
-            <div className="section-badge" style={{ background: 'rgba(255, 255, 255, 0.12)', color: '#93c5fd', borderColor: 'rgba(147, 197, 253, 0.3)' }}>
-              <Zap size={15} />
-              <span>Initiate Your Transformation</span>
+      <section 
+        style={{ 
+          backgroundColor: '#0B1F3A', 
+          color: '#FFFFFF', 
+          padding: 'clamp(64px, 8vw, 100px) 0',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        {/* Subtle geometric background overlay */}
+        <div 
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(47, 111, 237, 0.25) 0%, transparent 60%)',
+            pointerEvents: 'none'
+          }}
+        />
+
+        <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+            
+            <div 
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '6px 16px',
+                borderRadius: 'var(--radius-full)',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#60A5FA',
+                fontSize: '0.84rem',
+                fontWeight: 700,
+                marginBottom: '20px'
+              }}
+            >
+              <ShieldCheck size={16} />
+              <span>Free 30-Minute Architecture & Security Review</span>
             </div>
 
-            <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800, marginBottom: '18px', maxWidth: '780px', margin: '0 auto 18px auto', color: '#ffffff' }}>
-              Ready to Build Your Next High-Performance Software Product?
+            <h2 
+              style={{ 
+                fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', 
+                fontWeight: 900, 
+                lineHeight: 1.18, 
+                marginBottom: '20px',
+                color: '#FFFFFF',
+                letterSpacing: '-0.03em'
+              }}
+            >
+              Ready to modernize your IT infrastructure?
             </h2>
 
-            <p style={{ fontSize: '1.15rem', color: '#cbd5e1', maxWidth: '640px', margin: '0 auto 36px auto', lineHeight: 1.75 }}>
-              Schedule a 30-minute discovery call with our Principal Architect. We will analyze your technical requirements, outline an architectural roadmap, and provide a fixed quote.
+            <p 
+              style={{ 
+                fontSize: 'clamp(1.05rem, 1.8vw, 1.22rem)', 
+                color: '#94A3B8', 
+                lineHeight: 1.7, 
+                marginBottom: '36px',
+                maxWidth: '680px',
+                margin: '0 auto 36px auto'
+              }}
+            >
+              Schedule a consultation with our Principal IT Architects. We will review your current infrastructure, identify security vulnerabilities, and outline a realistic roadmap to support your business expansion.
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
               <button
                 onClick={() => setActivePage('contact')}
                 className="btn btn-primary"
-                style={{ padding: '16px 38px', fontSize: '1.05rem' }}
+                style={{ 
+                  padding: '16px 38px', 
+                  fontSize: '1.05rem', 
+                  backgroundColor: '#2F6FED',
+                  color: '#FFFFFF',
+                  boxShadow: '0 10px 30px rgba(47, 111, 237, 0.45)'
+                }}
+                id="cta-get-consultation-btn"
               >
-                <span>Schedule Architecture Call</span>
+                <span>Get a Consultation</span>
                 <ArrowRight size={18} />
               </button>
 
               <button
-                onClick={() => setActivePage('about')}
+                onClick={onOpenEstimator}
                 className="btn btn-secondary"
-                style={{ padding: '16px 32px', fontSize: '1.05rem', background: 'rgba(255, 255, 255, 0.12)', color: '#ffffff', borderColor: 'rgba(255, 255, 255, 0.3)' }}
+                style={{ 
+                  padding: '16px 32px', 
+                  fontSize: '1.05rem',
+                  backgroundColor: '#FFFFFF',
+                  color: '#0B1F3A'
+                }}
               >
-                <span>Learn About Our Team</span>
+                <Calendar size={18} color="#2F6FED" />
+                <span>Estimate Project Cost</span>
               </button>
             </div>
+
+            <div style={{ marginTop: '28px', fontSize: '0.85rem', color: '#94A3B8' }}>
+              No obligation • Mutual NDA signed upon request • Sub-1 business day response
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* ===================================================================
+          9. BLOG PREVIEW (3 LATEST ARTICLES)
+          =================================================================== */}
+      <section className="section" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="container">
+          
+          <div className="section-header">
+            <div className="section-badge">
+              <span className="section-badge-dot" />
+              <span>Knowledge Base & Insights</span>
+            </div>
+            <h2 className="section-title">
+              Latest Technology Insights
+            </h2>
+            <p className="section-subtitle">
+              Practical guides, cloud migration playbooks, and cybersecurity blueprints written directly by our technical leadership.
+            </p>
+          </div>
+
+          {/* 3 Blog Cards */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', 
+              gap: '30px' 
+            }}
+          >
+            {latestPosts.map((post) => (
+              <div 
+                key={post.id}
+                className="clean-card"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E5E7EB',
+                  borderRadius: 'var(--radius-lg)',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
+              >
+                {/* Article Image & Category Badge */}
+                <div style={{ position: 'relative', height: '190px', overflow: 'hidden' }}>
+                  <img 
+                    src={post.image} 
+                    alt={post.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div 
+                    style={{
+                      position: 'absolute',
+                      top: '12px',
+                      left: '12px',
+                      backgroundColor: '#2F6FED',
+                      color: '#FFFFFF',
+                      fontSize: '0.72rem',
+                      fontWeight: 700,
+                      padding: '4px 10px',
+                      borderRadius: 'var(--radius-full)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em'
+                    }}
+                  >
+                    {post.category}
+                  </div>
+                </div>
+
+                {/* Article Body */}
+                <div style={{ padding: '22px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: '#6B7280', marginBottom: '8px' }}>
+                      <Clock size={14} />
+                      <span>{post.readTime}</span>
+                      <span>•</span>
+                      <span>{post.publishDate}</span>
+                    </div>
+
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0B1F3A', marginBottom: '10px', lineHeight: 1.38 }}>
+                      {post.title}
+                    </h3>
+
+                    <p style={{ fontSize: '0.9rem', color: '#4B5563', lineHeight: 1.6, marginBottom: '20px' }}>
+                      {post.excerpt}
+                    </p>
+                  </div>
+
+                  {/* Read More Link */}
+                  <div style={{ paddingTop: '16px', borderTop: '1px solid #E5E7EB', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <img 
+                        src={post.author.avatar} 
+                        alt={post.author.name}
+                        style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }}
+                      />
+                      <span style={{ fontSize: '0.84rem', fontWeight: 600, color: '#1F2937' }}>
+                        {post.author.name}
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={() => onSelectBlogPost && onSelectBlogPost(post)}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        color: '#2F6FED',
+                        fontWeight: 700,
+                        fontSize: '0.88rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      <span>Read More</span>
+                      <ArrowRight size={15} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* View All Blog Posts Link */}
+          <div style={{ textAlign: 'center', marginTop: '44px' }}>
+            <button
+              onClick={() => {
+                setActivePage('blog');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="btn btn-secondary"
+              style={{ padding: '12px 28px', fontSize: '0.95rem', border: '1px solid #D1D5DB' }}
+            >
+              <span>View All Insights & Articles</span>
+              <ArrowRight size={16} />
+            </button>
+          </div>
+
         </div>
       </section>
 

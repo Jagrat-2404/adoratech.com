@@ -1,522 +1,292 @@
 export const COMPANY_INFO = {
   name: "AdoraTech",
-  legalName: "AdoraTech Solutions Inc.",
-  tagline: "Architecting Digital Dominance for the Intelligent Enterprise",
-  description: "We are an elite software engineering and IT consulting partner. We design, build, scale, and secure world-class web applications, mobile ecosystems, enterprise systems, and AI automation engines for ambitious brands.",
-  foundedYear: 2018,
-  email: "hello@adoratech.com",
-  salesEmail: "inquiries@adoratech.com",
+  legalName: "AdoraTech IT Solutions Inc.",
+  tagline: "Reliable IT solutions for growing businesses.",
+  description: "AdoraTech delivers enterprise-grade managed IT services, proactive cybersecurity, cloud migration, and bespoke software engineering. We partner with ambitious organizations to transform complex technology into a dependable engine for secure growth.",
+  foundedYear: 2011,
+  yearsExperience: "15+",
+  email: "contact@adoratech.com",
+  salesEmail: "sales@adoratech.com",
+  supportEmail: "support@adoratech.com",
   phone: "+1 (800) 492-3672",
   directLine: "+1 (415) 890-2341",
+  address: "500 Howard Street, Suite 400, San Francisco, CA 94105",
+  businessHours: "Monday – Friday: 8:00 AM – 6:00 PM PST (24/7/365 Emergency NOC & SOC for Managed Clients)",
   stats: [
-    { value: "250+", label: "Enterprise Apps Delivered", suffix: "+" },
-    { value: "99.8%", label: "On-Time Sprint SLA", suffix: "%" },
-    { value: "60+", label: "Senior Engineers & Architects", suffix: "+" },
-    { value: "15+", label: "Global Design & Tech Awards", suffix: "+" },
-    { value: "99.4%", label: "Client Retention Rate", suffix: "%" },
-    { value: "$280M+", label: "Client Valuation Created", suffix: "+" }
+    { value: "250+", label: "Projects Delivered", suffix: "+" },
+    { value: "120+", label: "Enterprise Clients", suffix: "+" },
+    { value: "15+", label: "Years Experience", suffix: "+" },
+    { value: "99.9%", label: "Uptime SLA", suffix: "%" }
   ]
 };
 
 export const CORE_SERVICES = [
   {
-    id: "web-development",
-    category: "web",
-    title: "Custom Web Application Engineering",
-    shortDesc: "Ultra-fast, responsive, reactive web applications built with modern frontend architectures and high-throughput APIs.",
-    longDesc: "From high-converting SaaS platforms to complex multi-tenant dashboards, we architect web experiences that load in sub-seconds, adhere to strict WCAG accessibility guidelines, and effortlessly scale to millions of concurrent users.",
-    icon: "Globe",
-    badge: "Most Requested",
+    id: "managed-it",
+    category: "it-management",
+    title: "Managed IT Services",
+    shortTitle: "Managed IT",
+    shortDesc: "Proactive 24/7 infrastructure monitoring, rapid helpdesk support, remote desktop management, and automated maintenance.",
+    longDesc: "Eliminate costly downtime and IT headaches. Our fully managed IT services provide complete oversight of your workstations, servers, network hardware, and employee workflows with guaranteed response SLAs under 15 minutes.",
+    icon: "Server",
+    badge: "Core Enterprise",
     popular: true,
-    capabilities: [
-      "Single-Page Applications (SPA) & Micro-Frontends",
-      "Progressive Web Apps (PWA) with Offline Sync",
-      "Next.js / React Server Components & Static Generation",
-      "Real-time Dashboards via WebSockets & GraphQL Subscriptions",
-      "Headless CMS & High-Speed E-Commerce Engines",
-      "Core Web Vitals Optimization (99+ Lighthouse Scores)"
+    keyFeatures: [
+      "24/7/365 NOC monitoring & automated alert triage",
+      "Tier 1–3 remote helpdesk & dedicated onsite dispatch",
+      "Automated OS patch management & software vulnerability remediation",
+      "Hardware asset lifecycle tracking & procurement assistance",
+      "Vendor management for telecom, ISPs, and SaaS licenses",
+      "Disaster recovery planning & automated offsite backups"
     ],
-    techStack: ["React 19", "Next.js", "TypeScript", "Node.js", "GraphQL", "TailwindCSS", "PostgreSQL", "Redis"],
-    deliverables: "Design System, Full Source Code, CI/CD Pipeline, Automated Test Suite, Production Deployment",
-    startingPrice: "$7,500",
-    typicalTimeline: "4 - 8 weeks",
-    caseSnippet: "Accelerated load times by 72% for FinFlow SaaS, leading to +38% user onboarding completion."
+    techStack: ["Datadog", "ConnectWise", "ServiceNow", "NinjaOne", "Zabbix", "Ansible"],
+    deliverables: "Monthly Health Scorecard, Dedicated vCIO Account Reviews, SLA Guarantee Contract",
+    startingPrice: "$99 / user / mo",
+    typicalTimeline: "Immediate Onboarding (1-2 Weeks)",
+    caseSnippet: "Lowered IT ticket resolution time by 68% for a 450-employee healthcare network with zero system outages."
   },
   {
-    id: "mobile-development",
-    category: "mobile",
-    title: "Mobile App Development (iOS & Android)",
-    shortDesc: "Intuitive, high-performance native and cross-platform mobile apps crafted for 60fps fluidity and delightful interactions.",
-    longDesc: "We craft award-winning mobile experiences across iOS, Android, and wearables. Leveraging React Native and Flutter for cross-platform speed or pure Swift/Kotlin for native power, we ensure pixel perfection and seamless hardware integrations.",
-    icon: "Smartphone",
-    badge: "Flagship",
-    popular: true,
-    capabilities: [
-      "Cross-Platform Flutter & React Native Engineering",
-      "Native iOS (Swift / SwiftUI) & Android (Kotlin / Compose)",
-      "Biometric Security, Apple Pay & Google Wallet Integrations",
-      "Offline-First Data Sync & Background Geolocation",
-      "Bluetooth BLE, Camera Computer Vision & IoT Connectivity",
-      "App Store & Google Play Launch & Optimization (ASO)"
-    ],
-    techStack: ["Flutter", "React Native", "Swift", "Kotlin", "Firebase", "SQLite", "Fastlane", "Mixpanel"],
-    deliverables: "Interactive Prototypes, App Store Binaries, Backend APIs, Push Notification Infrastructure, Analytics Setup",
-    startingPrice: "$9,000",
-    typicalTimeline: "6 - 12 weeks",
-    caseSnippet: "Engineered TeleHealth Go with 4.9★ rating on iOS App Store and 650k+ active patient users."
-  },
-  {
-    id: "enterprise-software",
-    category: "enterprise",
-    title: "Enterprise Software & ERP/CRM Solutions",
-    shortDesc: "Tailored mission-critical software, custom business portals, and intelligent workflow automation systems.",
-    longDesc: "We replace fragmented spreadsheets, legacy bottlenecks, and inflexible off-the-shelf software with bespoke enterprise platforms. Our architectures feature strict access control, event-driven pipelines, and seamless synchronization with third-party software.",
-    icon: "Cpu",
-    badge: "High Impact",
-    popular: false,
-    capabilities: [
-      "Custom ERP, CRM & Supply Chain Management Systems",
-      "Legacy Code Modernization & Monolith-to-Microservices",
-      "Event-Driven Architecture (Kafka / RabbitMQ / SQS)",
-      "Role-Based Access Control (RBAC) & SAML/SSO Integration",
-      "Automated Regulatory Compliance & Audit Logging",
-      "High-Volume Data Processing & Distributed Transactions"
-    ],
-    techStack: ["Go", "Python", "Java Spring Boot", ".NET Core", "Kafka", "Docker", "Kubernetes", "MongoDB"],
-    deliverables: "Architecture Blueprint, Microservice Cluster, Data Migration Strategy, Enterprise SLA Support",
-    startingPrice: "$14,000",
-    typicalTimeline: "8 - 16 weeks",
-    caseSnippet: "Modernized legacy logistics software for global carrier, eliminating $1.4M in annual server maintenance costs."
-  },
-  {
-    id: "ai-automation",
-    category: "ai",
-    title: "GenAI, LLMs & Intelligent Automation",
-    shortDesc: "Harness generative AI, proprietary RAG pipelines, and automated agentic workflows to multiply business efficiency.",
-    longDesc: "Transform raw organizational knowledge into actionable intelligence. We design specialized generative AI agents, document processing pipelines, predictive machine learning models, and conversational assistants tuned specifically to your private enterprise data.",
-    icon: "Bot",
-    badge: "Trending 2026",
-    popular: true,
-    capabilities: [
-      "Enterprise Retrieval-Augmented Generation (RAG) Pipelines",
-      "Autonomous Multi-Agent Systems & Tool-Calling Bots",
-      "Private LLM Hosting (Llama, Mistral, DeepSeek) with Zero Data Leakage",
-      "Computer Vision & Document Extraction (OCR/IDP)",
-      "Predictive Analytics & Real-Time Churn / Anomaly Detection",
-      "Custom Model Fine-Tuning & Vector Embeddings"
-    ],
-    techStack: ["Python", "PyTorch", "LangChain", "LlamaIndex", "ChromaDB", "Pinecone", "OpenAI", "HuggingFace"],
-    deliverables: "Model Weights, Fine-Tuning Pipelines, Custom Vector Store, Secure API Gateway, Performance Dashboard",
-    startingPrice: "$11,000",
-    typicalTimeline: "5 - 10 weeks",
-    caseSnippet: "Built internal legal synthesis AI assistant saving 4,200 billable research hours per quarter."
-  },
-  {
-    id: "cloud-devops",
+    id: "cloud-solutions",
     category: "cloud",
-    title: "Cloud Architecture, DevOps & Site Reliability",
-    shortDesc: "Resilient multi-cloud infrastructure, automated GitOps CI/CD pipelines, and 99.99% high-availability setups.",
-    longDesc: "We eliminate deployment anxiety and cut redundant cloud bills. Our certified AWS, GCP, and Azure architects build automated, self-healing cloud foundations with infrastructure-as-code, zero-downtime rolling releases, and end-to-end telemetry.",
+    title: "Cloud Solutions & Migration",
+    shortTitle: "Cloud Solutions",
+    shortDesc: "Secure cloud migration, hybrid infrastructure design, cost optimization (FinOps), and high-availability multi-cloud architecture.",
+    longDesc: "Transition legacy workloads to AWS, Microsoft Azure, or Google Cloud Platform without disrupting daily business. We architect resilient, auto-scaling environments equipped with Infrastructure-as-Code and continuous cost governance.",
     icon: "Cloud",
-    badge: "Certified",
-    popular: false,
-    capabilities: [
-      "Infrastructure as Code (Terraform & Pulumi)",
-      "Kubernetes (EKS / GKE) Orchestration & Helm Packaging",
-      "Automated CI/CD Pipelines with GitHub Actions & GitLab CI",
-      "FinOps Cloud Cost Optimization (30-50% Cost Reductions)",
-      "Zero-Downtime Blue/Green and Canary Deployments",
-      "24/7 Telemetry, APM & Prometheus / Grafana Observability"
+    badge: "Certified Partners",
+    popular: true,
+    keyFeatures: [
+      "Zero-downtime database and workload cloud migration",
+      "Multi-cloud architectures across AWS, Azure, and Google Cloud",
+      "FinOps cloud spend audits saving clients an average of 35%",
+      "Automated infrastructure provisioning via Terraform and Pulumi",
+      "Kubernetes & container orchestration (EKS, AKS, GKE)",
+      "High availability (HA) multi-region disaster recovery replication"
     ],
-    techStack: ["AWS", "Google Cloud", "Azure", "Terraform", "Kubernetes", "Docker", "Prometheus", "Datadog"],
-    deliverables: "Terraform Modules, CI/CD Workflows, SRE Runbooks, Cloud Cost Optimization Report",
+    techStack: ["AWS", "Microsoft Azure", "Google Cloud", "Terraform", "Kubernetes", "Docker", "Prometheus"],
+    deliverables: "Cloud Architecture Blueprint, Terraform Repositories, FinOps Cost Reduction Audit",
     startingPrice: "$6,500",
-    typicalTimeline: "3 - 6 weeks",
-    caseSnippet: "Reduced cloud spend by 44% while increasing peak server capacity to handle 10x Black Friday surges."
+    typicalTimeline: "3 - 8 weeks",
+    caseSnippet: "Migrated a 20-year legacy ERP to Azure Cloud with zero data loss and 42% lower annual hosting expenses."
   },
   {
     id: "cybersecurity",
-    category: "security",
-    title: "Cybersecurity, Pentesting & Compliance",
-    shortDesc: "Proactive threat protection, penetration testing, source code audits, and SOC2 / ISO 27001 readiness.",
-    longDesc: "Security is non-negotiable. Our certified ethical hackers simulate real-world attacks against your apps and APIs, identifying hidden vulnerabilities before adversaries do. We help tech companies become SOC2, HIPAA, and GDPR compliant.",
+    category: "cybersecurity",
+    title: "Cybersecurity & Compliance",
+    shortTitle: "Cybersecurity",
+    shortDesc: "Comprehensive threat detection, SOC 2 / ISO 27001 readiness, ethical penetration testing, and zero-trust perimeter defense.",
+    longDesc: "Safeguard your critical assets and proprietary data. Our certified security analysts implement multi-layered defenses, manage 24/7 Security Operations Center (SOC) telemetry, and prepare your business for strict regulatory compliance audits.",
     icon: "ShieldCheck",
     badge: "Mission Critical",
-    popular: false,
-    capabilities: [
-      "Full Web & Mobile Application Penetration Testing",
-      "Static & Dynamic Application Security Testing (SAST/DAST)",
-      "SOC2 Type II, ISO 27001 & HIPAA Readiness Audits",
-      "Zero-Trust Architecture & Cloud IAM Hardening",
-      "Smart Contract & Cryptographic Algorithm Auditing",
-      "Incident Response Planning & Red-Team Simulations"
+    popular: true,
+    keyFeatures: [
+      "24/7 Managed Detection and Response (MDR / SIEM / EDR)",
+      "SOC 2 Type II, ISO 27001, HIPAA & GDPR compliance readiness",
+      "Network, web app, and external API penetration testing",
+      "Zero-Trust Architecture & identity access management (IAM)",
+      "Phishing simulation training & employee cyber awareness",
+      "Incident response planning, red teaming, and tabletop drills"
     ],
-    techStack: ["OWASP ZAP", "Burp Suite", "Snyk", "SonarQube", "Trivy", "Vault", "Cloudflare Zero Trust"],
-    deliverables: "Executive Risk Report, Detailed Remediation Guide, Security Attestation Certificate",
-    startingPrice: "$7,000",
-    typicalTimeline: "2 - 5 weeks",
-    caseSnippet: "Identified and remediated 14 critical API authorization flaws prior to series B funding round."
+    techStack: ["CrowdStrike", "SentinelOne", "Splunk", "Cloudflare Zero Trust", "Burp Suite", "HashiCorp Vault"],
+    deliverables: "Executive Risk & Vulnerability Report, SOC 2 Gap Analysis, Security Attestation Certificate",
+    startingPrice: "$7,500",
+    typicalTimeline: "2 - 6 weeks",
+    caseSnippet: "Shielded a fintech payment processor handling $3.2B annually with zero security breaches across 3 years."
+  },
+  {
+    id: "software-development",
+    category: "software-dev",
+    title: "Custom Software Development",
+    shortTitle: "Software Development",
+    shortDesc: "High-performance web applications, responsive customer portals, mobile applications, and resilient backend microservices.",
+    longDesc: "When off-the-shelf software falls short, our senior engineering squad crafts tailored digital solutions. We combine modern frameworks, clean code principles, and intuitive UX design to deliver software that scales effortlessly.",
+    icon: "Code2",
+    badge: "Full-Cycle Agile",
+    popular: true,
+    keyFeatures: [
+      "Custom web applications & modern enterprise customer portals",
+      "Cross-platform iOS and Android mobile apps (React Native / Flutter)",
+      "RESTful and GraphQL API design with automated OpenAPI documentation",
+      "Modernization of outdated legacy systems & monolith refactoring",
+      "Database schema optimization (PostgreSQL, MongoDB, Redis)",
+      "Automated CI/CD deployment pipelines with 85%+ test coverage"
+    ],
+    techStack: ["React", "TypeScript", "Node.js", "Python", "Go", "PostgreSQL", "Next.js", "Docker"],
+    deliverables: "Design System, 100% IP Source Code Ownership, Automated Test Suite, CI/CD Pipeline",
+    startingPrice: "$8,500",
+    typicalTimeline: "4 - 12 weeks",
+    caseSnippet: "Built a customized real-time fleet logistics portal reducing vehicle downtime by 45% for 18,000 drivers."
+  },
+  {
+    id: "it-consulting",
+    category: "it-management",
+    title: "IT Consulting & Digital Transformation",
+    shortTitle: "IT Consulting",
+    shortDesc: "Strategic virtual CIO (vCIO) advisory, IT roadmapping, technology audits, and legacy modernization roadmaps.",
+    longDesc: "Align technology investment directly with commercial objectives. We serve as your strategic technical advisors, auditing current tech stacks, evaluating vendor contracts, and architecting actionable roadmaps for sustainable digital maturity.",
+    icon: "Lightbulb",
+    badge: "Executive Advisory",
+    popular: false,
+    keyFeatures: [
+      "Fractional vCIO and enterprise technology steering committee",
+      "Comprehensive IT infrastructure health & security audits",
+      "Digital transformation roadmaps with ROI forecasting",
+      "Software vendor evaluation, negotiation & procurement guidance",
+      "IT budgeting, CAPEX/OPEX modeling, and resource planning",
+      "Mergers & Acquisitions (M&A) technical due diligence assessments"
+    ],
+    techStack: ["Gartner IT Framework", "TOGAF", "ITIL 4", "COBIT", "Agile", "Jira"],
+    deliverables: "3-Year Strategic IT Masterplan, Tech Debt Audit, Executive Presentation Deck",
+    startingPrice: "$5,000",
+    typicalTimeline: "2 - 4 weeks",
+    caseSnippet: "Formulated a 3-year digital modernization plan for an insurance firm, unlocking $2.1M in efficiency gains."
+  },
+  {
+    id: "data-analytics",
+    category: "ai",
+    title: "Data Analytics & Business Intelligence",
+    shortTitle: "Data & Analytics",
+    shortDesc: "Centralized data warehousing, interactive PowerBI/Tableau dashboards, predictive analytics, and enterprise GenAI integration.",
+    longDesc: "Turn dormant data silos into actionable executive decision-making. We construct resilient ETL/ELT pipelines, unified cloud data lakes, and automated reporting dashboards that offer real-time clarity across your entire operation.",
+    icon: "BarChart3",
+    badge: "Data-Driven",
+    popular: false,
+    keyFeatures: [
+      "Modern data stack architecture (Snowflake, BigQuery, Databricks)",
+      "Automated ETL / ELT data pipeline engineering with dbt & Airflow",
+      "Custom executive dashboards in Power BI, Tableau, and Metabase",
+      "Predictive analytics, customer churn modeling & anomaly detection",
+      "Generative AI & LLM enterprise assistants fine-tuned on private data",
+      "Data governance, role-based privacy masking & master data management"
+    ],
+    techStack: ["Snowflake", "dbt", "Python", "Power BI", "Tableau", "Apache Airflow", "PostgreSQL"],
+    deliverables: "Centralized Data Lakehouse, Real-Time BI Dashboards, Data Dictionary & Governance Docs",
+    startingPrice: "$8,000",
+    typicalTimeline: "4 - 8 weeks",
+    caseSnippet: "Consolidated 8 disparate enterprise data sources into Snowflake, cutting weekly executive reporting from 3 days to 4 seconds."
   }
 ];
 
-export const TECH_STACK = [
-  { name: "React 19", category: "Frontend", level: "Core" },
-  { name: "Next.js 15", category: "Frontend", level: "Core" },
-  { name: "TypeScript", category: "Language", level: "Core" },
-  { name: "Node.js", category: "Backend", level: "Core" },
-  { name: "Python", category: "AI & Backend", level: "Core" },
-  { name: "Go (Golang)", category: "Backend", level: "Advanced" },
-  { name: "Flutter", category: "Mobile", level: "Core" },
-  { name: "React Native", category: "Mobile", level: "Core" },
-  { name: "Swift", category: "iOS", level: "Specialist" },
-  { name: "Kotlin", category: "Android", level: "Specialist" },
-  { name: "PostgreSQL", category: "Database", level: "Core" },
-  { name: "MongoDB", category: "Database", level: "Core" },
-  { name: "Redis", category: "Caching", level: "Core" },
-  { name: "AWS Cloud", category: "Cloud", level: "Partner" },
-  { name: "Google Cloud", category: "Cloud", level: "Partner" },
-  { name: "Docker", category: "DevOps", level: "Core" },
-  { name: "Kubernetes", category: "DevOps", level: "Core" },
-  { name: "Terraform", category: "DevOps", level: "Core" },
-  { name: "GraphQL", category: "API", level: "Core" },
-  { name: "Kafka", category: "Streaming", level: "Advanced" },
-  { name: "OpenAI / Claude", category: "GenAI", level: "Specialist" },
-  { name: "LangChain", category: "AI Orchestration", level: "Specialist" }
+export const WHY_CHOOSE_US = [
+  {
+    icon: "Headphones",
+    title: "24/7 Support",
+    shortDesc: "Round-the-clock proactive monitoring and Tier-3 engineer access with guaranteed sub-15 minute response times.",
+    badge: "Always Available"
+  },
+  {
+    icon: "Award",
+    title: "Certified Experts",
+    shortDesc: "Over 60 seasoned architects holding elite credentials across AWS, Azure, Google Cloud, Cisco, and CISSP.",
+    badge: "Industry Certified"
+  },
+  {
+    icon: "Shield",
+    title: "Secure Infrastructure",
+    shortDesc: "Zero-trust blueprints, continuous vulnerability management, and built-in SOC 2 & ISO 27001 compliance standards.",
+    badge: "Bank-Grade Security"
+  },
+  {
+    icon: "Maximize2",
+    title: "Scalable Solutions",
+    shortDesc: "Modular, forward-compatible architectures designed to expand frictionlessly as your revenue and team multiply.",
+    badge: "Built for Growth"
+  }
+];
+
+export const CLIENT_LOGOS = [
+  { name: "Apex Financial", tag: "Fintech Leader", logoText: "APEX FINANCIAL" },
+  { name: "BioVance Health", tag: "Healthcare Network", logoText: "BIOVANCE" },
+  { name: "Nexus Global Logistics", tag: "Supply Chain", logoText: "NEXUS GLOBAL" },
+  { name: "OmniPay Systems", tag: "Payments", logoText: "OMNIPAY" },
+  { name: "Veloce Enterprise", tag: "Retail Cloud", logoText: "VELOCE" },
+  { name: "CloudScale Systems", tag: "SaaS Enterprise", logoText: "CLOUDSCALE" }
+];
+
+export const PARTNERSHIPS_AND_CERTS = [
+  {
+    id: "iso",
+    name: "ISO/IEC 27001",
+    label: "Certified Information Security",
+    desc: "Internationally recognized standard for enterprise information security management systems (ISMS)."
+  },
+  {
+    id: "soc2",
+    name: "SOC 2 Type II",
+    label: "Compliant & Verified",
+    desc: "Rigorous third-party audit verification for security, confidentiality, and data integrity."
+  },
+  {
+    id: "microsoft",
+    name: "Microsoft Solutions Partner",
+    label: "Azure Cloud & M365",
+    desc: "Accredited partner for enterprise Azure cloud migrations and Microsoft 365 governance."
+  },
+  {
+    id: "aws",
+    name: "AWS Advanced Tier",
+    label: "Certified Cloud Services",
+    desc: "Recognized technical expertise in designing, deploying, and managing complex AWS environments."
+  },
+  {
+    id: "gcp",
+    name: "Google Cloud Premier",
+    label: "Infrastructure & Data Partner",
+    desc: "Specialized in BigQuery data analytics, Kubernetes, and enterprise AI workloads."
+  },
+  {
+    id: "cisco",
+    name: "Cisco Premier Certified",
+    label: "Networking & Security",
+    desc: "Certified implementation partner for enterprise SD-WAN, firewalls, and campus networks."
+  }
 ];
 
 export const CASE_STUDIES = [
   {
-    id: "omnipay-fintech",
-    title: "OmniPay Global: Enterprise Banking Super-App",
-    client: "OmniPay Financial Group",
-    industry: "Fintech & Payments",
-    service: "Web-App & Mobile Engineering",
-    image: "fintech_dashboard",
-    description: "Re-architected a legacy banking portal into a lightning-fast React web dashboard and cross-platform Flutter mobile application handling over $3.2B in annual transactions.",
+    id: "fintech-cloud-modernization",
+    title: "Zero-Downtime Cloud Migration & Core Modernization",
+    client: "Apex Financial Global",
+    category: "Cloud & Cybersecurity",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
+    description: "Re-architected an on-premise transactional core into an elastic multi-region AWS cloud environment handling $3.2B in annual transactions with sub-200ms latency.",
     metrics: [
-      { label: "Transaction Speed", value: "< 240ms" },
-      { label: "App Store Rating", value: "4.9 ★" },
       { label: "Annual Volume", value: "$3.2B+" },
-      { label: "Security Breaches", value: "0" }
+      { label: "Downtime during Cutover", value: "0 mins" },
+      { label: "Latency Reduction", value: "64%" }
     ],
-    tags: ["React", "Flutter", "Go", "AWS", "Zero-Trust", "PostgreSQL"],
-    quote: "AdoraTech operated as a true strategic partner, not an outsourced contractor. Their speed and precision blew our board away."
+    tags: ["AWS Cloud", "Zero-Trust", "Kubernetes", "PostgreSQL"],
+    quote: "AdoraTech operated as a true strategic partner. Their zero-downtime execution gave our executive board absolute peace of mind."
   },
   {
-    id: "healthpulse-ai",
-    title: "HealthPulse AI: Clinical Telemedicine & Diagnostic Engine",
-    client: "HealthPulse Network",
-    industry: "Healthcare & AI",
-    service: "Mobile App & AI Automation",
-    image: "health_ai_platform",
-    description: "Engineered a HIPAA-compliant telemedicine platform with an integrated RAG-based clinical decision support assistant that triages patient vitals and symptoms in real time.",
+    id: "telehealth-managed-security",
+    title: "24/7 Managed SOC & HIPAA Compliance Automation",
+    client: "BioVance Health Network",
+    category: "Managed IT & Security",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
+    description: "Implemented a fully managed 24/7 Security Operations Center with end-to-end HIPAA compliance automation for a 450-provider healthcare network.",
     metrics: [
-      { label: "Clinician Triage Time", value: "-64%" },
-      { label: "Active Patients", value: "1.4M" },
-      { label: "HIPAA Audit Score", value: "100%" },
-      { label: "Uptime SLA", value: "99.99%" }
+      { label: "Threat Incident Response", value: "< 12 mins" },
+      { label: "Active Care Providers", value: "450+" },
+      { label: "Audit Readiness Score", value: "100%" }
     ],
-    tags: ["Next.js", "Python", "LlamaIndex", "iOS / Android", "WebRTC", "GCP"],
-    quote: "Our physicians save an average of 2 hours daily on charting and triage thanks to the AI systems built by AdoraTech."
+    tags: ["Managed SOC", "CrowdStrike", "HIPAA Ready", "Splunk"],
+    quote: "Our clinical staff can focus on patient care knowing our data and network are continuously protected by AdoraTech's 24/7 experts."
   },
   {
-    id: "nexus-logistics",
-    title: "Nexus Fleet: Autonomous Telematics & Route Optimization",
+    id: "logistics-data-analytics",
+    title: "Enterprise Fleet Telematics & Real-Time BI Hub",
     client: "Nexus Global Logistics",
-    industry: "Supply Chain & IoT",
-    service: "Enterprise Software & Cloud",
-    image: "logistics_tracking",
-    description: "Built an event-driven telemetry dispatch hub monitoring 18,000 commercial fleet vehicles across North America with real-time route optimization and fuel efficiency analytics.",
+    category: "Data Analytics & Software",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80",
+    description: "Architected an event-driven telemetry dashboard connecting 18,000 commercial vehicles with predictive fuel optimization and automated executive BI reports.",
     metrics: [
-      { label: "Fuel Expense Reduction", value: "32.4%" },
-      { label: "Vehicles Connected", value: "18,000+" },
-      { label: "Telemetry Latency", value: "< 90ms" },
-      { label: "Fleet Downtime", value: "-45%" }
+      { label: "Fuel Cost Savings", value: "32.4%" },
+      { label: "Vehicles Connected", value: "18,000" },
+      { label: "Report Generation Time", value: "-98%" }
     ],
-    tags: ["Kafka", "Kubernetes", "Node.js", "TimescaleDB", "React", "Mapbox"],
-    quote: "The real-time vehicle dispatch engine paid for itself in fuel savings in less than 90 days."
-  },
-  {
-    id: "auracommerce-luxury",
-    title: "Aura Luxury: Next-Gen Headless Global E-Commerce",
-    client: "Aura Brands International",
-    industry: "E-Commerce & Retail",
-    service: "Web-App Development & UI/UX",
-    image: "ecommerce_luxury",
-    description: "Designed and engineered an ultra-luxurious, sub-second headless commerce experience for 42 international markets with localized currencies, real-time inventory, and 3D product previews.",
-    metrics: [
-      { label: "Mobile Conversion", value: "+74%" },
-      { label: "Avg Page Load", value: "680ms" },
-      { label: "International Markets", value: "42" },
-      { label: "Lighthouse Performance", value: "98/100" }
-    ],
-    tags: ["Next.js", "Shopify Plus Headless", "Three.js", "TailwindCSS", "Edge CDN"],
-    quote: "The visual finesse and silky smooth 60fps animations elevated our brand identity to an entirely new echelon."
-  }
-];
-
-export const TEAM_MEMBERS = [
-  {
-    name: "Marcus Vance",
-    role: "Chief Executive Officer & Co-Founder",
-    bio: "Ex-Google engineering lead with 15+ years spearheading hyper-scale cloud platforms and enterprise software ventures.",
-    specialties: ["Tech Strategy", "Enterprise Architecture", "Product Vision"],
-    location: "San Francisco, CA",
-    avatar: "MV"
-  },
-  {
-    name: "Dr. Elena Rostova",
-    role: "Chief Technology Officer",
-    bio: "PhD in Distributed Computing from MIT. Specializes in fault-tolerant microservices, high-throughput systems, and edge computing.",
-    specialties: ["Distributed Systems", "Cloud Infrastructure", "Kubernetes"],
-    location: "San Francisco, CA",
-    avatar: "ER"
-  },
-  {
-    name: "Dev Patel",
-    role: "Head of AI & Machine Learning",
-    bio: "Former AI research scientist at Stanford AI Lab. Pioneer in production LLM fine-tuning, RAG pipelines, and autonomous agent systems.",
-    specialties: ["LLMs & RAG", "Deep Learning", "Vector Search"],
-    location: "London, UK",
-    avatar: "DP"
-  },
-  {
-    name: "Sophia Lindqvist",
-    role: "VP of Product & UI/UX Design",
-    bio: "Multiple Awwwards & Red Dot recipient. Passionate about sleek micro-interactions, dark glassmorphic interfaces, and design systems.",
-    specialties: ["Design Systems", "Interaction Design", "UX Research"],
-    location: "Stockholm / London",
-    avatar: "SL"
-  },
-  {
-    name: "Tariq Al-Mansoor",
-    role: "Lead Cybersecurity Architect",
-    bio: "CISSP and Certified Ethical Hacker (CEH) with a background in defense-grade penetration testing and SOC2 compliance auditing.",
-    specialties: ["Application Security", "Threat Modeling", "Zero-Trust"],
-    location: "Singapore",
-    avatar: "TM"
-  },
-  {
-    name: "Maya Chen",
-    role: "Director of Mobile Engineering",
-    bio: "Previously led iOS/Android core architecture at Stripe. Master of 60fps cross-platform mobile animations and offline data sync.",
-    specialties: ["Flutter", "React Native", "Swift/Kotlin"],
-    location: "San Francisco, CA",
-    avatar: "MC"
-  }
-];
-
-export const MILESTONES = [
-  {
-    year: "2018",
-    title: "Inception in San Francisco",
-    description: "Founded by two senior engineers with a vision to build software with zero compromises on quality, speed, or security."
-  },
-  {
-    year: "2020",
-    title: "Global Expansion & 50th Launch",
-    description: "Opened our European technical hub in London and celebrated our 50th enterprise software delivery during the global digital surge."
-  },
-  {
-    year: "2022",
-    title: "SOC2 & ISO 27001 Certification",
-    description: "Achieved highest tier security compliance, expanding into high-stakes fintech, healthcare, and federal government projects."
-  },
-  {
-    year: "2024",
-    title: "AI Labs Launch & Singapore Center",
-    description: "Established our dedicated Applied GenAI laboratory and opened the Asia-Pacific delivery hub in Marina Bay, Singapore."
-  },
-  {
-    year: "2026",
-    title: "Next-Gen Enterprise Cloud & Agentic Systems",
-    description: "Now serving over 250 enterprise clients worldwide with over 60 dedicated senior engineers, architects, and AI specialists."
-  }
-];
-
-export const BLOG_POSTS = [
-  {
-    id: "enterprise-microfrontends-2026",
-    title: "The 2026 Blueprint for Enterprise Micro-Frontends: Scalability Without Chaos",
-    slug: "enterprise-microfrontends-2026",
-    category: "Web Engineering",
-    readTime: "7 min read",
-    publishDate: "October 14, 2026",
-    author: {
-      name: "Marcus Vance",
-      role: "CEO & Co-Founder",
-      avatar: "MV"
-    },
-    excerpt: "Why modern monolith frontends buckle under enterprise team sizes, and how Module Federation with React 19 provides modular autonomy with sub-second page performance.",
-    content: `### The Micro-Frontend Paradigm Shift
-
-As engineering organizations scale beyond 50 engineers, frontend monoliths invariably become the single largest bottleneck in release velocity. Merge conflicts, prolonged CI build pipelines, and unintentional regressions across disjointed features paralyze sprints.
-
-In 2026, enterprise software engineering has settled on a battle-tested architecture: **Dynamic Module Federation coupled with React 19 Server Components**.
-
-#### 1. Independent Deployability Without Shared Bundle Bloat
-The golden rule of enterprise micro-frontends is that team checkout should never block team catalog. By deploying micro-apps as independent remote containers orchestrated via a lightweight shell application, teams achieve:
-- Isolated sprint cycles and zero-dependency deployments
-- Fault isolation: a runtime crash in recommendations does not crash the payment flow
-- Sub-400ms initial load times through intelligent edge preloading
-
-\`\`\`javascript
-// Example Module Federation host config in Vite
-export default defineConfig({
-  plugins: [
-    federation({
-      name: 'host-app',
-      remotes: {
-        billingApp: 'https://billing.adoratech.com/assets/remoteEntry.js',
-        analyticsApp: 'https://analytics.adoratech.com/assets/remoteEntry.js',
-      },
-      shared: ['react', 'react-dom']
-    })
-  ]
-});
-\`\`\`
-
-#### 2. Design System Enforced via Universal Tokens
-Autonomy must not come at the expense of visual coherence. A unified design system packaged as an immutable npm package or CSS variables schema guarantees brand consistency across all distributed teams.
-
-#### Key Takeaway for Engineering Leaders
-Micro-frontends are an organizational scaling tool first, and a technical tool second. If your team has fewer than 25 frontend developers, stick to a modular monorepo. When you cross that threshold, dynamic federation is the definitive path forward.`,
-    tags: ["React 19", "Micro-Frontends", "Vite", "Architecture", "Performance"]
-  },
-  {
-    id: "production-rag-pipelines-latency",
-    title: "Architecting Production RAG Pipelines with Sub-150ms End-to-End Latency",
-    slug: "production-rag-pipelines-latency",
-    category: "AI & Machine Learning",
-    readTime: "9 min read",
-    publishDate: "October 08, 2026",
-    author: {
-      name: "Dev Patel",
-      role: "Head of AI",
-      avatar: "DP"
-    },
-    excerpt: "A deep dive into hybrid dense-sparse vector indexing, speculative decoding, and streaming inference for high-concurrency enterprise AI applications.",
-    content: `### The Enterprise RAG Dilemma
-
-Retrieval-Augmented Generation (RAG) is the foundational architecture of enterprise knowledge access. However, 80% of enterprise RAG proof-of-concepts fail to transition into production due to unacceptable latency (often 4 to 9 seconds) and hallucination risks.
-
-At AdoraTech Applied AI Labs, we engineered a production standard delivering sub-150ms semantic retrieval and streaming token generation.
-
-#### The Three Latency Chokepoints
-1. **Inefficient Vector Distance Computation**: Brute-force cosine distance over millions of vectors degrades linearly.
-2. **Context Window Stuffing**: Dumping 30 chunks into the prompt slows down transformer prefill.
-3. **Serial Network Hops**: Query parsing -> Embedding -> Search -> Reranking -> LLM call.
-
-\`\`\`python
-# Optimized Async Hybrid Search with Reciprocal Rank Fusion
-async def query_knowledge_base(user_prompt: str, tenant_id: str):
-    # Concurrent vector embedding and BM25 tokenization
-    dense_vector, sparse_tokens = await asyncio.gather(
-        generate_embedding_async(user_prompt),
-        tokenize_bm25(user_prompt)
-    )
-    
-    # Hybrid search in HNSW indexed Qdrant / Pinecone cluster
-    results = await vector_db.hybrid_search(
-        collection=f"tenant_{tenant_id}",
-        vector=dense_vector,
-        sparse=sparse_tokens,
-        top_k=5,
-        score_threshold=0.82
-    )
-    return results
-\`\`\`
-
-#### Speculative Decoding & Edge Token Streaming
-By streaming tokens immediately via Server-Sent Events (SSE) while the model computes continuation sequences, the perceived latency drops from seconds to under 200 milliseconds, delighting end users.`,
-    tags: ["Generative AI", "RAG", "Vector DB", "Python", "Low Latency"]
-  },
-  {
-    id: "mobile-benchmarks-native-vs-flutter",
-    title: "Native vs. Flutter in 2026: Benchmarking Memory Footprint & GPU Performance",
-    slug: "mobile-benchmarks-native-vs-flutter",
-    category: "Mobile Development",
-    readTime: "6 min read",
-    publishDate: "September 29, 2026",
-    author: {
-      name: "Maya Chen",
-      role: "Director of Mobile Engineering",
-      avatar: "MC"
-    },
-    excerpt: "We put Swift/Kotlin and Flutter Impeller through intense stress tests: frame rate drops, memory consumption under 10k list elements, and battery drain.",
-    content: `### The Modern Cross-Platform Reality
-
-Choosing the right mobile stack is one of the highest-stakes technical decisions for any product team. The debate between pure native (Swift/Kotlin) and cross-platform frameworks (Flutter/React Native) has changed dramatically with the introduction of Flutter's **Impeller rendering engine** and modern Ahead-of-Time (AOT) compilation.
-
-#### The Test Environment
-- **Devices**: iPhone 16 Pro (iOS 19) & Samsung Galaxy S26 Ultra (Android 16)
-- **Scenarios**:
-  - Continuous 120Hz scrolling of 10,000 mixed media items (video thumbnails, complex vectors)
-  - Memory consumption after 30 minutes of continuous heavy interaction
-  - Cold startup time to interactive state
-
-| Metric | Swift / Kotlin Native | Flutter (Impeller Engine) | React Native (New Arch) |
-|---|---|---|---|
-| Cold Start Time | 280ms | 340ms | 410ms |
-| 120fps Scroll Stability | 99.4% | 98.6% | 96.2% |
-| Peak RAM (10k items) | 114 MB | 138 MB | 162 MB |
-| Battery Drain / Hour | 3.8% | 4.1% | 4.6% |
-
-#### Our Verdict for IT Decision Makers
-For 85% of commercial and enterprise mobile applications, Flutter and React Native provide practically indistinguishable performance from pure native code, while cutting development and maintenance costs by 40-50%. Only reserve pure native when deeply embedding hardware-specific ARKit, low-level Bluetooth protocols, or real-time audio synthesis.`,
-    tags: ["Mobile", "Flutter", "iOS", "Android", "Benchmarks"]
-  },
-  {
-    id: "zero-trust-cloud-infrastructure",
-    title: "Zero Trust Cloud Infrastructure: A Practical DevOps Checklist for High Growth Teams",
-    slug: "zero-trust-cloud-infrastructure",
-    category: "Cybersecurity & Cloud",
-    readTime: "8 min read",
-    publishDate: "September 18, 2026",
-    author: {
-      name: "Tariq Al-Mansoor",
-      role: "Lead Security Architect",
-      avatar: "TM"
-    },
-    excerpt: "Perimeter security is dead. Here is how leading enterprise engineering teams implement mutual TLS, ephemeral credentials, and automated vulnerability gating.",
-    content: `### The Fall of the Castle-and-Moat Architecture
-
-In modern cloud environments characterized by microservices, remote developers, and third-party SaaS integrations, assuming that internal traffic is benign is a fatal mistake. Zero Trust operates under the core mantra: **Never trust, always verify.**
-
-#### The 5 Pillars of Enterprise Zero Trust
-
-1. **Identity as the Perimeter**: Eliminate static passwords and long-lived API keys. Transition all service-to-service communication to mTLS using SPIFFE/SPIRE or HashiCorp Vault ephemeral certificates.
-2. **Micro-Segmentation in Kubernetes**: Enforce strict NetworkPolicies. Default deny all ingress and egress traffic between pods unless explicitly whitelisted.
-3. **Immutable Infrastructure via GitOps**: No manual SSH into production EC2 instances or Kubernetes pods. All changes must pass CI/CD automated linting, security scanning, and signed commits.
-4. **Continuous Vulnerability Remediation**: Implement automated dependency scanners (Trivy, Snyk) that automatically break the build when a high-severity CVE is detected.
-5. **Least-Privilege Cloud IAM**: Use AWS IAM Roles Anywhere or Google Workload Identity with temporary role assumption limited to 15-minute validity windows.`,
-    tags: ["Cybersecurity", "DevOps", "Zero Trust", "Kubernetes", "Compliance"]
-  },
-  {
-    id: "composable-enterprise-software",
-    title: "Why Monolithic ERPs are Failing: The Rise of Composable Enterprise Software",
-    slug: "composable-enterprise-software",
-    category: "Enterprise Software",
-    readTime: "10 min read",
-    publishDate: "September 02, 2026",
-    author: {
-      name: "Dr. Elena Rostova",
-      role: "CTO",
-      avatar: "ER"
-    },
-    excerpt: "Multi-million dollar ERP implementations are infamous for running over-budget and stifling agility. Discover how composable API-driven architectures are transforming enterprise IT.",
-    content: `### The Stagnation of Legacy Enterprise Suites
-
-Historically, enterprises bought monolithic all-in-one software suites with the promise that one vendor could handle billing, inventory, human resources, logistics, and customer relations. The reality? Clunky user interfaces, astronomical annual licensing costs, and vendor lock-in that makes altering a single business rule take six months.
-
-#### The Composable IT Paradigm
-Composable enterprise architecture breaks down monolithic giants into best-of-breed modular micro-services connected via resilient API contracts and asynchronous event buses.
-
-#### Key Architectural Advantages:
-- **Agility**: Swap out an underperforming payment or analytics service in days without disrupting inventory or CRM systems.
-- **Cost Optimization**: Pay only for the computing resources and API calls your business actually uses.
-- **Superior User Experience**: Tailor internal tools precisely to how your operations teams work, rather than forcing them into generic vendor templates.`,
-    tags: ["Enterprise Software", "ERP", "Architecture", "Microservices"]
+    tags: ["Power BI", "Snowflake", "IoT Streaming", "React"],
+    quote: "The unified data platform built by AdoraTech literally paid for its full development cost within the first 90 days of operation."
   }
 ];
 
@@ -527,90 +297,385 @@ export const TESTIMONIALS = [
     company: "Apex Financial Global",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
     rating: 5,
-    text: "AdoraTech transformed our core banking portal in just 4 months. Their engineering caliber, security diligence, and attention to micro-interactions is truly world class. Our transaction throughput increased by 420% with zero downtime."
+    text: "AdoraTech modernized our entire IT infrastructure in under 5 months. Their proactive 24/7 monitoring, security rigor, and rapid response times have made them an indispensable extension of our leadership team."
   },
   {
     name: "Dr. Aris Thorne",
-    role: "Co-Founder & CEO",
-    company: "BioVance Telehealth",
+    role: "Chief Information Officer",
+    company: "BioVance Health Network",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
     rating: 5,
-    text: "Their mobile and AI engineering team delivered a HIPAA-compliant app that patients and clinicians genuinely love using. They reduced triage times by 64% and achieved a flawless 100% score on our third-party penetration audit."
+    text: "Finding an IT partner who truly understands HIPAA compliance and enterprise security at scale is rare. AdoraTech achieved a flawless 100% score on our third-party penetration audit while keeping our 450 clinic staff supported 24/7."
   },
   {
     name: "Sarah Jenkins",
-    role: "VP of Engineering",
-    company: "CloudScale Freight",
+    role: "VP of Operations & Logistics",
+    company: "Nexus Global Freight",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
     rating: 5,
-    text: "We migrated 40TB of mission-critical logistics data across 18,000 live fleet vehicles with zero downtime. The AdoraTech team are true craftsmen of distributed systems. I cannot recommend them highly enough."
+    text: "Their cloud and data engineering team migrated 40TB of mission-critical logistics data with zero downtime. Since launching our new telemetry hub, our vehicle downtime dropped by 45%. Exceptional professionalism."
+  }
+];
+
+export const CORE_VALUES = [
+  {
+    name: "Innovation",
+    desc: "Continuously adopting proven modern technologies, automated toolsets, and architectural patterns to keep our clients ahead of their competition.",
+    icon: "Lightbulb"
   },
   {
-    name: "Julian Thorne",
-    role: "Chief Product Officer",
-    company: "Veloce Retail Brands",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
-    rating: 5,
-    text: "Our conversion rate shot up 74% within 3 weeks of launching our new headless web application built by AdoraTech. The page load speeds (sub-700ms globally) blew past our most ambitious KPIs."
+    name: "Security",
+    desc: "Treating security and privacy as an uncompromisable foundation in every network line, cloud policy, database, and line of code we touch.",
+    icon: "ShieldCheck"
+  },
+  {
+    name: "Reliability",
+    desc: "Delivering predictable 99.9% uptime, meeting deadlines without excuses, and providing round-the-clock support when your business needs it most.",
+    icon: "CheckCircle2"
+  },
+  {
+    name: "Transparency",
+    desc: "Maintaining open, candid communication with zero hidden fees, honest technology assessments, and real-time visibility into project milestones.",
+    icon: "Search"
+  },
+  {
+    name: "Client Success",
+    desc: "Measuring our performance not by closed billable tickets, but by the tangible commercial growth, cost savings, and peace of mind we unlock for you.",
+    icon: "TrendingUp"
+  }
+];
+
+export const MILESTONES = [
+  {
+    year: "2011",
+    title: "Founding in San Francisco",
+    description: "Established by senior systems engineers with a mission to deliver trustworthy enterprise IT services and proactive systems management."
+  },
+  {
+    year: "2015",
+    title: "Cloud Infrastructure Practice Launched",
+    description: "Expanded into high-scale AWS and Azure cloud migrations, achieving premier certified partnership status."
+  },
+  {
+    year: "2018",
+    title: "24/7 Security Operations Center (SOC)",
+    description: "Launched our dedicated 24/7/365 managed cybersecurity center and certified Tier-3 response escalation team."
+  },
+  {
+    year: "2021",
+    title: "ISO 27001 & SOC 2 Type II Accreditations",
+    description: "Secured rigorous independent certifications, allowing expansion into defense-grade fintech and healthcare enterprises."
+  },
+  {
+    year: "2024",
+    title: "Global Hubs in London & Singapore",
+    description: "Opened regional support centers in the UK and APAC to deliver true follow-the-sun 24/7 coverage for multinational clients."
+  },
+  {
+    year: "2026",
+    title: "Autonomous IT Operations & GenAI Integration",
+    description: "Surpassed 250+ enterprise deliveries with over 120 ongoing managed clients and an industry-leading 99.9% uptime SLA."
+  }
+];
+
+export const TEAM_MEMBERS = [
+  {
+    name: "Marcus Vance",
+    role: "Chief Executive Officer & Founder",
+    bio: "18+ years in enterprise IT architecture and cloud systems. Formerly led infrastructure reliability at tier-one technology firms.",
+    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80",
+    linkedin: "https://linkedin.com",
+    specialties: ["IT Strategy", "Cloud Architecture", "Enterprise Governance"]
+  },
+  {
+    name: "Dr. Elena Rostova",
+    role: "Chief Technology Officer",
+    bio: "PhD in Distributed Computing from MIT. Specializes in high-availability cloud topologies, zero-trust security, and disaster recovery.",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
+    linkedin: "https://linkedin.com",
+    specialties: ["Multi-Cloud", "Kubernetes", "Disaster Recovery"]
+  },
+  {
+    name: "Tariq Al-Mansoor",
+    role: "Director of Cybersecurity & Compliance",
+    bio: "CISSP and certified ethical hacker with 14 years specializing in defense-grade penetration audits and SOC 2 Type II readiness.",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80",
+    linkedin: "https://linkedin.com",
+    specialties: ["Zero-Trust", "Penetration Testing", "SOC 2 / ISO"]
+  },
+  {
+    name: "Dev Patel",
+    role: "Head of AI & Data Engineering",
+    bio: "Pioneer in enterprise data lakehouses, predictive telemetry analytics, and private corporate LLM fine-tuning pipelines.",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=80",
+    linkedin: "https://linkedin.com",
+    specialties: ["Snowflake", "Predictive BI", "Enterprise AI"]
+  },
+  {
+    name: "Maya Chen",
+    role: "VP of Software Engineering",
+    bio: "Ex-Stripe engineering manager. Passionate about performant full-stack architectures, clean code standards, and agile sprint delivery.",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80",
+    linkedin: "https://linkedin.com",
+    specialties: ["React / Node", "System Architecture", "API Integration"]
+  },
+  {
+    name: "Sophia Lindqvist",
+    role: "VP of Client Operations & Support",
+    bio: "Dedicated to white-glove customer success, ensuring rapid SLA ticket resolution and frictionless client onboarding workflows.",
+    avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&auto=format&fit=crop&q=80",
+    linkedin: "https://linkedin.com",
+    specialties: ["ITIL 4 Service Delivery", "24/7 NOC", "Client Success"]
+  }
+];
+
+export const PROCESS_STEPS = [
+  {
+    step: "01",
+    name: "Discover",
+    title: "Discover & Assess",
+    desc: "We perform a comprehensive audit of your current hardware, cloud instances, security posture, and business objectives to identify risks and opportunities."
+  },
+  {
+    step: "02",
+    name: "Plan",
+    title: "Plan & Architect",
+    desc: "Our senior architects design a customized roadmap with clear SLA definitions, transparent cost projections, and phased risk-free implementation milestones."
+  },
+  {
+    step: "03",
+    name: "Implement",
+    title: "Implement & Modernize",
+    desc: "We execute deployments using automated CI/CD and proven migration playbooks, ensuring zero unexpected downtime or disruption to your ongoing operations."
+  },
+  {
+    step: "04",
+    name: "Support",
+    title: "Support & Optimize",
+    desc: "Our 24/7 NOC and SOC provide round-the-clock monitoring, routine patch management, quarterly executive reviews, and continuous security enhancement."
   }
 ];
 
 export const FAQ_ITEMS = [
   {
-    question: "What is your typical project engagement model and pricing structure?",
-    answer: "We offer three flexible engagement models tailored to your requirements: 1) Dedicated Engineering Squads (monthly sprint-based billing with full agile team allocation), 2) Fixed-Scope Milestone Deliveries (ideal for clearly defined MVPs or specific modules), and 3) Time & Materials / Strategic Advisory for evolving enterprise R&D."
+    question: "What makes AdoraTech different from standard managed service providers (MSPs)?",
+    answer: "Unlike traditional break-fix vendors who only show up when something crashes, AdoraTech provides proactive, continuous enterprise IT management. We combine 24/7 Tier-3 certified engineers, built-in cybersecurity compliance, and custom software engineering expertise under a single trusted partnership with guaranteed sub-15 minute response SLAs."
   },
   {
-    question: "How do you protect our intellectual property and confidential data?",
-    answer: "You retain 100% exclusive intellectual property ownership of all custom source code, architectures, design assets, and data models created during the engagement. We sign strict mutual Non-Disclosure Agreements (NDAs) prior to any discovery call and adhere to ISO 27001 data protection protocols."
+    question: "How do you guarantee minimal or zero downtime during cloud migration?",
+    answer: "We utilize phased cutover strategies, real-time database replication, and blue/green deployment topologies. Workloads are thoroughly validated in staging environments before any live DNS cutover occurs, ensuring your employees and customers experience zero disruption."
   },
   {
-    question: "What is the typical timeline for an end-to-end custom application?",
-    answer: "A focused enterprise MVP or custom web application typically takes between 4 to 8 weeks from kickoff to production launch. Complex distributed systems, multi-platform mobile ecosystems, or custom AI fine-tuning models usually span 8 to 16 weeks across iterative two-week agile sprints with bi-weekly staging releases."
+    question: "Can AdoraTech integrate with our existing internal IT team?",
+    answer: "Yes, absolutely. Over half of our engagements are co-managed IT partnerships. We augment your in-house staff by handling routine 24/7 monitoring, off-hours helpdesk, and complex cybersecurity audits, freeing your internal team to focus on strategic company priorities."
   },
   {
-    question: "What post-launch SLA support and maintenance do you provide?",
-    answer: "We never leave our clients hanging after launch. We offer 24/7/365 Managed SRE Support with guaranteed 15-minute critical incident response times, continuous OS security patching, dependency upgrades, cloud cost monitoring, and dedicated developer hours for iterative feature rollouts."
+    question: "What security and regulatory standards do you adhere to?",
+    answer: "AdoraTech is certified in ISO/IEC 27001 and verified SOC 2 Type II compliant. We implement bank-grade zero-trust network access, end-to-end encryption at rest and in transit, and help clients achieve HIPAA, GDPR, and PCI-DSS readiness."
   },
   {
-    question: "Can your engineering squad seamlessly augment our existing in-house team?",
-    answer: "Absolutely. Over 45% of our projects involve co-development alongside client technical teams. Our senior engineers integrate smoothly into your Slack/Teams channels, Jira/Linear sprint boards, and GitHub/GitLab repositories, pairing with your staff while mentoring on best practices."
-  },
-  {
-    question: "How does AdoraTech ensure code quality and prevent technical debt?",
-    answer: "Every line of code submitted undergoes strict automated linting, type-checking, SAST vulnerability screening, minimum 85% unit test coverage thresholds, and mandatory peer review by a Principal Architect before merging into staging branches."
+    question: "How do your contract terms and onboarding timeline work?",
+    answer: "We offer transparent, predictable monthly subscription pricing with no hidden charges. Standard onboarding takes between 7 to 14 business days, beginning with an exhaustive network audit and deployment of our monitoring agents without interrupting your team."
   }
 ];
 
-export const GLOBAL_OFFICES = [
+export const BLOG_POSTS = [
   {
-    city: "San Francisco",
-    tag: "Global Headquarters",
-    address: "500 Howard Street, Suite 400",
-    postal: "San Francisco, CA 94105",
-    country: "United States",
-    timezone: "America/Los_Angeles",
-    phone: "+1 (415) 890-2341",
-    email: "sf@adoratech.com"
+    id: "hybrid-cloud-migration-playbook",
+    title: "The Enterprise Hybrid Cloud Playbook: Avoiding Downtime & Hidden Costs",
+    slug: "hybrid-cloud-migration-playbook",
+    category: "Cloud",
+    readTime: "6 min read",
+    publishDate: "October 22, 2026",
+    author: {
+      name: "Marcus Vance",
+      role: "CEO & IT Architect",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&auto=format&fit=crop&q=80"
+    },
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
+    excerpt: "Learn how mid-market and enterprise organizations migrate mission-critical legacy applications to hybrid AWS/Azure clouds while keeping egress fees and downtime under control.",
+    content: `### Why Hybrid Cloud Remains the Standard for Growing Enterprises
+
+While public clouds offer unmatched agility, lifting and shifting legacy workloads blindly can result in catastrophic bill shock and unexpected latency spikes. The most successful IT leaders adopt an intentional hybrid strategy.
+
+#### 1. Audit Workload Dependencies Before Touching Data
+Before migrating a single gigabyte, map out every internal database query, third-party webhook, and latency requirement. Legacy ERP systems often rely on sub-millisecond local network connections that degrade over WAN connections unless optimized with edge caching.
+
+#### 2. Implement FinOps Governance on Day One
+Cloud costs scale effortlessly unless gated by automated budget caps and resource tagging policies. We recommend:
+- Enforcing automated shutdown schedules on non-production staging environments
+- Purchasing 1-to-3 year reserved instances for steady-state databases to lock in 40-60% discounts
+- Routing telemetry and logs through warm/cold tiered object storage
+
+#### 3. Real-Time Data Synchronization & Phased Cutover
+Rather than attempting a high-risk weekend 'big bang' migration, establish continuous replication between on-premise storage and cloud databases. When data parity is confirmed, execute DNS traffic cutover in stages.
+
+By combining proactive architecture with clear governance, your business unlocks true cloud agility with zero operational interruptions.`
   },
   {
-    city: "London",
-    tag: "European Technical Hub",
-    address: "10 Finsbury Square, 3rd Floor",
-    postal: "London EC2A 1AF",
-    country: "United Kingdom",
-    timezone: "Europe/London",
-    phone: "+44 (20) 7946-0921",
-    email: "london@adoratech.com"
+    id: "zero-trust-cybersecurity-defense",
+    title: "Beyond the Firewall: Implementing Practical Zero-Trust Security in 2026",
+    slug: "zero-trust-cybersecurity-defense",
+    category: "Cybersecurity",
+    readTime: "8 min read",
+    publishDate: "October 15, 2026",
+    author: {
+      name: "Tariq Al-Mansoor",
+      role: "Director of Cybersecurity",
+      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=120&auto=format&fit=crop&q=80"
+    },
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=80",
+    excerpt: "Perimeter defenses are no longer enough in a remote-first world. Discover how identity verification, least-privilege access, and micro-segmentation shield your business.",
+    content: `### The Death of the Traditional Corporate Perimeter
+
+With employees working from everywhere and enterprise SaaS replacing internal file servers, the old castle-and-moat security model has become obsolete. Attackers do not break into networks; they simply log in using compromised credentials.
+
+#### The 3 Core Tenets of Zero-Trust
+1. **Verify Explicitly**: Always authenticate and authorize based on all available data points—including user identity, device health, location, and data classification.
+2. **Use Least-Privilege Access**: Limit user access with Just-In-Time (JIT) and Just-Enough-Access (JEA) policies, dynamic role-based permissions, and adaptive risk controls.
+3. **Assume Breach**: Minimize the blast radius by segmenting networks, encrypting all internal communications, and actively hunting for anomalies.
+
+#### Practical Steps for Growing Businesses
+- **Enforce Hardware-Backed MFA**: Replace SMS text verification with FIDO2 hardware keys or authenticator apps to eliminate 99.9% of credential stuffing attempts.
+- **Implement Endpoint Detection & Response (EDR)**: Modern EDR solutions like CrowdStrike continuously isolate suspicious host processes before ransomware can propagate.
+- **Continuous SOC Monitoring**: Security alerts generated at 2:00 AM require immediate human analysis, not a Monday morning triage.`
   },
   {
-    city: "Singapore",
-    tag: "Asia-Pacific Delivery Center",
-    address: "1 Marina Boulevard, Level 20",
-    postal: "Marina Bay 018989",
-    country: "Singapore",
-    timezone: "Asia/Singapore",
-    phone: "+65 6712-8800",
-    email: "apac@adoratech.com"
+    id: "custom-software-vs-commercial-off-shelf",
+    title: "Build vs. Buy: When to Invest in Custom Software for Sustainable Advantage",
+    slug: "custom-software-vs-commercial-off-shelf",
+    category: "Software Development",
+    readTime: "5 min read",
+    publishDate: "October 07, 2026",
+    author: {
+      name: "Maya Chen",
+      role: "VP of Software Engineering",
+      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&auto=format&fit=crop&q=80"
+    },
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80",
+    excerpt: "Generic software creates generic businesses. Here is how executive teams evaluate the inflection point where custom portals and APIs yield a 10x ROI over off-the-shelf subscriptions.",
+    content: `### The Cost of Forcing Your Business into Vendor Boxes
+
+Every growing business starts by purchasing generic off-the-shelf software tools. However, as workflows mature, companies often find themselves paying exorbitant annual license fees for bloated platforms where only 15% of the features are used—while employees maintain messy manual spreadsheets to bridge the gaps.
+
+#### When Custom Software is the Right Investment:
+1. **The Feature is Your Differentiator**: If client onboarding or supply chain speed is your core competitive advantage, you cannot afford to have the exact same capabilities as your competitors.
+2. **Per-Seat Licensing is Strangling Growth**: Off-the-shelf SaaS bills balloon rapidly as your team grows from 50 to 500 users. Owning your proprietary portal eliminates ongoing per-user license taxes.
+3. **Legacy Systems Cannot Talk to Modern APIs**: Bespoke integration layers and middleware turn fragmented silos into automated real-time workflows.
+
+#### Modern Agile Delivery
+Custom software development in 2026 no longer means multi-year waterfall projects with uncertain outcomes. Using modular component frameworks and agile bi-weekly staging releases, high-value enterprise applications launch in weeks, delivering immediate returns.`
+  },
+  {
+    id: "ai-readiness-for-growing-enterprises",
+    title: "Enterprise AI Readiness: Preparing Your Data Architecture for LLMs & Automation",
+    slug: "ai-readiness-for-growing-enterprises",
+    category: "AI",
+    readTime: "7 min read",
+    publishDate: "September 28, 2026",
+    author: {
+      name: "Dev Patel",
+      role: "Head of AI & Data",
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&auto=format&fit=crop&q=80"
+    },
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80",
+    excerpt: "Before launching AI bots or automation swarms, enterprises must clean their underlying data foundations. Here is our step-by-step framework for private enterprise AI.",
+    content: `### Why 80% of Enterprise AI Proof-of-Concepts Stall
+
+The promise of generative AI and autonomous workflows is immense, but an AI model is only as intelligent as the data feeding it. When companies attempt to connect large language models to unorganized, siloed, or permissionless internal databases, the results are hallucinations, security leaks, and employee frustration.
+
+#### The Prerequisites for Enterprise AI Success:
+- **Data Governance & RBAC**: Ensure an AI agent cannot inadvertently reveal executive compensation files or confidential customer records to general staff.
+- **Unified Vector Repositories**: Consolidate company manuals, standard operating procedures, and product documentation into structured embeddings with clear semantic tags.
+- **Private, Zero-Data-Retention Hosting**: Guarantee that proprietary customer and commercial data is never used to train public commercial models.
+
+By building on a clean, centralized data foundation, AI tools become reliable multipliers of your workforce productivity.`
+  },
+  {
+    id: "strategic-it-governance-vcio",
+    title: "The Virtual CIO Advantage: Aligning Technology Budgets with Business Growth",
+    slug: "strategic-it-governance-vcio",
+    category: "IT Management",
+    readTime: "6 min read",
+    publishDate: "September 14, 2026",
+    author: {
+      name: "Marcus Vance",
+      role: "CEO & IT Architect",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&auto=format&fit=crop&q=80"
+    },
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
+    excerpt: "How mid-market enterprises leverage fractional executive IT leadership (vCIO) to eliminate tech debt, negotiate vendor contracts, and navigate cyber compliance.",
+    content: `### Transforming IT from a Cost Center to a Revenue Engine
+
+Many growing businesses reach a stage where day-to-day IT support is handled, but nobody is looking 24 months down the road. Without strategic leadership, technology decisions are made reactively—leading to duplicated software licenses, unpatched security liabilities, and missed opportunities.
+
+A Virtual CIO (vCIO) provides executive-level technology vision without the $350k+ salary of a full-time hire.
+
+#### What a Strategic vCIO Delivers:
+- **3-Year Technology Masterplan**: A comprehensive roadmap mapping IT expenditures directly to revenue expansion goals.
+- **Quarterly Business Reviews (QBRs)**: Regular board-level presentations reviewing SLA metrics, security posture, and upcoming hardware lifecycles.
+- **Vendor Negotiation & Cost Trimming**: Aggressively auditing telecom, cloud, and software licensing contracts to eliminate waste and vendor lock-in.
+
+When technology is managed with executive foresight, it becomes your most dependable competitive engine.`
+  },
+  {
+    id: "multi-cloud-resilience-strategies",
+    title: "Multi-Cloud High Availability: Designing for 99.99% Reliability",
+    slug: "multi-cloud-resilience-strategies",
+    category: "Cloud",
+    readTime: "7 min read",
+    publishDate: "September 02, 2026",
+    author: {
+      name: "Dr. Elena Rostova",
+      role: "Chief Technology Officer",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&auto=format&fit=crop&q=80"
+    },
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=80",
+    excerpt: "Cloud outages happen to the biggest tech giants. Here is how modern enterprise architects build active-passive and active-active failover across availability zones.",
+    content: `### Cloud Outages are Inevitable—Downtime is Not
+
+Even global cloud hyper-scalers suffer unexpected DNS failures, power grid interruptions, and configuration bugs. For businesses that depend on uninterrupted customer transactions, relying entirely on a single cloud region is an unacceptable risk.
+
+#### Principles of High Availability (HA) Architecture:
+1. **Multi-Availability Zone Deployment**: Distribute your compute clusters across at least three distinct geographic availability zones within a primary region.
+2. **Automated Health Probes & DNS Failover**: Configure global traffic managers (such as Cloudflare or AWS Route 53) to automatically reroute requests within 30 seconds of an unhealthy heartbeat.
+3. **Database Asynchronous Cross-Region Replication**: Maintain an active replica in a secondary region ready for automated promotion in the event of an outage.
+
+With continuous telemetry and automated recovery scripts, your enterprise maintains 99.99% operational continuity regardless of external disruptions.`
+  }
+];
+
+export const SUPPORT_OPTIONS = [
+  {
+    id: "sales",
+    title: "Sales & Inquiries",
+    desc: "Discuss new managed IT agreements, cloud migration scopes, custom software proposals, or schedule an executive consultation.",
+    email: "sales@adoratech.com",
+    phone: "+1 (800) 492-3672 ext. 1",
+    badge: "New Partnerships"
+  },
+  {
+    id: "support",
+    title: "24/7 Technical Support",
+    desc: "For existing clients requiring immediate NOC/SOC ticket assistance, emergency incident escalation, or helpdesk triage.",
+    email: "support@adoratech.com",
+    phone: "+1 (800) 492-3672 ext. 2",
+    badge: "Sub-15m SLA"
+  },
+  {
+    id: "partnerships",
+    title: "Vendor & Tech Partnerships",
+    desc: "Explore software ecosystem integrations, reseller partnerships, co-marketing opportunities, and alliance channels.",
+    email: "alliances@adoratech.com",
+    phone: "+1 (800) 492-3672 ext. 3",
+    badge: "Ecosystem"
+  },
+  {
+    id: "careers",
+    title: "Careers & Talent",
+    desc: "Join our senior team of cloud architects, cybersecurity engineers, and full-stack software developers.",
+    email: "careers@adoratech.com",
+    phone: "+1 (800) 492-3672 ext. 4",
+    badge: "We Are Hiring"
   }
 ];

@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import AmbientBackground from './components/AmbientBackground';
 import ProjectEstimatorModal from './components/ProjectEstimatorModal';
 import BlogReaderModal from './components/BlogReaderModal';
+import CaseStudyModal from './components/CaseStudyModal';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -18,16 +19,17 @@ export default function App() {
   const [activePage, setActivePage] = useState('home');
   const [isEstimatorOpen, setIsEstimatorOpen] = useState(false);
   const [selectedBlogPost, setSelectedBlogPost] = useState(null);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState(null);
   const [prefilledScope, setPrefilledScope] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Sync with URL Hash on Mount & Hash Change
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
-      const validPages = ['home', 'about', 'services', 'blogs', 'contact'];
-      if (validPages.includes(hash)) {
-        setActivePage(hash);
+      const rawHash = window.location.hash.replace('#', '').toLowerCase();
+      const validPages = ['home', 'about', 'services', 'blog', 'blogs', 'contact'];
+      if (validPages.includes(rawHash)) {
+        setActivePage(rawHash === 'blogs' ? 'blog' : rawHash);
       }
     };
 
@@ -36,10 +38,45 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Update Document Title & SEO Meta Tags on Page Change
+  useEffect(() => {
+    const pageMeta = {
+      home: {
+        title: 'AdoraTech | Reliable IT Solutions That Help Your Business Scale Securely',
+        desc: 'AdoraTech delivers enterprise managed IT services, 24/7 cybersecurity, cloud migration, and bespoke software engineering for growing businesses.'
+      },
+      about: {
+        title: 'About Us | AdoraTech - We Help Businesses Build Smarter, Safer Technology',
+        desc: 'Learn about AdoraTech’s 15+ years of systems architecture experience, 5 core values, leadership team, and global ISO & SOC 2 certifications.'
+      },
+      services: {
+        title: 'IT Services & Solutions | AdoraTech - Managed IT, Cloud, Cybersecurity',
+        desc: 'Explore AdoraTech’s end-to-end IT services: 24/7 Managed IT, Cloud Migration, Cybersecurity & Compliance, Custom Software, IT Consulting, and BI Analytics.'
+      },
+      blog: {
+        title: 'IT Insights & Technology Trends | AdoraTech Engineering Blog',
+        desc: 'Read architectural whitepapers, hybrid cloud playbooks, and zero-trust cybersecurity frameworks written by our Principal IT Architects.'
+      },
+      contact: {
+        title: 'Let’s Talk About Your IT Needs | AdoraTech Consultation',
+        desc: 'Request an IT consultation with AdoraTech’s senior architects. We respond within one business day with tailored solutions and transparent estimates.'
+      }
+    };
+
+    const currentMeta = pageMeta[activePage] || pageMeta.home;
+    document.title = currentMeta.title;
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', currentMeta.desc);
+    }
+  }, [activePage]);
+
   // Update URL Hash when Active Page changes
   const handlePageChange = (page) => {
-    setActivePage(page);
-    window.location.hash = page;
+    const targetPage = page === 'blogs' ? 'blog' : page;
+    setActivePage(targetPage);
+    window.location.hash = targetPage;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -66,8 +103,8 @@ export default function App() {
   const handleSelectServiceForContact = (serviceTitle) => {
     setPrefilledScope({
       projectType: serviceTitle,
-      tier: 'Standard Engagement',
-      estimatedPrice: 'Based on Consultation',
+      tier: 'Dedicated Engagement',
+      estimatedPrice: '$10,000 - $25,000',
       estimatedTimeline: '4 - 8 Weeks'
     });
     handlePageChange('contact');
@@ -76,10 +113,10 @@ export default function App() {
   return (
     <div className="app-root" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       
-      {/* Royal Dynamic Ambient Lighting */}
+      {/* Royal Subtle Ambient Lighting */}
       <AmbientBackground />
 
-      {/* Global Navigation Header */}
+      {/* Global Navigation Header (Sticky with prominent Consultation button) */}
       <Navbar 
         activePage={activePage}
         setActivePage={handlePageChange}
@@ -92,6 +129,8 @@ export default function App() {
           <HomePage 
             setActivePage={handlePageChange}
             onOpenEstimator={() => setIsEstimatorOpen(true)}
+            onSelectCaseStudy={(cs) => setSelectedCaseStudy(cs)}
+            onSelectBlogPost={(post) => setSelectedBlogPost(post)}
           />
         )}
 
@@ -110,7 +149,7 @@ export default function App() {
           />
         )}
 
-        {activePage === 'blogs' && (
+        {(activePage === 'blog' || activePage === 'blogs') && (
           <BlogsPage 
             onSelectPost={(post) => setSelectedBlogPost(post)}
           />
@@ -123,7 +162,7 @@ export default function App() {
         )}
       </main>
 
-      {/* Royal Executive Footer */}
+      {/* Executive Footer */}
       <Footer 
         setActivePage={handlePageChange}
         onOpenEstimator={() => setIsEstimatorOpen(true)}
@@ -134,6 +173,14 @@ export default function App() {
         isOpen={isEstimatorOpen}
         onClose={() => setIsEstimatorOpen(false)}
         onApplyToContact={handleApplyEstimatorToContact}
+      />
+
+      {/* Interactive Case Study Modal */}
+      <CaseStudyModal 
+        caseStudy={selectedCaseStudy}
+        isOpen={!!selectedCaseStudy}
+        onClose={() => setSelectedCaseStudy(null)}
+        onConsultationClick={() => handlePageChange('contact')}
       />
 
       {/* Interactive Blog Reader Modal */}
@@ -153,12 +200,13 @@ export default function App() {
             bottom: '28px',
             right: '28px',
             zIndex: 800,
-            background: 'var(--grad-brand)',
-            color: '#ffffff',
-            boxShadow: 'var(--shadow-brand)',
+            backgroundColor: '#2F6FED',
+            color: '#FFFFFF',
+            boxShadow: '0 8px 24px rgba(47, 111, 237, 0.4)',
             border: 'none',
             width: '46px',
-            height: '46px'
+            height: '46px',
+            cursor: 'pointer'
           }}
           aria-label="Scroll to top"
         >
